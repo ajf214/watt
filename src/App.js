@@ -3,7 +3,37 @@ import logo from './logo.svg';
 import './App.css';
 import './autosuggest.css';
 import Autosuggest from 'react-autosuggest';
+import { createStore } from 'redux';
 
+
+const reducer = function(state, action){
+  if(action.type == "INC"){
+    return state+action.payload;
+  }
+  if(action.type == "DEC"){
+    return state-action.payload;
+  }
+  else{
+    return state;
+  }
+}
+
+const store = createStore(reducer, 0);
+
+store.subscribe(() => {
+  console.log("store changed", store.getState())
+})
+
+//payload could be called anything, but type must be type
+store.dispatch({type: "INC", payload: 1})
+store.dispatch({type: "INC", payload: 2})
+store.dispatch({type: "INC", payload: 22})
+store.dispatch({type: "INC", payload: 1})
+store.dispatch({type: "INC", payload: 1})
+store.dispatch({type: "DEC", payload: 1000})
+
+
+/*
 const people = [
   {
     first: 'Charlie',
@@ -73,6 +103,7 @@ function renderSuggestion(suggestion, { query }) {
     </span>
   );
 }
+*/
 
 class App extends React.Component {
   constructor() {
@@ -84,6 +115,7 @@ class App extends React.Component {
     };    
   }
 
+  /*
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
@@ -101,16 +133,21 @@ class App extends React.Component {
       suggestions: []
     });
   };
+  */
 
   render() {
+    /*
     const { value, suggestions } = this.state;
     const inputProps = {
       placeholder: "Type 'c'",
       value,
       onChange: this.onChange
     };
+    */
 
     return (
+      <div> </div>
+      /*
       <Autosuggest 
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -118,7 +155,8 @@ class App extends React.Component {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps} />
-    );
+      */
+      );
   }
 }
 
