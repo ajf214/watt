@@ -1,0 +1,25 @@
+.container{
+    margin: auto;
+    grid-column: 4/10;
+    grid-row: 2/4;
+}
+
+.title{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin: auto;
+    color: #FFF;
+}
+
+.title h1{
+    text-align: center;
+    font-size: 3em;
+}
+
+.title p{
+    padding: 1em;
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}

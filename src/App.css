@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+body{
+  background-color: #643472;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+
 .App {
   text-align: center;
 }
@@ -21,6 +35,12 @@
 .App-intro {
   font-size: large;
 }
+
+h1, h2, h3, h4, h5{
+  font-family: 'Patua One', cursive;
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
