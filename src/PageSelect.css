@@ -23,3 +23,8 @@
     align-items: center;
     margin: auto;
 }
+
+.container > form{
+    text-align: center;
+    padding: 1em;
+}

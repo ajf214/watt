@@ -4,8 +4,6 @@ import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
 import './Page.css'
 
-var something = [];
-
 class Page extends Component{
 
     constructor(props){
@@ -32,7 +30,7 @@ class Page extends Component{
     }
 
     updateParagraphList(){
-        something=[]
+        let something=[]
         //need a reference to all the paragraphs
         let paragraphRef = fire.database().ref('pages/' + this.state.pageName + '/paragraphs').orderByChild('order').limitToLast(100);
 
@@ -82,7 +80,7 @@ class Page extends Component{
         //now need to set paragraph back to regular paragraph
         this.state.paragraphs.forEach(paragraph => (paragraph.edit = false))
         this.updateParagraphList();
-        this.forceUpdate();
+        //this.forceUpdate();
     }
 
     startEdit(key){

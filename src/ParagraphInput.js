@@ -25,7 +25,7 @@ class ParagraphInput extends Component{
         
         //clear input
         this.paragraphInput.value = '';
-        this.filterInput.value = '';
+        this.filterInput.value = 'None';
         this.orderInput.value = '';
     }
 
@@ -33,7 +33,7 @@ class ParagraphInput extends Component{
         return(
         <form onSubmit={this.saveParagraph.bind(this)}>
             <input type="text" className="paragraphInput" defaultValue={this.props.text} placeholder="Paragraph text" ref={el => this.paragraphInput=el}/>
-            <input type="text" defaultValue={this.props.filter=="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
+            <input type="text" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
             <input type="order" defaultValue={this.props.order} placeholder="display order" ref={el => this.orderInput=el}/>
             <input type="submit" />
         </form>

@@ -69,12 +69,12 @@ class PageSelect extends Component{
                         this.state.pages.map(page => <option value={page.id} key={page.id}>{page.name}</option>)
                     } 
                 </select>
-                <input type="submit" value="look at page"/>
+                <input type="submit" value="View this page"/>
             </form>
 
             <form onSubmit = {this.addPage.bind(this)}>
-                <input type="text" ref={el => this.newPageInput=el} />
-                <input type="submit"/>
+                <input type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
+                <input type="submit" value="Create new page"/>
             </form>
         </div>
         );
