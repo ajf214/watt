@@ -9,17 +9,18 @@
 .paragraphInput{
     grid-column: 1/5;
     resize: none;
-    background-color: rgba(0, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.089);
     color: #FFFFFF;
     border: rgba(0,0,0,0);
     font-family: 'Open Sans';
     font-weight: 300;
     font-size: 1em;
+    padding: 5px;
 }
 
 .paragraphInput::placeholder{
     color: rgb(214, 214, 214);
-    
+    padding-left: 5px;
 }
 
 .orderInput{
@@ -35,5 +36,9 @@
 .submit{
     grid-row: 3/4;
     grid-column: 1/2;
+    background-color: rgba(255, 255, 255, 0.712);
+    color: #000;
+    font-family: 'Open Sans';
+    border: none;
 }
 

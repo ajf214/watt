@@ -36,7 +36,7 @@ class ParagraphInput extends Component{
             <textarea className="paragraphInput" defaultValue={this.props.text} placeholder="Add your perspective..." ref={el => this.paragraphInput=el}/>
             <input type="text" className="filterInput" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
             <input type="order" className="orderInput" defaultValue={this.props.order} placeholder="display order" ref={el => this.orderInput=el}/>
-            <input type="submit" className="submit"/>
+            <input type="submit" className="submit" value="Save section"/>
         </form>
         );
     }
