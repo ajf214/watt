@@ -1,3 +1,33 @@
 .filter{
     background-color: #ffffff4d
 }
+
+.pageParagraph{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) repeat(2, 100px);
+    grid-column-gap: 10px;
+}
+
+.pageParagraph p{
+    grid-column: 1/7;
+}
+
+.editButton{
+    grid-column: 7/8;
+    align-self: center;
+    height: 20px;
+    background: #00000000;
+    color: #DDDDDD;
+    text-decoration: underline;
+    border-color: #00000000;
+}
+
+.deleteButton{
+    grid-column: 8/9;
+    height: 20px;
+    align-self: center;
+    background: #00000000;
+    color: #CCC;
+    text-decoration: underline;
+    border-color: #00000000;
+}

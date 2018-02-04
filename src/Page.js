@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import fire from './fire'
 import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
+/*import FilterControl from './FilterControl.js'*/
 import './Page.css'
 
 class Page extends Component{
@@ -161,9 +162,9 @@ class Page extends Component{
             <div className = "pageContainer">
                 <h1>{this.state.pageTitle}</h1>
                 {/* "ideology" input*/}
-                <form>
-                    <label> Choose a filter: 
-                        <select value = {this.state.filterValue} onChange = {this.handleChange.bind(this)}>
+                <form id="ideologyFilter">
+                    <label className="ideologyLabel"> Choose a filter: 
+                        <select className="ideologyDropdown" value = {this.state.filterValue} onChange = {this.handleChange.bind(this)}>
                             <option value="None">Filter ideology</option>
                             {
                                 this.state.paragraphs.map(paragraph => <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option>)
@@ -175,8 +176,6 @@ class Page extends Component{
                 {
                     this.state.paragraphs.map(paragraph => this.renderParagraph(paragraph))
                 }
-
-                <h3>Add new paragraph</h3>
 
                 <ParagraphInput 
                     filter="" 

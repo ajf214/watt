@@ -51,10 +51,10 @@ class Paragraph extends Component{
         if(this.state.pageFilter === "None" && this.state.filter === "None"){
             //normal state
             return(
-                <div>
-                    <p className="pageParagraph">{this.props.text}</p>
-                    <button onClick={() => this.startEdit()}>Edit text</button>
-                    <button onClick={() => this.deleteParagraph()}>Delete text</button>
+                <div className="pageParagraph">
+                    <p>{this.props.text}</p>
+                    <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
+                    <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
                     {/*<p className="order">{this.props.order}</p>*/}
                 </div>
             );
@@ -68,8 +68,8 @@ class Paragraph extends Component{
                 return(
                     <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >
                         <p>{this.props.text}</p>
-                        <button onClick={() => this.startEdit()}>Edit text</button>
-                        <button onClick={() => this.deleteParagraph()}>Delete text</button>
+                        <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
+                        <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
                         {/*<p className="order">{this.props.order}</p>*/}
                     </div>
                 );

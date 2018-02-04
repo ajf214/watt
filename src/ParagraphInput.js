@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './ParagraphInput.css'
 
 class ParagraphInput extends Component{
     constructor(props){
@@ -31,11 +32,11 @@ class ParagraphInput extends Component{
 
     render(){
         return(
-        <form onSubmit={this.saveParagraph.bind(this)}>
-            <input type="text" className="paragraphInput" defaultValue={this.props.text} placeholder="Paragraph text" ref={el => this.paragraphInput=el}/>
-            <input type="text" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
-            <input type="order" defaultValue={this.props.order} placeholder="display order" ref={el => this.orderInput=el}/>
-            <input type="submit" />
+        <form className="paragraphInputForm" onSubmit={this.saveParagraph.bind(this)}>
+            <textarea className="paragraphInput" defaultValue={this.props.text} placeholder="Add your perspective..." ref={el => this.paragraphInput=el}/>
+            <input type="text" className="filterInput" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
+            <input type="order" className="orderInput" defaultValue={this.props.order} placeholder="display order" ref={el => this.orderInput=el}/>
+            <input type="submit" className="submit"/>
         </form>
         );
     }
