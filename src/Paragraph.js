@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Paragraph.css'
 
+const ReactMarkdown = require('react-markdown')
+
 class Paragraph extends Component{
     constructor(props){
         super(props);
@@ -45,6 +47,10 @@ class Paragraph extends Component{
         this.props.edit(this.state.test);
     }
 
+    addParagraph(e){
+        this.props.add(this.state.location);
+    }
+
     render(){
         //normal state
         //show only the paragraphs with "None" filter
@@ -55,6 +61,7 @@ class Paragraph extends Component{
                     <p>{this.props.text}</p>
                     <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
                     <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
+                    <button className="addButton" onClick={() => this.addParagraph()}>+ Add</button>
                     {/*<p className="order">{this.props.order}</p>*/}
                 </div>
             );
@@ -67,9 +74,11 @@ class Paragraph extends Component{
                 //render this paragraph
                 return(
                     <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >
-                        <p>{this.props.text}</p>
+                        {/*<p>{this.props.text}</p>*/}
+                        <ReactMarkdown source={this.props.text} />
                         <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
                         <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
+                        <button className="addButton" onClick={() => this.addParagraph()}>+ Add</button>
                         {/*<p className="order">{this.props.order}</p>*/}
                     </div>
                 );

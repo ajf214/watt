@@ -96,31 +96,39 @@ class Page extends Component{
         this.forceUpdate();
     }
 
+    addMiddleParagraph(order){
+        //insert a new paragraph at that spot in the order
+    }
+
     renderParagraph(paragraph){
         
         
         if(!paragraph.edit){
             return(
-                <Paragraph 
-                    parentFilter={this.state.filterValue} 
-                    test={paragraph.id} 
-                    text={paragraph.text} 
-                    order={paragraph.order} 
-                    filter={paragraph.filter}
-                    edit={this.startEdit.bind(this)}
-                    delete={this.deleteParagraph.bind(this)}>
-                </Paragraph>
+                <div>
+                    <Paragraph 
+                        parentFilter={this.state.filterValue} 
+                        test={paragraph.id} 
+                        text={paragraph.text} 
+                        order={paragraph.order} 
+                        filter={paragraph.filter}
+                        edit={this.startEdit.bind(this)}
+                        delete={this.deleteParagraph.bind(this)}>
+                    </Paragraph>
+                </div>
             );
         }
         else{
             return(
-                <ParagraphInput
-                    filter={paragraph.filter} 
-                    text={paragraph.text} 
-                    order={paragraph.order}
-                    myKey={paragraph.id}
-                    addParagraph={this.addParagraph.bind(this)}>
-                </ParagraphInput>
+                <div>
+                    <ParagraphInput
+                        filter={paragraph.filter} 
+                        text={paragraph.text} 
+                        order={paragraph.order}
+                        myKey={paragraph.id}
+                        addParagraph={this.addParagraph.bind(this)}>
+                    </ParagraphInput>
+                </div>
             );
         }
     }
