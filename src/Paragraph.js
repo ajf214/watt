@@ -13,7 +13,7 @@ class Paragraph extends Component{
             pageFilter: props.parentFilter,
             
             //this is the key, but couldn't use key for some reason??
-            test: props.test,
+            id: props.id,
             edit: props.editing
         }
     }
@@ -39,12 +39,12 @@ class Paragraph extends Component{
 
     deleteParagraph(e){
         //e.preventDefault();
-        this.props.delete(this.state.test);
+        this.props.delete(this.state.id);
     }
 
     //need key for paragraph
     startEdit(e){     
-        this.props.edit(this.state.test);
+        this.props.edit(this.state.id);
     }
 
     addParagraph(e){
@@ -57,10 +57,10 @@ class Paragraph extends Component{
         if(this.state.pageFilter === "None" && this.state.filter === "None"){
             //normal state
             return(
-                <div className="pageParagraph">
-                    <p>{this.props.text}</p>
-                    <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
-                    <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
+                <div className="pageParagraph" key={this.props.id}>
+                    <ReactMarkdown source={this.props.text} className="sectionContent"/>
+                    <button className="editButton" onClick={() => this.startEdit()}>Edit</button>
+                    <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete</button>
                     <button className="addButton" onClick={() => this.addParagraph()}>+ Add</button>
                     {/*<p className="order">{this.props.order}</p>*/}
                 </div>
@@ -72,10 +72,11 @@ class Paragraph extends Component{
             //show master articles and any other that match the filter
             if(this.state.filter === "None" || this.state.pageFilter === this.state.filter){
                 //render this paragraph
+                console.log("rendered 'non-none' paragraph")
                 return(
                     <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >
                         {/*<p>{this.props.text}</p>*/}
-                        <ReactMarkdown source={this.props.text} />
+                        <ReactMarkdown source={this.props.text} className="sectionContent"/>
                         <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
                         <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
                         <button className="addButton" onClick={() => this.addParagraph()}>+ Add</button>

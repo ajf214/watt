@@ -12,10 +12,12 @@ class PageSelect extends Component{
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         //get a database reference and fill up pages
-        let pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
+        console.log("componentDidMount -- Start");
 
+        let pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
+        //window.location.reload();
         //called once for each row on initialization, then once for each new child
         pageRef.on('child_added', snapshot => {
             let page = {
@@ -30,9 +32,19 @@ class PageSelect extends Component{
         })
     }
 
+    shouldComponentUpdate(){
+        console.log("should component update");
+        return true;
+    }
+
     navigateToPage(p){
         //load the app component with a certain page property
-        this.props.renderPage(this.state.value);
+        //this is the old hacky way using a callback function
+        //this.props.renderPage(this.state.value);
+
+
+        //this new way will use the Link thing in React Router
+        this.props.history.push("/page/" + this.state.value);
     }
     
     addPage(p){
@@ -52,7 +64,7 @@ class PageSelect extends Component{
 
     handleChange(event) {
         this.setState({value: event.target.value});
-      }
+    }
 
     render(){
         return(
@@ -62,25 +74,24 @@ class PageSelect extends Component{
                 <p>Too often, we disagree with what is being proposed, without first considering why someone is proposing it.</p>
                 <p>What Are They Thinking helps you understand the ideology of those you disagree with so you can have better conversations.</p>
             </div>
-            <form onSubmit = {this.navigateToPage.bind(this)}>
+            <div className = "pageSubmit">
                 <select value={this.state.value} onChange={this.handleChange.bind(this)}>
                     <option value="Select a page">Select a page</option>
                     {
                         this.state.pages.map(page => <option value={page.id} key={page.id}>{page.name}</option>)
                     } 
                 </select>
-                <input type="submit" value="View this page"/>
-            </form>
-
-            <form onSubmit = {this.addPage.bind(this)}>
-                <input type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
-                <input type="submit" value="Create new page"/>
-            </form>
+                <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
+                <form onSubmit = {this.addPage.bind(this)}>
+                    <input type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
+                    <input type="submit" value="Create new page"/>
+                </form>
+            </div>
         </div>
         );
     }
 }
 
-export default PageSelect;
+export default PageSelect
 
 

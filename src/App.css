@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Patua+One');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500');
 
 body{
   background-color: #643472;
@@ -38,7 +39,12 @@ body{
 }
 
 h1, h2, h3, h4, h5{
-  font-family: 'Patua One', cursive;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+}
+
+a{
+  color: #d5b4df;
 }
 
 

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PageSelect from './PageSelect.js';
 import Page from './Page';
-import './App.css'
+import './App.css';
+import { BrowserRouter, Route} from 'react-router-dom'
+
 
 class App extends Component{
     constructor(props){
@@ -22,21 +24,14 @@ class App extends Component{
     }
 
     render(){
-        if(this.state.atHome){
-            return(
-                <div className="grid">
-                    <PageSelect renderPage = {this.renderPage.bind(this)}></PageSelect>
+        return(
+            <BrowserRouter>
+                <div className = "grid">
+                    <Route exact path = "/" component={PageSelect} />
+                    <Route path="/page/:pageTitle" component={Page} />
                 </div>
-            );
-        }
-        else{
-        //this should just render a Page component
-            return(
-                <div className="grid">
-                    <Page pageName={this.state.pageToNavigate}></Page>
-                </div>
-            );
-        }
+            </BrowserRouter>
+        )
     }
 }
 

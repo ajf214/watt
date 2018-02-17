@@ -24,7 +24,7 @@
     margin: auto;
 }
 
-.container > form{
+.container .pageSubmit{
     text-align: center;
     padding: 1em;
 }

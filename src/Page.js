@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import fire from './fire'
 import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
-/*import FilterControl from './FilterControl.js'*/
 import './Page.css'
 
 class Page extends Component{
@@ -11,19 +10,24 @@ class Page extends Component{
         super(props);
         this.state = {
             paragraphs: [],
-            pageName: this.props.pageName,
+            pageName: this.props.match.params.pageTitle,
             filterValue: "None",
             pageTitle: ""
         }
     }
 
-    componentWillMount(){  
+
+    componentDidMount(){  
         this.updateParagraphList();
         let actualPageTitle;
 
         let pTitle = fire.database().ref('pages/' + this.state.pageName + '/name')
-        pTitle.once("value", (snapshot) => actualPageTitle = snapshot.val())
-        //let pTitle = "";
+        
+        pTitle.once("value", (snapshot) => {
+            return actualPageTitle = snapshot.val()
+        })
+
+        console.log("something else");
 
         this.setState({
             pageTitle: actualPageTitle
@@ -81,7 +85,6 @@ class Page extends Component{
         //now need to set paragraph back to regular paragraph
         this.state.paragraphs.forEach(paragraph => (paragraph.edit = false))
         this.updateParagraphList();
-        //this.forceUpdate();
     }
 
     startEdit(key){
@@ -101,14 +104,13 @@ class Page extends Component{
     }
 
     renderParagraph(paragraph){
-        
-        
         if(!paragraph.edit){
             return(
                 <div>
                     <Paragraph 
                         parentFilter={this.state.filterValue} 
-                        test={paragraph.id} 
+                        key={paragraph.id}
+                        id={paragraph.id} 
                         text={paragraph.text} 
                         order={paragraph.order} 
                         filter={paragraph.filter}
@@ -125,7 +127,8 @@ class Page extends Component{
                         filter={paragraph.filter} 
                         text={paragraph.text} 
                         order={paragraph.order}
-                        myKey={paragraph.id}
+                        key={paragraph.id}
+                        id={paragraph.id}
                         addParagraph={this.addParagraph.bind(this)}>
                     </ParagraphInput>
                 </div>
@@ -169,17 +172,24 @@ class Page extends Component{
         return(
             <div className = "pageContainer">
                 <h1>{this.state.pageTitle}</h1>
+               
                 {/* "ideology" input*/}
                 <form id="ideologyFilter">
                     <label className="ideologyLabel"> Choose a filter: 
                         <select className="ideologyDropdown" value = {this.state.filterValue} onChange = {this.handleChange.bind(this)}>
+                            {/* need to  eliminate duplicates*/}
                             <option value="None">Filter ideology</option>
                             {
-                                this.state.paragraphs.map(paragraph => <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option>)
+                                this.state.paragraphs.map(paragraph => paragraph.filter !== "None" ? <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option> : "")
                             }
                         </select>
                     </label>
                 </form>
+
+                {
+                    /* this is where an "added" filter should go with a description */
+                }
+
 
                 {
                     this.state.paragraphs.map(paragraph => this.renderParagraph(paragraph))
@@ -188,7 +198,8 @@ class Page extends Component{
                 <ParagraphInput 
                     filter="" 
                     text="" 
-                    order="" 
+                    order=""
+                    key="1234" 
                     addParagraph={this.addParagraph.bind(this)}>
                 </ParagraphInput>       
                 
