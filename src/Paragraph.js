@@ -20,6 +20,7 @@ class Paragraph extends Component{
 
     componentWillMount(){
         this.prepareComponentState(this.props);
+        console.log("ComponentWillMount");
     }
 
     prepareComponentState(props){
@@ -58,11 +59,11 @@ class Paragraph extends Component{
             //normal state
             return(
                 <div className="pageParagraph" key={this.props.id}>
+                    <p className="order">{this.props.order}</p>
                     <ReactMarkdown source={this.props.text} className="sectionContent"/>
                     <button className="editButton" onClick={() => this.startEdit()}>Edit</button>
                     <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete</button>
-                    <button className="addButton" onClick={() => this.addParagraph()}>+ Add</button>
-                    {/*<p className="order">{this.props.order}</p>*/}
+                    <button className="addButton" onClick={() => this.addParagraph()}>+ Add Below</button>
                 </div>
             );
         }
@@ -74,13 +75,12 @@ class Paragraph extends Component{
                 //render this paragraph
                 console.log("rendered 'non-none' paragraph")
                 return(
-                    <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >
-                        {/*<p>{this.props.text}</p>*/}
+                    <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >                        
+                        <p className="order">{this.props.order}</p>
                         <ReactMarkdown source={this.props.text} className="sectionContent"/>
                         <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
                         <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
-                        <button className="addButton" onClick={() => this.addParagraph()}>+ Add</button>
-                        {/*<p className="order">{this.props.order}</p>*/}
+                        <button className="addButton" onClick={() => this.addParagraph()}>+ Add Below</button>
                     </div>
                 );
             }

@@ -4,6 +4,8 @@ import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
 import './Page.css'
 
+var paragraphRef
+
 class Page extends Component{
 
     constructor(props){
@@ -18,30 +20,34 @@ class Page extends Component{
 
 
     componentDidMount(){  
-        this.updateParagraphList();
-        let actualPageTitle;
+        this.getPageData();
+    }
+
+    getPageData(){
+        console.log("getting data")
 
         let pTitle = fire.database().ref('pages/' + this.state.pageName + '/name')
         
         pTitle.once("value", (snapshot) => {
-            return actualPageTitle = snapshot.val()
-        })
+                console.log("I successfully read the title data")
+                this.setState({
+                    pageTitle: snapshot.val()
+                })
+            },(error) => {
+                console.log("I messed up")
+            }
+        )
 
-        console.log("something else");
 
-        this.setState({
-            pageTitle: actualPageTitle
-        })
-    }
 
-    updateParagraphList(){
-        let something=[]
+        //array for temporary sort of 2 paragraphs
+        let temp=[]
+
         //need a reference to all the paragraphs
-        let paragraphRef = fire.database().ref('pages/' + this.state.pageName + '/paragraphs').orderByChild('order').limitToLast(100);
+        paragraphRef = fire.database().ref('pages/' + this.state.pageName + '/paragraphs').orderByChild('order').limitToLast(100);
 
         paragraphRef.on('child_added', snapshot => {
             let paragraph = {
-                
                 //this should be nested so I can get properties of paragraph
                 text: snapshot.val().text,
                 filter: snapshot.val().filter,
@@ -50,19 +56,32 @@ class Page extends Component{
                 edit: false
             };
 
-            //put new child in the right order
-            //let temp = [paragraph].concat(this.state.paragraphs)
-            
-            //something is weird here and I would really like to figure it out!!!
-            let temp = [paragraph].concat(something);
+            //sort paragraphs
+            temp = [paragraph].concat(temp);
             temp.sort((a,b) => (a.order - b.order));
 
-            something = temp;
-
             this.setState({
-                paragraphs: something
-            });
+                paragraphs: temp
+            })
         })
+
+        paragraphRef.on('child_changed', snapshot => {
+            //should find the item in the array and change whatever property is important?
+            //window.location.reload()
+            this.getPageData()
+        })
+
+        paragraphRef.on('child_removed', snapshot => {
+            //should find the item in the array and delete it
+            this.getPageData()
+            //window.location.reload()
+        })
+    }
+
+    componentWillUnmount(){
+        paragraphRef.off('child_added')
+        paragraphRef.off('child_removed')
+        paragraphRef.off('child_changed')
     }
 
     //needs to also account for the order, can't just push
@@ -79,14 +98,14 @@ class Page extends Component{
     }
 
     updateParagraph(newParagraph, key){
-        let paragraphRef = fire.database().ref('pages/'+ this.state.pageName +'/paragraphs').child(key);
+        paragraphRef = fire.database().ref('pages/'+ this.state.pageName +'/paragraphs').child(key);
         paragraphRef.update(newParagraph) 
         
         //now need to set paragraph back to regular paragraph
         this.state.paragraphs.forEach(paragraph => (paragraph.edit = false))
-        this.updateParagraphList();
     }
 
+    //BUG: if I edit, change nothing, then save the paragraph component doens't re-render
     startEdit(key){
         //put paragraph with key == key into edit mode
         
@@ -124,6 +143,7 @@ class Page extends Component{
             return(
                 <div>
                     <ParagraphInput
+                        special={"custom name"}
                         filter={paragraph.filter} 
                         text={paragraph.text} 
                         order={paragraph.order}
@@ -151,11 +171,8 @@ class Page extends Component{
     }
 
     deleteParagraph(key){
-        let paragraphRef = fire.database().ref('pages/'+ this.state.pageName +'/paragraphs').child(key);
+        paragraphRef = fire.database().ref('pages/'+ this.state.pageName +'/paragraphs').child(key);
         paragraphRef.remove();
-
-        this.updateParagraphList();
-        
     }
 
 
@@ -178,9 +195,9 @@ class Page extends Component{
                     <label className="ideologyLabel"> Choose a filter: 
                         <select className="ideologyDropdown" value = {this.state.filterValue} onChange = {this.handleChange.bind(this)}>
                             {/* need to  eliminate duplicates*/}
-                            <option value="None">Filter ideology</option>
+                            <option key="1234" value="None">Filter ideology</option>
                             {
-                                this.state.paragraphs.map(paragraph => paragraph.filter !== "None" ? <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option> : "")
+                                this.state.paragraphs.map(paragraph => paragraph.filter !== "None" ? <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option> : null)
                             }
                         </select>
                     </label>

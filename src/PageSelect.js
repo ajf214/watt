@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import fire from './fire.js'
 import './PageSelect.css'
 
+const pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
+
 class PageSelect extends Component{
     constructor(props){
         super(props);
@@ -16,8 +18,8 @@ class PageSelect extends Component{
         //get a database reference and fill up pages
         console.log("componentDidMount -- Start");
 
-        let pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
-        //window.location.reload();
+        //let pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
+
         //called once for each row on initialization, then once for each new child
         pageRef.on('child_added', snapshot => {
             let page = {
@@ -32,17 +34,16 @@ class PageSelect extends Component{
         })
     }
 
+    componentWillUnmount(){
+        pageRef.off('child_added')
+    }
+
     shouldComponentUpdate(){
         console.log("should component update");
         return true;
     }
 
     navigateToPage(p){
-        //load the app component with a certain page property
-        //this is the old hacky way using a callback function
-        //this.props.renderPage(this.state.value);
-
-
         //this new way will use the Link thing in React Router
         this.props.history.push("/page/" + this.state.value);
     }

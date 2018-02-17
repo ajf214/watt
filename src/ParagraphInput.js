@@ -32,7 +32,7 @@ class ParagraphInput extends Component{
 
     render(){
         return(
-        <form className="paragraphInputForm" onSubmit={this.saveParagraph.bind(this)}>
+        <form className={`${this.props.special} paragraphInputForm`} onSubmit={this.saveParagraph.bind(this)}>
             <textarea className="paragraphInput" defaultValue={this.props.text} placeholder="Add your perspective. Markdown supported." ref={el => this.paragraphInput=el}/>
             <input type="text" className="filterInput" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
             <input type="order" className="orderInput" defaultValue={this.props.order} placeholder="display order" ref={el => this.orderInput=el}/>
