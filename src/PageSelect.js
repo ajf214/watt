@@ -57,7 +57,26 @@ class PageSelect extends Component{
         }
 
         //add paragraph object to database
-        fire.database().ref('pages').push(newPage);
+        let newPageKey = fire.database().ref('pages').push(newPage);
+        
+        //push some stubs into the page
+        let stub1 = "### Some background\n\nWrite some stuff..."
+        let stub2 = "### The Players\n\nWrite some stuff..."
+
+        let p1 = {
+            text: stub1,
+            filter: "None",
+            order: "0"
+        }
+
+        let p2 = {
+            text: stub2,
+            filter: "None",
+            order: "1"
+        }
+
+        fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p1);
+        fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p2);
         
         //clear input
         this.newPageInput.value = '';

@@ -22,6 +22,8 @@ class Page extends Component{
 
     componentDidMount(){  
         this.getPageData();
+    
+        
     }
 
     getPageData(){
