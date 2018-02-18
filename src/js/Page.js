@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import fire from './fire'
 import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
-import './Page.css'
+import '../css/Page.css'
 
 var paragraphRef
 
@@ -59,6 +59,7 @@ class Page extends Component{
             };
 
             //maxOrder will be the default order for pargraphInput
+            // eslint-disable-next-line
             if(parseInt(paragraph.order) >= parseInt(this.state.maxOrder)){
                 console.log(`paragraph: ${paragraph.order} max: ${this.state.maxOrder}`)
                 this.setState({

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PageSelect from './PageSelect.js';
-import Page from './Page';
-import './App.css';
+import PageSelect from './js/PageSelect.js';
+import Page from './js/Page';
+import './css/App.css';
+import Rules from './js/Rules';
 import { BrowserRouter, Route} from 'react-router-dom'
 
 
@@ -29,6 +30,7 @@ class App extends Component{
                 <div className = "grid">
                     <Route exact path = "/" component={PageSelect} />
                     <Route path="/page/:pageTitle" component={Page} />
+                    <Route path="/rules/" component={Rules} />
                 </div>
             </BrowserRouter>
         )

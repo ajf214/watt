@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Paragraph.css'
+import '../css/Paragraph.css'
 
 const ReactMarkdown = require('react-markdown')
 

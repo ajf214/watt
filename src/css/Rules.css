@@ -1,0 +1,19 @@
+.grid{
+    grid-template-columns: repeat(12,1fr);
+}
+
+.gridContainer{
+    grid-column: 4/10;
+}
+
+.gridContainer p{
+    color: #FFF;
+}
+
+h1, h2, h3, h4, h5{
+    color: #FFF;
+}
+
+h2{
+    margin-top: 60px;
+}

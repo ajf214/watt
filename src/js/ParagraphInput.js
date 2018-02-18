@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './ParagraphInput.css'
+import '../css/ParagraphInput.css'
 
 class ParagraphInput extends Component{
     constructor(props){
@@ -40,6 +40,7 @@ class ParagraphInput extends Component{
 
     componentDidUpdate(){
         console.log("componentDidUpdate -- ParagraphInput")
+        // eslint-disable-next-line
         this.orderInput.value = parseInt(this.state.maxOrder) + 1
     }
 

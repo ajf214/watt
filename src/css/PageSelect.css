@@ -1,15 +1,13 @@
 .container{
     margin: auto;
     grid-column: 4/10;
-    grid-row: 2/4;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .title{
-    display: grid;
-    grid-template-columns: 1fr;
-
-    margin: auto;
     color: #FFF;
+    grid-column: 1/7;
 }
 
 .title h1{
@@ -19,14 +17,25 @@
 
 .title p{
     padding: 1em;
-    width: 50%;
-    align-items: center;
+    width: 70%;
     margin: auto;
 }
 
 .container .pageSubmit{
     text-align: center;
     padding: 1em;
+    grid-column: 1/7;
+}
+
+.container a{
+    grid-column: 1/7;
+    justify-self: center;
+    margin-bottom: 20px;
+}
+
+.container .addNewPage{
+    grid-column: 1/7;
+    justify-self: center;
 }
 
 .pageDropdown{
@@ -51,12 +60,12 @@
     cursor: pointer;
 }
 
-.pageSubmit form{
+.addNewPage{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
 
-.pageSubmit form input{
+.addNewPage input{
     font-size: 1em;
     font-family: 'Open Sans';
     padding: 5px;
@@ -65,14 +74,15 @@
     background-color: rgba(255,255,255,0.7);
 }
 
-.pageSubmit form h3{
+.addNewPage h3{
+    grid-column: 1/5;
     color: #DDD;
     margin-bottom: 5px;
     text-align: left;
     padding-left: 5px;
 }
 
-.pageSubmit .pageInput{
+.addNewPage .pageInput{
     grid-column: 1/4;
 }
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import fire from './fire.js'
-import './PageSelect.css'
+import '../css/PageSelect.css'
+import { Link } from 'react-router-dom'
+const ReactMarkdown = require('react-markdown')
 
 const pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
 
@@ -91,24 +93,28 @@ class PageSelect extends Component{
         <div className = "container">
             <div className = "title">
                 <h1>What are they thinking?</h1>
-                <p>Too often, we disagree with what is being proposed, without first considering why someone is proposing it.</p>
-                <p>What Are They Thinking helps you understand the ideology of those you disagree with so you can have better conversations.</p>
+                <ReactMarkdown>{"Too often, we disagree with someone's opinion without first considering *why* &nbsp;they have that opinion in the first place."}</ReactMarkdown>
+                <ReactMarkdown>{"*What Are They Thinking* helps you understand the ideology of those you disagree with so you can have better conversations."}</ReactMarkdown>
             </div>
             <div className = "pageSubmit">
-                <select class="pageDropdown" value={this.state.value} onChange={this.handleChange.bind(this)}>
+                <select className="pageDropdown" value={this.state.value} onChange={this.handleChange.bind(this)}>
                     <option value="Select a page">Select a page</option>
                     {
                         this.state.pages.map(page => <option value={page.id} key={page.id}>{page.name}</option>)
                     } 
                 </select>
                 <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
-                <form onSubmit = {this.addPage.bind(this)}>
-                    <h3>Add a page</h3>
-                    <input class="pageInput" type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
-                    <input class="submitButton" type="submit" value="Create new page"/>
-                </form>
-            </div>
+            </div>    
+            <Link to="/rules">Want to contribute? You gotta read the rules first</Link>
+            <form className="addNewPage" onSubmit = {this.addPage.bind(this)}>
+                <h3>Add a page</h3>
+                <input className="pageInput" type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
+                <input className="submitButton" type="submit" value="Create new page"/>
+            </form> 
         </div>
+
+                    
+
         );
     }
 }
