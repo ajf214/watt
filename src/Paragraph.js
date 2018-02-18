@@ -61,9 +61,9 @@ class Paragraph extends Component{
                 <div className="pageParagraph" key={this.props.id}>
                     <p className="order">{this.props.order}</p>
                     <ReactMarkdown source={this.props.text} className="sectionContent"/>
-                    <button className="editButton" onClick={() => this.startEdit()}>Edit</button>
-                    <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete</button>
-                    <button className="addButton" onClick={() => this.addParagraph()}>+ Add Below</button>
+                    <button className="editButton" onClick={() => this.startEdit()}>Edit Section</button>
+                    <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete Section</button>
+                    {/*<button className="addButton" onClick={() => this.addParagraph()}>+ Add Below</button>*/}
                 </div>
             );
         }
@@ -78,9 +78,9 @@ class Paragraph extends Component{
                     <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >                        
                         <p className="order">{this.props.order}</p>
                         <ReactMarkdown source={this.props.text} className="sectionContent"/>
-                        <button className="editButton" onClick={() => this.startEdit()}>Edit text</button>
-                        <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete text</button>
-                        <button className="addButton" onClick={() => this.addParagraph()}>+ Add Below</button>
+                        <button className="editButton" onClick={() => this.startEdit()}>Edit Section</button>
+                        <button className="deleteButton" onClick={() => this.deleteParagraph()}>Delete Section</button>
+                        {/*<button className="addButton" onClick={() => this.addParagraph()}>+ Add Below</button>*/}
                     </div>
                 );
             }
