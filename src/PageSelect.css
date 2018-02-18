@@ -28,3 +28,54 @@
     text-align: center;
     padding: 1em;
 }
+
+.pageDropdown{
+    padding: 5px;
+    font-family: 'Open Sans';
+    margin-bottom: 100px;
+    font-size: 1em;
+}
+
+.pageSubmit button{
+    margin-left: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FFF;
+    font-size: 1em;
+
+    color: #000;
+    font-family: 'Open Sans';
+    border: none;
+    box-shadow: 2px 2px 2px rgba(20,20,20, 0.3);
+    cursor: pointer;
+}
+
+.pageSubmit form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.pageSubmit form input{
+    font-size: 1em;
+    font-family: 'Open Sans';
+    padding: 5px;
+    border: none;
+    margin: 5px;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.pageSubmit form h3{
+    color: #DDD;
+    margin-bottom: 5px;
+}
+
+.pageSubmit .pageInput{
+    grid-column: 1/4;
+}
+
+.pageSubmit form .submitButton{
+    grid-column: 4/5;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(20,20,20, 0.8);
+}

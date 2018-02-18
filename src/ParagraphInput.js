@@ -5,7 +5,7 @@ class ParagraphInput extends Component{
     constructor(props){
         super(props);
         this.state = {
-            //callback to save with a set of properties
+            maxOrder: this.props.order
         }
     }
 
@@ -30,12 +30,27 @@ class ParagraphInput extends Component{
         this.orderInput.value = '';
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log("received props -- ParagraphInput");
+        this.setState({
+             maxOrder: nextProps.order
+         })
+        console.log(`Updated State: ${this.state.maxOrder}`)
+    }
+
+    componentDidUpdate(){
+        console.log("componentDidUpdate -- ParagraphInput")
+        this.orderInput.value = parseInt(this.state.maxOrder) + 1
+    }
+
     render(){
         return(
         <form className={`${this.props.special} paragraphInputForm`} onSubmit={this.saveParagraph.bind(this)}>
             <textarea className="paragraphInput" defaultValue={this.props.text} placeholder="Add your perspective. Markdown supported." ref={el => this.paragraphInput=el}/>
-            <input type="text" className="filterInput" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
-            <input type="order" className="orderInput" defaultValue={this.props.order} placeholder="display order" ref={el => this.orderInput=el}/>
+            <label for="order" className="orderLabel">Display order:</label>
+            <input id="order" type="order" className="orderInput" defaultValue={this.state.maxOrder} placeholder="display order" ref={el => this.orderInput=el}/>
+            <label for="filter" className="filterLabel">Filter:</label>
+            <input id="filter" type="text" className="filterInput" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
             <input type="submit" className="submit" value="Save section"/>
         </form>
         );

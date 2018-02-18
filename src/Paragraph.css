@@ -26,6 +26,7 @@
     color: #EEE;
     text-decoration: underline;
     border-color: #00000000;
+    cursor: pointer;
 }
 
 .deleteButton{
@@ -37,6 +38,7 @@
     color: #EEE;
     text-decoration: underline;
     border-color: #00000000;
+    cursor: pointer;
 }
 
 .addButton{
@@ -49,6 +51,7 @@
     color: #EEE;
     text-decoration: underline;
     border-color: #00000000;
+    cursor: pointer;
 }
 
 .order{
@@ -57,4 +60,32 @@
     margin-top: 0px;
     margin-bottom: 0px;
     justify-self: center;
+}
+
+/* mobile */
+@media (max-width: 960px){
+
+    .pageParagraph{
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .pageParagraph .sectionContent{
+        grid-column: 1/7;
+    }
+
+    .addButton{
+        grid-column: 5/7;
+    } 
+    .editButton {
+        grid-column: 5/7; 
+    }
+    
+    .deleteButton{
+        grid-column: 5/7;
+    }
+
+    .order{
+        grid-column: 5/7;
+    }
+
 }

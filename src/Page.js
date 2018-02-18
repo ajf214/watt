@@ -14,7 +14,8 @@ class Page extends Component{
             paragraphs: [],
             pageName: this.props.match.params.pageTitle,
             filterValue: "None",
-            pageTitle: ""
+            pageTitle: "",
+            maxOrder: "0"
         }
     }
 
@@ -25,7 +26,6 @@ class Page extends Component{
 
     getPageData(){
         console.log("getting data")
-
         let pTitle = fire.database().ref('pages/' + this.state.pageName + '/name')
         
         pTitle.once("value", (snapshot) => {
@@ -55,6 +55,14 @@ class Page extends Component{
                 id: snapshot.key,
                 edit: false
             };
+
+            //maxOrder will be the default order for pargraphInput
+            if(parseInt(paragraph.order) >= parseInt(this.state.maxOrder)){
+                console.log(`paragraph: ${paragraph.order} max: ${this.state.maxOrder}`)
+                this.setState({
+                    maxOrder: paragraph.order
+                })
+            }
 
             //sort paragraphs
             temp = [paragraph].concat(temp);
@@ -188,8 +196,9 @@ class Page extends Component{
     render(){
         return(
             <div className = "pageContainer">
-                <h1>{this.state.pageTitle}</h1>
-               
+                <div className="header">
+                    <h1>{this.state.pageTitle}</h1>
+                </div>
                 {/* "ideology" input*/}
                 <form id="ideologyFilter">
                     <label className="ideologyLabel"> Choose a filter: 
@@ -212,10 +221,12 @@ class Page extends Component{
                     this.state.paragraphs.map(paragraph => this.renderParagraph(paragraph))
                 }
 
+                <div className="spacer"></div>
+
                 <ParagraphInput 
                     filter="" 
                     text="" 
-                    order=""
+                    order={this.state.maxOrder}
                     key="1234" 
                     addParagraph={this.addParagraph.bind(this)}>
                 </ParagraphInput>       

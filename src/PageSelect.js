@@ -76,7 +76,7 @@ class PageSelect extends Component{
                 <p>What Are They Thinking helps you understand the ideology of those you disagree with so you can have better conversations.</p>
             </div>
             <div className = "pageSubmit">
-                <select value={this.state.value} onChange={this.handleChange.bind(this)}>
+                <select class="pageDropdown" value={this.state.value} onChange={this.handleChange.bind(this)}>
                     <option value="Select a page">Select a page</option>
                     {
                         this.state.pages.map(page => <option value={page.id} key={page.id}>{page.name}</option>)
@@ -84,8 +84,9 @@ class PageSelect extends Component{
                 </select>
                 <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
                 <form onSubmit = {this.addPage.bind(this)}>
-                    <input type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
-                    <input type="submit" value="Create new page"/>
+                    <h3>Add a page</h3>
+                    <input class="pageInput" type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
+                    <input class="submitButton" type="submit" value="Create new page"/>
                 </form>
             </div>
         </div>
