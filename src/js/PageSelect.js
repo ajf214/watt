@@ -62,8 +62,9 @@ class PageSelect extends Component{
         let newPageKey = fire.database().ref('pages').push(newPage);
         
         //push some stubs into the page
-        let stub1 = "### Some background\n\nWrite some stuff..."
-        let stub2 = "### The Players\n\nWrite some stuff..."
+        let stub1 = "## Some background\n\nWrite some stuff..."
+        let stub2 = "## The Players\n\nWrite some stuff..."
+        let stub3 = "## Keep reading\n\nShare some links to get a better understanding of this perspective"
 
         let p1 = {
             text: stub1,
@@ -77,8 +78,15 @@ class PageSelect extends Component{
             order: "1"
         }
 
+        let p3 = {
+            text: stub3,
+            filter: "None",
+            order: "2"
+        }
+
         fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p1);
         fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p2);
+        fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p3);
         
         //clear input
         this.newPageInput.value = '';

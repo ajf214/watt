@@ -4,16 +4,30 @@
 
 .gridContainer{
     grid-column: 4/10;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .gridContainer p{
     color: #FFF;
+    grid-column: 1/7;
+}
+
+.gridContainer div{
+    grid-column: 1/7;
 }
 
 h1, h2, h3, h4, h5{
     color: #FFF;
+    grid-column: 1/7;
 }
 
 h2{
     margin-top: 60px;
+    grid-column: 1/7;
+}
+
+img{
+    grid-column: 1/4;
+    width: 100%;
 }

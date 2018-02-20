@@ -48,21 +48,29 @@
     color: #000;
 }
 
+/* medium */
+@media(max-width: 1200px){
+    .pageContainer{
+        grid-column: 5/13;
+    }
+}
 
 /* mobile */
 @media (max-width: 960px){
 
     .pageContainer{
         grid-column: 2/12;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
     }
 
-    .ideologyDropdown{
-        visibility: hidden;
+    .pageContainer div{
+        grid-column: 1/13;
     }
 
-    .ideologyLabel{
-        visibility: hidden;
-        
+    #ideologyFilter{
+        position: static;
+        grid-column: 1/13;
     }
 
 }

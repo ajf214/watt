@@ -18,11 +18,24 @@ class Rules extends Component {
     
     componentDidMount(){
         //oad rules from database and update state
-        db.orderByChild('order').on('child_added', snapshot => {
-            let rule = snapshot.val().text
+        var dbRef = db.orderByKey().limitToLast(100);
+
+        let temp = []
+        
+        dbRef.on('child_added', snapshot => {
+            let rule = {
+                text: snapshot.val().text,
+                order: snapshot.val().order
+            }
+            //need code here to order the results by order
+            
+            temp = [rule].concat(temp);
+            temp.sort((a,b) => (a.order - b.order));
+            
 
             this.setState({
-                list: [rule].concat(this.state.list)
+                //list: [rule].concat(this.state.list)
+                list: temp
             })
         })
 
@@ -39,7 +52,7 @@ class Rules extends Component {
             },
             {
                 order: "1",
-                text: "## Foster a culture of understanding\n In our passions to make society better, we can sometimes get aggressive and hurtful.  Don’t try to win arguments here.  Do your best to get people to understand how you see the world and keep things positive. We want to understand your beliefs, not be convinced why someone is wrong.\n\nMost traditional media is far more effective at confirming our biases which keeps us divided. Keep the “talking heads” out of this.  Consider how you would want to talk to a loved one that just happened to disagree with you."
+                text: "## Foster a culture of understanding\n In our passions to make society better, we can sometimes get aggressive and hurtful.  **Don’t try to win arguments here.**  Do your best to get people to understand how you see the world and keep things positive. We want to understand your beliefs, not be convinced why someone is wrong.\n\nMost traditional media is far more effective at **confirming** our biases. This keeps us divided.\n\n Keep the “talking heads” out of this.\n\n Consider how you would want to talk to a loved one that just happened to disagree with you."
             },
             {
                 order: "2",
@@ -57,7 +70,8 @@ class Rules extends Component {
             <div className="gridContainer">
                 <h1>The Rules</h1>
                 <p>If you don't follow the rules, your content will be removed</p>
-                {this.state.list.map(rule => <ReactMarkdown>{rule}</ReactMarkdown>)}
+                <img alt="pointy head meme guy" src={require('../img/roll safe.JPG')}></img>   
+                {this.state.list.map(rule => <ReactMarkdown>{rule.text}</ReactMarkdown>)}
             </div>
         )       
     }
