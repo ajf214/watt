@@ -112,13 +112,16 @@ class PageSelect extends Component{
                     } 
                 </select>
                 <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
-            </div>    
-            <Link to="/rules">Want to contribute? You gotta read the rules first</Link>
-            <form className="addNewPage" onSubmit = {this.addPage.bind(this)}>
-                <h3>Add a page</h3>
-                <input className="pageInput" type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
-                <input className="submitButton" type="submit" value="Create new page"/>
-            </form> 
+            </div>
+            <div class="create-page">
+                <h1>Want to contribute? <Link to="/rules">Read the rules first</Link></h1>
+                
+                <form className="addNewPage" onSubmit = {this.addPage.bind(this)}>
+                    <h3>Add a page</h3>
+                    <input className="pageInput" type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
+                    <input className="submitButton" type="submit" value="Create"/>
+                </form> 
+            </div>
         </div>
 
                     

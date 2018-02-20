@@ -1,13 +1,13 @@
 .container{
-    margin: auto;
-    grid-column: 4/10;
+    grid-column: 1/13;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
 }
 
 .title{
     color: #FFF;
-    grid-column: 1/7;
+    grid-column: 4/10;
+    background-color: #643472;
 }
 
 .title h1{
@@ -24,7 +24,7 @@
 .container .pageSubmit{
     text-align: center;
     padding: 1em;
-    grid-column: 1/7;
+    grid-column: 4/10;
 }
 
 .container a{
@@ -34,8 +34,9 @@
 }
 
 .container .addNewPage{
-    grid-column: 1/7;
-    justify-self: center;
+    grid-column: 5/9;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .pageDropdown{
@@ -60,26 +61,31 @@
     cursor: pointer;
 }
 
-.addNewPage{
+.create-page{
+    grid-column: 1/13;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(12,1fr);
+
+    background-color: #FFF;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-/*
-.addNewPage input{
-    font-size: 1em;
-    font-family: 'Open Sans';
-    padding: 5px;
-    border: none;
-    margin: 5px;
-    background-color: rgba(255,255,255,0.7);
+.create-page a{
+    color:#643472;
 }
-*/
+
+.create-page h1{
+    color: #000;
+    grid-column: 5/9;
+    margin-top: 0px;
+    font-size: 2.25em;
+}
 
 
 .addNewPage h3{
     grid-column: 1/5;
-    color: #FFF;
+    color: #643472;
     margin-bottom: 5px;
     text-align: left;
     padding-left: 5px;
@@ -89,7 +95,7 @@
     font-size: 1em;
     font-family: 'Open Sans';
     padding: 5px;
-    border: none;
+    border: #AAA 1px solid;
     margin: 5px;
     background-color: rgba(255,255,255,0.7);
 
@@ -104,11 +110,63 @@
     font-size: 1em;
     font-family: 'Open Sans';
     padding: 5px;
-    border: none;
+    border: #DDD 1px solid;
     margin: 5px;
     background-color: rgba(255,255,255,0.7);
 
     grid-column: 4/5;
     cursor: pointer;
-    box-shadow: 2px 2px 2px rgba(20,20,20, 0.8);
+    box-shadow: 2px 2px 2px rgba(200,200,200, .8);
+}
+
+
+/* medium */
+@media(max-width: 1200px){
+    .create-page h1{
+        grid-column: 4/10;
+    }
+
+    .container .addNewPage{
+        grid-column: 4/10;
+    }
+
+    .container .pageSubmit{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+        margin-bottom: 100px;
+    }
+
+    .pageDropdown{
+        grid-column: 1/5;
+        margin-bottom: 0px;
+    }
+
+    .pageSubmit button{
+        grid-column: 5/7;
+    }
+}
+
+/* mobile */
+@media (max-width: 960px){
+    .title{
+        grid-column: 2/12;
+    }
+
+    .title p{
+        width: 100%;
+    }
+
+    .container .pageSubmit{
+        grid-column: 2/12;
+    }
+
+    .create-page h1{
+        grid-column: 2/12;
+        justify-self: center;
+    }
+
+    .container .addNewPage{
+        grid-column: 2/12;
+    }
 }

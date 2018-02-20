@@ -31,3 +31,23 @@ img{
     grid-column: 1/4;
     width: 100%;
 }
+
+.spacer{
+    height: 100px;
+}
+
+h1{
+    font-size: 3em;    
+}
+
+@media (max-width: 960px){
+
+   .gridContainer{
+       grid-column: 2/12;
+   } 
+
+   img{
+    grid-column: 1/6;
+   }
+
+}

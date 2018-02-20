@@ -72,6 +72,7 @@ class Rules extends Component {
                 <p>If you don't follow the rules, your content will be removed</p>
                 <img alt="pointy head meme guy" src={require('../img/roll safe.JPG')}></img>   
                 {this.state.list.map(rule => <ReactMarkdown>{rule.text}</ReactMarkdown>)}
+                <div class="spacer"></div>
             </div>
         )       
     }
