@@ -61,6 +61,10 @@
 /* mobile */
 
 @media (max-width: 960px){
+    .paragraphInputForm{
+        grid-column: 1/13;
+    }
+    
     .paragraphInput{
         grid-column: 1/7;
     }
