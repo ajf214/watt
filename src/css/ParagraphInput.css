@@ -19,7 +19,7 @@
 }
 
 .paragraphInput::placeholder{
-    color: rgb(214, 214, 214);
+    color: #AAA;
     padding-left: 5px;
 }
 
