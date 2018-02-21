@@ -115,7 +115,7 @@ class PageSelect extends Component{
                             } 
                         </select>
                         <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
-                    </div>g
+                    </div>
                 </div>
             </div>
             <div className="create-page">
