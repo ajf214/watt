@@ -1,0 +1,48 @@
+.nav-container{
+    grid-column: 1/13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FFF;
+    position: sticky;
+    top: 0px;
+}
+
+.nav-container .buttons{
+    grid-column: 3/9;
+}
+
+.nav-container .buttons a{
+    padding-right: 40px;
+}
+
+.home{
+    font-size: 1.4em;
+    /*padding-left: 20px;*/
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    /* grid-column-start: 3; */
+}
+
+.rules{
+    /* grid-column-start: 4; */
+    font-size: 1.1em;
+    color: #000;
+    text-decoration: none;
+}
+
+.about{
+    /* grid-column-start: 4; */
+    font-size: 1.1em;
+    color: #000;
+    text-decoration: none;
+}
+
+/* mobile */
+@media (max-width: 960px){
+    .nav-container .buttons{
+        grid-column: 2/12;
+    }
+}

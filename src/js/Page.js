@@ -3,6 +3,7 @@ import fire from './fire'
 import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
 import '../css/Page.css'
+import NavBar from './Nav.js'
 
 var paragraphRef
 
@@ -136,33 +137,29 @@ class Page extends Component{
     renderParagraph(paragraph){
         if(!paragraph.edit){
             return(
-                <div>
-                    <Paragraph 
-                        parentFilter={this.state.filterValue} 
-                        key={paragraph.id}
-                        id={paragraph.id} 
-                        text={paragraph.text} 
-                        order={paragraph.order} 
-                        filter={paragraph.filter}
-                        edit={this.startEdit.bind(this)}
-                        delete={this.deleteParagraph.bind(this)}>
-                    </Paragraph>
-                </div>
+                <Paragraph 
+                    parentFilter={this.state.filterValue} 
+                    key={paragraph.id}
+                    id={paragraph.id} 
+                    text={paragraph.text} 
+                    order={paragraph.order} 
+                    filter={paragraph.filter}
+                    edit={this.startEdit.bind(this)}
+                    delete={this.deleteParagraph.bind(this)}>
+                </Paragraph>
             );
         }
         else{
             return(
-                <div>
-                    <ParagraphInput
-                        special={"custom name"}
-                        filter={paragraph.filter} 
-                        text={paragraph.text} 
-                        order={paragraph.order}
-                        key={paragraph.id}
-                        id={paragraph.id}
-                        addParagraph={this.addParagraph.bind(this)}>
-                    </ParagraphInput>
-                </div>
+                <ParagraphInput
+                    special={"custom name"}
+                    filter={paragraph.filter} 
+                    text={paragraph.text} 
+                    order={paragraph.order}
+                    key={paragraph.id}
+                    id={paragraph.id}
+                    addParagraph={this.addParagraph.bind(this)}>
+                </ParagraphInput>
             );
         }
     }
@@ -199,41 +196,45 @@ class Page extends Component{
     render(){
         return(
             <div className = "pageContainer">
-                <div className="header">
-                    <h1>{this.state.pageTitle}</h1>
-                </div>
-                {/* "ideology" input*/}
-                <form id="ideologyFilter">
-                    <label className="ideologyLabel"> Choose a filter: 
-                        <select className="ideologyDropdown" value = {this.state.filterValue} onChange = {this.handleChange.bind(this)}>
-                            {/* need to  eliminate duplicates*/}
-                            <option key="1234" value="None">Filter ideology</option>
-                            {
-                                this.state.paragraphs.map(paragraph => paragraph.filter !== "None" ? <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option> : null)
-                            }
-                        </select>
-                    </label>
-                </form>
+                <NavBar></NavBar>
+                <div className="article">
+                    <div className="header">
+                            <h1>{this.state.pageTitle}</h1>
+                    </div>
 
-                {
-                    /* this is where an "added" filter should go with a description */
-                }
+                    {/* "ideology" input*/}
+                    <form id="ideologyFilter">
+                        <label className="ideologyLabel"> Choose a filter: 
+                            <select className="ideologyDropdown" value = {this.state.filterValue} onChange = {this.handleChange.bind(this)}>
+                                {/* need to  eliminate duplicates*/}
+                                <option key="1234" value="None">Filter ideology</option>
+                                {
+                                    this.state.paragraphs.map(paragraph => paragraph.filter !== "None" ? <option key={paragraph.id} value={paragraph.filter}>{paragraph.filter}</option> : null)
+                                }
+                            </select>
+                        </label>
+                    </form>
 
-
-                {
-                    this.state.paragraphs.map(paragraph => this.renderParagraph(paragraph))
-                }
-
-                <div className="spacer"></div>
-
-                <ParagraphInput 
-                    filter="" 
-                    text="" 
-                    order={this.state.maxOrder}
-                    key="1234" 
-                    addParagraph={this.addParagraph.bind(this)}>
-                </ParagraphInput>       
                 
+                    {
+                        /* this is where an "added" filter should go with a description */
+                    }
+
+
+                    {
+                        this.state.paragraphs.map(paragraph => this.renderParagraph(paragraph))
+                    }
+
+                    <div className="spacer"></div>
+
+                    <ParagraphInput 
+                        filter="" 
+                        text="" 
+                        order={this.state.maxOrder}
+                        key="1234" 
+                        addParagraph={this.addParagraph.bind(this)}>
+                    </ParagraphInput>       
+                </div>
             </div>    
         );
     }

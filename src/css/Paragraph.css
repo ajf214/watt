@@ -1,8 +1,20 @@
 .filter{
-    background-color: #ffffff4d
+    border-left: rgba(255,255,255,0.5) 5px solid;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.filter-tag{
+    margin-top: 0px;
+    background-color: rgba(255,255,255,0.5);
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-self: left;
 }
 
 .pageParagraph{
+    grid-column: 3/10;
     display: grid;
     grid-template-columns: repeat(6, 1fr) repeat(3, 100px);
     grid-template-rows: 1fr;
@@ -15,6 +27,19 @@
     grid-column: 1/7;
     grid-row: 0/1;
     display: inline;
+}
+
+blockquote{
+    border-left: #DDD 5px solid;
+}
+
+blockquote p{
+    padding-left: 10px;
+}
+
+blockquote strong{
+    color: #DDD;
+    size: 1.1em;
 }
 
 .editButton{
@@ -72,6 +97,11 @@
 /* mobile */
 @media (max-width: 960px){
 
+    .pageContainer .pageParagraph{
+        grid-column: 1/13;
+        margin-top: 0px;
+    }
+    
     .pageParagraph{
         grid-template-columns: repeat(6, 1fr);
     }
@@ -97,6 +127,10 @@
 
     .order{
         grid-column: 5/7;
+    }
+
+    .filter{
+        margin-top: 20px;
     }
 
 }

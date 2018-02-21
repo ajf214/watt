@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import fire from './fire.js'
 import '../css/PageSelect.css'
 import { Link } from 'react-router-dom'
+import NavBar from './Nav.js'
 const ReactMarkdown = require('react-markdown')
 
 const pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
@@ -99,19 +100,23 @@ class PageSelect extends Component{
     render(){
         return(
         <div className = "container">
-            <div className = "title">
-                <h1>What are they thinking?</h1>
-                <ReactMarkdown>{"Too often, we disagree with someone's opinion without first considering *why* &nbsp;they have that opinion in the first place."}</ReactMarkdown>
-                <ReactMarkdown>{"*What Are They Thinking* helps you understand the ideology of those you disagree with so you can have better conversations."}</ReactMarkdown>
-            </div>
-            <div className = "pageSubmit">
-                <select className="pageDropdown" value={this.state.value} onChange={this.handleChange.bind(this)}>
-                    <option value="Select a page">Select a page</option>
-                    {
-                        this.state.pages.map(page => <option value={page.id} key={page.id}>{page.name}</option>)
-                    } 
-                </select>
-                <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
+            <NavBar></NavBar>
+            <div className = "cover">
+                <div className = "title">
+                    <h1>What are they thinking?</h1>
+                    <ReactMarkdown className="page-paragraph">{"Too often, we disagree with someone's opinion without first considering *why* &nbsp;they have that opinion in the first place."}</ReactMarkdown>
+                    <ReactMarkdown className="page-paragraph">{"*What Are They Thinking* helps you understand the ideology of those you disagree with so you can have better conversations."}</ReactMarkdown>
+                
+                    <div className = "pageSubmit">
+                        <select className="pageDropdown" value={this.state.value} onChange={this.handleChange.bind(this)}>
+                            <option value="Select a page">Select a page</option>
+                            {
+                                this.state.pages.map(page => <option value={page.id} key={page.id}>{page.name}</option>)
+                            } 
+                        </select>
+                        <button onClick={this.navigateToPage.bind(this)} value="View this page">View page</button>
+                    </div>
+                </div>
             </div>
             <div class="create-page">
                 <h1>Want to contribute? <Link to="/rules">Read the rules first</Link></h1>

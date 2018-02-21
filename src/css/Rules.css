@@ -3,9 +3,9 @@
 }
 
 .gridContainer{
-    grid-column: 4/10;
+    grid-column: 1/13;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
 }
 
 .gridContainer p{
@@ -13,8 +13,12 @@
     grid-column: 1/7;
 }
 
-.gridContainer div{
+.gridContainer div.rule{
     grid-column: 1/7;
+}
+
+.ruleContainer{
+    grid-column: 5/10;
 }
 
 h1, h2, h3, h4, h5{
@@ -27,9 +31,13 @@ h2{
     grid-column: 1/7;
 }
 
-img{
-    grid-column: 1/4;
-    width: 100%;
+.caption{
+    margin-top: 100px;
+}
+
+img{ 
+    width: 50%;
+    margin-bottom: 100px;
 }
 
 .spacer{
@@ -41,13 +49,13 @@ h1{
 }
 
 @media (max-width: 960px){
-
-   .gridContainer{
-       grid-column: 2/12;
-   } 
-
-   img{
-    grid-column: 1/6;
+    .ruleContainer{
+        grid-column: 2/12;
+    }
+   
+    img{
+        width: 80%;
+        margin: auto;
    }
 
 }

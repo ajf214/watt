@@ -3,6 +3,7 @@ import PageSelect from './js/PageSelect.js';
 import Page from './js/Page';
 import './css/App.css';
 import Rules from './js/Rules';
+import About from './js/About';
 import { BrowserRouter, Route} from 'react-router-dom'
 
 
@@ -31,6 +32,7 @@ class App extends Component{
                     <Route exact path = "/" component={PageSelect} />
                     <Route path="/page/:pageTitle" component={Page} />
                     <Route path="/rules/" component={Rules} />
+                    <Route path="/about" component={About} />
                 </div>
             </BrowserRouter>
         )

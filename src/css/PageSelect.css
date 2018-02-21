@@ -4,10 +4,20 @@
     grid-template-columns: repeat(12, 1fr);
 }
 
+.cover{
+    height: 75vh;
+    grid-column: 4/10;
+    display: grid; 
+    grid-template-columns: repeat(6, 1fr);
+}
+
 .title{
     color: #FFF;
-    grid-column: 4/10;
+    grid-column: 1/7;
     background-color: #643472;
+
+    align-self: center;
+
 }
 
 .title h1{
@@ -27,7 +37,7 @@
     grid-column: 4/10;
 }
 
-.container a{
+.create-page a{
     grid-column: 1/7;
     justify-self: center;
     margin-bottom: 20px;
@@ -128,7 +138,7 @@
 @media(min-width: 2000px){
 
     .title{
-        grid-column: 5/9;
+        /* grid-column: 5/9; */
     }
 
     .create-page h1{
@@ -140,6 +150,10 @@
     .container .addNewPage{
         width: 80%;
         margin: auto;
+    }
+
+    .title .page-paragraph{
+        grid-column: 3/5;
     }
 
 }
@@ -174,12 +188,20 @@
 
 /* mobile */
 @media (max-width: 960px){
-    .title{
+    
+    .cover{
         grid-column: 2/12;
+    }
+
+    .title{
+        align-self: center;
+        justify-self: center;
+        grid-column: 1/11;
     }
 
     .title p{
         width: 100%;
+        padding: 10px 0px;
     }
 
     .container .pageSubmit{

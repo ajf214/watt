@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import fire from './fire'
 import '../css/Rules.css'
+import NavBar from './Nav.js'
 const ReactMarkdown = require('react-markdown')
 
 const db = fire.database().ref('rules');
@@ -47,7 +48,7 @@ class Rules extends Component {
         let masterRuleList = [
             {
                 order: "0",
-                text: "## Tell your story, not others'\n Do your best to only write and edit articles that represent you and your ideology.  This is an inherently subjective project, so it’s best to limit yourself to the ideas, morals and philosophies you understand best because you believe in them.\n\nThere are no right answers to exactly how you see the world — just do your best. The writing, content and sourcing will all benefit from it."
+                text: "## Tell your story, not others'\n Do your best to only write and edit articles that represent you and your perspective on issues.  This is an inherently subjective project, so it’s best to limit yourself to the ideas, morals and philosophies you understand best because you believe in them.\n\nThere are no right answers to exactly how you see the world — just do your best. The writing, content and sourcing will all benefit from it."
             },
             {
                 order: "1",
@@ -67,10 +68,13 @@ class Rules extends Component {
     render(){
         return( 
             <div className="gridContainer">
-                <h1>The Rules</h1>
-                <p>If you don't follow the rules, your content will be removed</p>
-                <img alt="pointy head meme guy" src={require('../img/roll safe.JPG')}></img>   
-                {this.state.list.map(rule => <ReactMarkdown>{rule.text}</ReactMarkdown>)}
+                <NavBar></NavBar>
+                <div className="ruleContainer">
+                    <h1>The Rules</h1>
+                    {this.state.list.map(rule => <ReactMarkdown className="rule">{rule.text}</ReactMarkdown>)}
+                    <p className="caption">Can't break the rules, if you only write your perspective</p>
+                    <img alt="pointy head meme guy" src={require('../img/roll safe.JPG')}></img>   
+                </div>
                 <div class="spacer"></div>
             </div>
         )       

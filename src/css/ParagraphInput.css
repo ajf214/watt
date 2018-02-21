@@ -1,13 +1,15 @@
 .paragraphInputForm{
+    grid-column: 3/10;
+
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 4fr repeat(3, 1fr);
     grid-gap: 10px;
     margin-bottom: 100px;
 }
 
 .paragraphInput{
     grid-column: 1/5;
+    height: 200px;
     resize: none;
     background-color: rgba(255, 255, 255, 0.089);
     color: #FFFFFF;
@@ -24,14 +26,14 @@
 }
 
 .orderInput{
-    grid-row: 3/4;
     grid-column: 1/3;
     padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .filterInput{
     padding-left: 5px;
-    grid-row: 3/4;
     grid-column: 3/5;
 }
 
@@ -46,7 +48,6 @@
 }
 
 .submit{
-    grid-row: 4/5;
     grid-column: 1/2;
     background-color: #FFF;
 
@@ -59,10 +60,17 @@
 }
 
 /* mobile */
+@media (max-width: 1200px){
+    .paragraphInputForm{
+        grid-column: 4/13;
+    }
+}
 
+
+/* mobile */
 @media (max-width: 960px){
     .paragraphInputForm{
-        grid-column: 1/13;
+        grid-column: 1/11;
     }
     
     .paragraphInput{

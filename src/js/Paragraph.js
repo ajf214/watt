@@ -76,6 +76,7 @@ class Paragraph extends Component{
                 console.log("rendered 'non-none' paragraph")
                 return(
                     <div className = {(this.state.pageFilter === this.state.filter) ? "filter pageParagraph" : "none pageParagraph"} >                        
+                        {(this.state.pageFilter === this.state.filter) ? <p className="filter-tag">{this.state.filter}</p> : ""} {/*<p className="filter-tag">{this.state.filter}</p>*/}
                         <p className="order">{this.props.order}</p>
                         <ReactMarkdown source={this.props.text} className="sectionContent"/>
                         <button className="editButton" onClick={() => this.startEdit()}>Edit Section</button>

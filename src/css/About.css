@@ -1,0 +1,21 @@
+h1{
+    grid-column: 4/10;
+    align-self: center;
+}
+
+p{
+    grid-column: 4/10;
+    color: #FFF;
+}
+
+
+/* mobile */
+@media (max-width: 960px){
+    h1{
+        grid-column: 2/12;
+    }
+
+    p{
+        grid-column: 2/12;
+    }
+}
