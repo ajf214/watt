@@ -3,8 +3,11 @@ import fire from './fire.js'
 import '../css/PageSelect.css'
 import { Link } from 'react-router-dom'
 import NavBar from './Nav.js'
-const ReactMarkdown = require('react-markdown')
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-114547651-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
+const ReactMarkdown = require('react-markdown')
 const pageRef = fire.database().ref('pages').orderByChild('name').limitToLast(100);
 
 class PageSelect extends Component{

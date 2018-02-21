@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import fire from './fire'
 import '../css/Rules.css'
 import NavBar from './Nav.js'
+
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-114547651-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 const ReactMarkdown = require('react-markdown')
 
 const db = fire.database().ref('rules');
@@ -46,6 +51,10 @@ class Rules extends Component {
         db.remove()
         
         let masterRuleList = [
+            {
+                order: "-1",
+                text: "# TL;DR\n\nWhen contributing content, follow these three rules or your content will be removed.\n\n1. Write only about your perspective\n2. Providing your reasoning for your perspective\n3. Provide resources to help get a deeper understanding of that perspective"
+            },
             {
                 order: "0",
                 text: "## Tell your story, not others'\n Do your best to only write and edit articles that represent you and your perspective on issues.  This is an inherently subjective project, so it’s best to limit yourself to the ideas, morals and philosophies you understand best because you believe in them.\n\nThere are no right answers to exactly how you see the world — just do your best. The writing, content and sourcing will all benefit from it."

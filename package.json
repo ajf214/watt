@@ -11,6 +11,7 @@
     "react-autocomplete": "^1.7.2",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^16.2.0",
+    "react-ga": "^2.4.1",
     "react-markdown": "^3.1.5",
     "react-navigation": "^1.0.0-beta.27",
     "react-router": "^4.2.0",

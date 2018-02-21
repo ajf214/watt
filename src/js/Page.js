@@ -5,6 +5,10 @@ import ParagraphInput from './ParagraphInput.js'
 import '../css/Page.css'
 import NavBar from './Nav.js'
 
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-114547651-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 var paragraphRef
 
 class Page extends Component{
