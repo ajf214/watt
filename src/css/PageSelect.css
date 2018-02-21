@@ -90,7 +90,7 @@
     color:#643472;
 }
 
-.create-page h1{
+.create-page .form-title{
     color: #000;
     grid-column: 5/9;
     margin-top: 0px;
@@ -98,12 +98,15 @@
 }
 
 
-.addNewPage h3{
+.addNewPage h1{
     grid-column: 1/5;
     color: #643472;
     margin-bottom: 5px;
     text-align: left;
     padding-left: 5px;
+    font-size: 2.25em;
+    color: #333;
+    margin-top: 100px;
 }
 
 .addNewPage input.pageInput{
@@ -141,7 +144,7 @@
         /* grid-column: 5/9; */
     }
 
-    .create-page h1{
+    .create-page .form-title{
         width: 80%;
         margin: auto;
         margin-bottom: 40px;
@@ -161,7 +164,7 @@
 
 /* medium */
 @media(max-width: 1200px){
-    .create-page h1{
+    .create-page .form-title{
         grid-column: 4/10;
     }
 
@@ -210,7 +213,7 @@
         padding-right: 0px;
     }
 
-    .create-page h1{
+    .create-page .form-title{
         grid-column: 2/12;
         justify-self: center;
     }
