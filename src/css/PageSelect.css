@@ -122,7 +122,7 @@
 }
 
 .addNewPage input.pageInput::placeholder{
-    color: #444;
+    color: #999;
 }
 
 .addNewPage input.submitButton{
@@ -222,4 +222,14 @@
     .container .addNewPage{
         grid-column: 2/12;
     }
+
+    .container .addNewPage .pageInput{
+        grid-column: 1/5;
+    }
+
+    .container .addNewPage .submitButton{
+        grid-column: 1/3;
+    }
+
+
 }

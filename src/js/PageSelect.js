@@ -125,9 +125,9 @@ class PageSelect extends Component{
                 <h1 className="form-title">Want to contribute? <Link to="/rules">Read the rules first</Link></h1>
                 
                 <form className="addNewPage" onSubmit = {this.addPage.bind(this)}>
-                    <h1>Now add a page</h1>
-                    <input className="pageInput" type="text" placeholder="name of new page" ref={el => this.newPageInput=el} />
-                    <input className="submitButton" type="submit" value="Create"/>
+                    <h1>Now add your perspective</h1>
+                    <input className="pageInput" type="text" placeholder="How [your perspective] view(s) [an issue]" ref={el => this.newPageInput=el} />
+                    <input className="submitButton" type="submit" value="Create new page"/>
                 </form> 
             </div>
         </div>

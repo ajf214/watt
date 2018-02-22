@@ -42,6 +42,7 @@
     grid-column: 1/3;
     padding-right: 50px;
     padding-top: 67px;
+    display: none;
 }
 
 .ideologyLabel{
