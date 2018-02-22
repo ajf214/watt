@@ -6,6 +6,7 @@
 
 .cover{
     height: 75vh;
+    min-height: 600px;
     grid-column: 4/10;
     display: grid; 
     grid-template-columns: repeat(6, 1fr);
