@@ -96,3 +96,9 @@
     }
 }
 
+@media (max-width: 600px){
+    .orderLabelDescription{
+        grid-column: 1/7;    
+    }
+}
+
