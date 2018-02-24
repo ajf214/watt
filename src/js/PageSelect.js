@@ -78,7 +78,7 @@ class PageSelect extends Component{
         if(!this.newPageInput.value.match(regex)){
             this.errorMessage.value="ERROR"
             this.setState({
-                errorText: "You must match the pattern 'How [perspective] view(s) [an issue]'"
+                errorText: "You must match the pattern 'How [perspective] view(s) [an issue]'. Look at existing pages for examples"
             })
             return
         }
@@ -154,8 +154,8 @@ class PageSelect extends Component{
                 
                 <form className="addNewPage" onSubmit = {this.addPage.bind(this)}>
                     <h1>Now add your perspective</h1>
-                    <input className="pageInput" type="text" placeholder="How [your perspective] view(s) [an issue]" ref={el => this.newPageInput=el} />
                     <label className="errorMessage" ref={el => this.errorMessage = el}>{this.state.errorText}</label>
+                    <input className="pageInput" type="text" placeholder="How [your perspective] view(s) [an issue]" ref={el => this.newPageInput=el} />
                     <input className="submitButton" type="submit" value="Create new page"/>
                 </form> 
             </div>
