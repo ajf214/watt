@@ -125,6 +125,15 @@
     color: #999;
 }
 
+.addNewPage .errorMessage{
+    /*display: none;*/
+    margin-left: 5px;
+    font-size: 0.9em;
+    color: rgb(110, 9, 9);
+    font-weight: 400;
+    grid-column: 1/5;
+}
+
 .addNewPage input.submitButton{
     font-size: 1em;
     font-family: 'Open Sans';
@@ -140,6 +149,8 @@
 
 /* xtra-large */
 @media(min-width: 2000px){
+
+
 
     .title{
         /* grid-column: 5/9; */

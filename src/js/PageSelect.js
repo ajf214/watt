@@ -16,7 +16,8 @@ class PageSelect extends Component{
         this.state = {
             //the list of articles
             pages: [],
-            value: "Select a page"
+            value: "Select a page",
+            errorText: ""
         }
     }
 
@@ -54,10 +55,34 @@ class PageSelect extends Component{
         this.props.history.push("/page/" + this.state.value);
     }
     
+    
+    //add new page to pages database 
     addPage(p){
-        //add new page to pages database
+        
         p.preventDefault();
 
+        //check the page input value
+        if(this.newPageInput.value === ""){
+            //output some kind of error
+            this.errorMessage.value="ERROR"
+            this.setState({
+                errorText: "You can't create a blank page"
+            })
+            return
+        }
+
+        //matches 'How [perspective] view(s) [an issue]'
+        //need special '/' character to create a regex instead of string
+        let regex = /How\s.*\sviews?\s.*/
+
+        if(!this.newPageInput.value.match(regex)){
+            this.errorMessage.value="ERROR"
+            this.setState({
+                errorText: "You must match the pattern 'How [perspective] view(s) [an issue]'"
+            })
+            return
+        }
+        
         let newPage = {
             name: this.newPageInput.value
         }
@@ -94,6 +119,9 @@ class PageSelect extends Component{
         
         //clear input
         this.newPageInput.value = '';
+
+        this.props.history.push("/page/" + newPageKey.key);
+        //should be in "edit" mode since the page was just create
     }
 
     handleChange(event) {
@@ -127,6 +155,7 @@ class PageSelect extends Component{
                 <form className="addNewPage" onSubmit = {this.addPage.bind(this)}>
                     <h1>Now add your perspective</h1>
                     <input className="pageInput" type="text" placeholder="How [your perspective] view(s) [an issue]" ref={el => this.newPageInput=el} />
+                    <label className="errorMessage" ref={el => this.errorMessage = el}>{this.state.errorText}</label>
                     <input className="submitButton" type="submit" value="Create new page"/>
                 </form> 
             </div>
