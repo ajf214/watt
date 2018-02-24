@@ -73,7 +73,7 @@ class PageSelect extends Component{
 
         //matches 'How [perspective] view(s) [an issue]'
         //need special '/' character to create a regex instead of string
-        let regex = /How\s.*\sviews?\s.*/
+        let regex = /How\s(.*)\sviews?\s.*/
 
         if(!this.newPageInput.value.match(regex)){
             this.errorMessage.value="ERROR"
@@ -93,7 +93,12 @@ class PageSelect extends Component{
         //push some stubs into the page
         let stub1 = "## Some background\n\nWrite some stuff..."
         let stub2 = "## The Players\n\nWrite some stuff..."
-        let stub3 = "## Keep reading\n\nShare some links to get a better understanding of this perspective"
+
+        //extracting "perspective" w/ regex and creating that section
+        let perspective = this.newPageInput.value.match(regex)[1]
+        let stub3 = `## The ${perspective} perspective\n\nHow does this perspective view this issue?`
+
+        let stub4 = "## Keep reading\n\nShare some links to get a better understanding of this perspective"
 
         let p1 = {
             text: stub1,
@@ -113,9 +118,16 @@ class PageSelect extends Component{
             order: "2"
         }
 
+        let p4 = {
+            text: stub4,
+            filter: "None",
+            order: "3"
+        }
+
         fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p1);
         fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p2);
         fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p3);
+        fire.database().ref('pages/' + newPageKey.key + '/paragraphs').push(p4);
         
         //clear input
         this.newPageInput.value = '';
