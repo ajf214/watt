@@ -94,5 +94,9 @@
     .filterInput{
         grid-column: 3/6;
     }
+
+    .orderLabelDescription{
+        grid-column: 1/7;
+    }
 }
 
