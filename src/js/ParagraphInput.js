@@ -50,7 +50,7 @@ class ParagraphInput extends Component{
             <h3>Add something</h3>
             <textarea className="paragraphInput" defaultValue={this.props.text} placeholder={`Add your perspective. Markdown supported \n\nEx: \n## This is a header \n**this is bold**`} ref={el => this.paragraphInput=el}/>
             <label for="order" className="orderLabel">Display order</label>
-            <label className="orderLabelDescription">Determines the display order of sections. You can view the order in faint gray text in the top right corner of a section</label>
+            <label className="orderLabelDescription">Determines the display order of sections. You can view the order in faint gray text in the top right corner of a Section</label>
             <label for="filter" className="filterLabel">Filter:</label>
             <input id="order" type="order" className="orderInput" defaultValue={this.state.maxOrder} placeholder="display order" ref={el => this.orderInput=el}/>
             <input id="filter" type="text" className="filterInput" defaultValue={this.props.filter==="" ? "None" : this.props.filter} placeholder="filter" ref={el => this.filterInput=el}/>
