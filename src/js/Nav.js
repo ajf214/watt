@@ -46,15 +46,20 @@ class NavBar extends Component{
         return(
             <div className="nav-container">
                 <div className="buttons">
-                    <Link className="home" to="/">WATT</Link>
-                    <Link className="rules" to="/rules">The Rules</Link>
-                    <Link className="about" to="/about">About</Link>
+                    
+                    <div className="mainNav">
+                        <Link className="home" to="/">WATT</Link>
+                        <Link className="rules" to="/rules">The Rules</Link>
+                        <Link className="about" to="/about">About</Link>
+                    </div>
 
-                    <Link className={this.state.loggedIn ? "loginLink hidden" : "loginLink"} to="/login">Log in</Link>
-                    <Link className={this.state.loggedIn ? "signUp hidden" : "signUp"} to="/login">Sign up</Link>
+                    <div className="authContainer">
+                        <Link className={this.state.loggedIn ? "loginLink hidden" : "loginLink"} to="/login/signin">Log in</Link>
+                        <Link className={this.state.loggedIn ? "signUp hidden" : "signUp"} to="/login/signup">Sign up</Link>
 
-                    <Link className={this.state.loggedIn ? "profile" : "profile hidden"} to="/users/<placeholderForUsernameOrID?">{`Welcome, ${this.state.username}`}</Link>
-                    <button className={this.state.loggedIn ? "signOut" : "hidden"} onClick={this.signOut.bind(this)}>Sign out</button>
+                        <Link className={this.state.loggedIn ? "profile" : "profile hidden"} to="/users/<placeholderForUsernameOrID?">{`Welcome, ${this.state.username}`}</Link>
+                        <button className={this.state.loggedIn ? "signOut" : "hidden"} onClick={this.signOut.bind(this)}>Sign out</button>
+                    </div>
                 </div>
             </div>
         )

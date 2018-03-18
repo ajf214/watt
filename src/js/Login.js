@@ -6,7 +6,15 @@ import '../css/login.css'
 const auth = fire.auth();
 
 class Login extends Component{
-
+    
+    /*
+    constructor(props){
+        super(props)
+        this.state = {
+            action: this.props.match.params.action
+        }
+    }
+    */
 
     logInOrSignUp(e){
         e.preventDefault()
@@ -17,19 +25,34 @@ class Login extends Component{
         //let passwordConfirm = this.confirmPasswordInput.value;
         let username = this.usernameInput.value;
 
-        //make sure email is good
+        const params = this.props.match.params;
 
-        //make sure passwords are match and are good
-        
-        this.signUp(email, pass, username)
+        if(params.action === "signup"){
+            //make sure email is good
 
-        //route them somewhere, preferably where I just came from, but now logged in!
+            //make sure passwords are match and are good
+            
+            this.signUp(email, pass, username)
+
+            //route them somewhere, preferably where I just came from, but now logged in!
+        }
+
+        if(params.action === "signin"){
+            this.login(email, pass)
+        }
         
     }
 
     login(email, pass){
         const promise = auth.signInWithEmailAndPassword(email,pass);
-        promise.catch(e => console.log(e.message));
+        var newThis = this;
+
+        promise
+            .then(function(user){
+                console.log(user)
+                newThis.props.history.push("/")
+            })
+            .catch(e => console.log(e.message));
     }
 
     signUp(email, pass, username){
@@ -62,6 +85,8 @@ class Login extends Component{
    
     render(){
         //let labelClass = "loginLabel"
+
+        let action = this.props.match.params.action
         
         return(
             <div className="loginContainer">
@@ -70,14 +95,14 @@ class Login extends Component{
                     <label>Email</label>
                     <input id="email" type="text" placeholder="hello@watt.com" ref={el => this.emailInput=el}/>
                     
-                    <label>Username</label>
-                    <input id="username" type="text" placeholder="username" ref={el => this.usernameInput=el}/>
+                    <label className={action==="signin" ? "hide" : ""}>Username</label>
+                    <input id="username" className={action==="signin" ? "hide" : ""} type="text" placeholder="username" ref={el => this.usernameInput=el}/>
 
                     <label>Password</label>
                     <input id="password" type="password" placeholder="password" ref={el => this.passwordInput=el}/>
                     
-                    <label>Confirm Password</label>
-                    <input id="confirmPassword" type="password" placeholder="confirm password" ref={el => this.confirmPasswordInput=el}/>
+                    <label className={action==="signin" ? "hide" : ""}>Confirm Password</label>
+                    <input className={action==="signin" ? "hide" : ""} id="confirmPassword" type="password" placeholder="confirm password" ref={el => this.confirmPasswordInput=el}/>
 
                     <input type="submit" className="submit" value="Sign Up"/>
                 </form>

@@ -10,7 +10,19 @@
 }
 
 .nav-container .buttons{
-    grid-column: 3/9;
+    grid-column: 3/11;
+
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+}
+
+.nav-container .buttons .mainNav{
+    grid-column: 1/5;
+}
+
+.authContainer{
+    grid-column: 7/9;
+    justify-self: right;
 }
 
 .nav-container .buttons a{
@@ -44,6 +56,10 @@
     font-size: 1.1em;
     color: #000;
     text-decoration: none;
+}
+
+.signOut{
+    padding-right: none;
 }
 
 .hidden{

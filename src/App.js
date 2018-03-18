@@ -34,7 +34,7 @@ class App extends Component{
                     <Route path="/page/:pageTitle" component={Page} />
                     <Route path="/rules/" component={Rules} />
                     <Route path="/about" component={About} />
-                    <Route path="/login" component={Login} />
+                    <Route path="/login/:action" component={Login} />
                 </div>
             </BrowserRouter>
         )
