@@ -1,0 +1,24 @@
+.pageV2Container{
+    grid-column: 1/13;
+
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+
+.pageTitle{
+    grid-column: 3/11;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.author{
+    grid-column: 3/6;
+    margin: 0;
+    margin-bottom: 100px;
+}
+
+.pageText{
+    grid-column: 3/10;
+}
+
+

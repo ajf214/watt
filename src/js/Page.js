@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import fire from './fire'
+import NavBar from './Nav.js'
+
 import Paragraph from './Paragraph.js'
 import ParagraphInput from './ParagraphInput.js'
 import '../css/Page.css'
-import NavBar from './Nav.js'
+
 
 import ReactGA from 'react-ga'
 ReactGA.initialize('UA-114547651-1');
