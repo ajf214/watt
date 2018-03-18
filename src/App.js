@@ -4,6 +4,7 @@ import Page from './js/Page';
 import './css/App.css';
 import Rules from './js/Rules';
 import About from './js/About';
+import Login from './js/Login';
 import { BrowserRouter, Route} from 'react-router-dom'
 
 
@@ -33,6 +34,7 @@ class App extends Component{
                     <Route path="/page/:pageTitle" component={Page} />
                     <Route path="/rules/" component={Rules} />
                     <Route path="/about" component={About} />
+                    <Route path="/login" component={Login} />
                 </div>
             </BrowserRouter>
         )

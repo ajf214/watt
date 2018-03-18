@@ -40,6 +40,16 @@
     text-decoration: none;
 }
 
+.loginLink , .signUp, .profile{
+    font-size: 1.1em;
+    color: #000;
+    text-decoration: none;
+}
+
+.hidden{
+    display: none; 
+}
+
 /* mobile */
 @media (max-width: 960px){
     .nav-container .buttons{

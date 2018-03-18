@@ -91,10 +91,11 @@ class PageSelect extends Component{
         let newPageKey = fire.database().ref('pages').push(newPage);
         
         //push some stubs into the page
-        let stub1 = "## Some background\n\nWrite some stuff..."
-        let stub2 = "## The Players\n\nWrite some stuff..."
+        let stub1 = "## Where I'm coming from\n\nWrite some stuff..."
+        let stub2 = "## How I see this issue\n\nWrite some stuff..."
 
         //extracting "perspective" w/ regex and creating that section
+        //NEED TO CHANGE THIS TO THE ISSUE, NOT PERSPECTIVE
         let perspective = this.newPageInput.value.match(regex)[1]
         let stub3 = `## The ${perspective} perspective\n\nHow does this perspective view this issue?`
 
