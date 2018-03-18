@@ -32,7 +32,7 @@
 .home{
     font-size: 1.4em;
     /*padding-left: 20px;*/
-    color: #000;
+    color: #643472;
     text-decoration: none;
     font-weight: 500;
     /* grid-column-start: 3; */
@@ -52,19 +52,34 @@
     text-decoration: none;
 }
 
-.loginLink , .signUp, .profile{
+.loginLink , .signUp, .profile, .addPage{
     font-size: 1.1em;
     color: #000;
     text-decoration: none;
+}
+
+.nav-container .buttons a.signUp{
+    font-weight: 500;
+    color: #643472;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border: 1px solid #643472;
 }
 
 .signOut{
     padding-right: none;
 }
 
+.addPage{
+    font-weight: 500;
+    color: #643472;
+}
+
 .hidden{
     display: none; 
 }
+
+
 
 /* mobile */
 @media (max-width: 960px){

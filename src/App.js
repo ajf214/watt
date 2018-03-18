@@ -5,6 +5,7 @@ import './css/App.css';
 import Rules from './js/Rules';
 import About from './js/About';
 import Login from './js/Login';
+import CreateOrEditPage from './js/CreateOrEditPage';
 import { BrowserRouter, Route} from 'react-router-dom'
 
 
@@ -35,6 +36,8 @@ class App extends Component{
                     <Route path="/rules/" component={Rules} />
                     <Route path="/about" component={About} />
                     <Route path="/login/:action" component={Login} />
+                    <Route path="/new" component={CreateOrEditPage} />
+                    <Route path="/edit/:pageId" component={CreateOrEditPage} />
                 </div>
             </BrowserRouter>
         )
