@@ -1,3 +1,10 @@
+.aboutContainer{
+    grid-column: 1/13;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
 h1{
     grid-column: 4/10;
     align-self: center;

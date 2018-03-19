@@ -9,7 +9,7 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 const About = (props) => {
     return(
-        <div className="container">
+        <div className="aboutContainer">
             <NavBar></NavBar>
             <h1>"What are they thinking" is an anti-encyclopedia for political perspectives of current events.</h1>
             <p>It's also Alex's <a href="http://medium.com/thesis-blog" target="blank">Master's Thesis</a></p>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import fire from './fire'
 import NavBar from './Nav.js'
 import '../css/PageV2.css'
@@ -18,6 +19,8 @@ class PageV2 extends Component{
             pageTitle: "",
             pageText: "",
             author: "",
+            authorId: "",
+            userId: "",
             loading: true
         }
     }
@@ -29,7 +32,9 @@ class PageV2 extends Component{
                 this.setState({
                     pageTitle: `How a ${snapshot.val().perspective} sees ${snapshot.val().issue}`,
                     author: snapshot.val().author,
+                    authorId: snapshot.val().authorId,
                     pageText: snapshot.val().text,
+                    userId: fire.auth().currentUser.uid,
                     loading: false
                 })
             })
@@ -45,6 +50,10 @@ class PageV2 extends Component{
             return(
                 <div className="pageV2Container">
                     <NavBar></NavBar>
+
+                    {/* this link should only be visible if the uid of author matches the currently logged in user*/}                   
+                    <Link className={this.state.userId === this.state.authorId ? "editPage" : "hidden"} to={`/post/edit/${this.state.pageId}`}>Edit this page</Link>
+                    
                     <h1 className="pageTitle">{this.state.pageTitle}</h1>
                     <p className="author">{"@" + this.state.author}</p>
                     <ReactMarkdown source={this.state.pageText} className="pageText"/>

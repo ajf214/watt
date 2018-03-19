@@ -7,18 +7,31 @@
 
 .pageTitle{
     grid-column: 3/11;
-    margin-top: 100px;
+    margin-top: 0px;
     margin-bottom: 20px;
+}
+
+.editPage{
+    grid-column: 3/11;
+    margin-top: 100px;
 }
 
 .author{
     grid-column: 3/6;
     margin: 0;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
 }
 
 .pageText{
-    grid-column: 3/10;
+    grid-column: 3/7;
+}
+
+.pageText h2{
+    margin-top: 60px;
+}
+
+.hidden{
+    display: none;
 }
 
 

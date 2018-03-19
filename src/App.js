@@ -40,8 +40,8 @@ class App extends Component{
                     <Route path="/rules/" component={Rules} />
                     <Route path="/about" component={About} />
                     <Route path="/login/:action" component={Login} />
-                    <Route path="/new" component={CreateOrEditPage} />
-                    <Route path="/edit/:pageId" component={CreateOrEditPage} />
+                    <Route exact path="/post/:action" component={CreateOrEditPage} />
+                    <Route exact path="/post/:action/:pageId" component={CreateOrEditPage} />
                 </div>
             </BrowserRouter>
         )

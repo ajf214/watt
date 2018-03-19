@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 import fire from './fire.js'
 import NavBar from './Nav.js'
+import JoinWatt from './JoinWatt.js'
 import '../css/Home.css'
 
 const pageRef = fire.database().ref('v2pages').orderByChild('perspective').limitToLast(100);
@@ -63,26 +64,34 @@ class Home extends Component{
                     <NavBar></NavBar>
                     <div className = "bigTitle">
                         <Link to={`pagesv2/${newThis.state.pages[0].id}`}>{newThis.state.pages[0].title}</Link>
+                        <p>{"@" + this.state.pages[0].author}</p>
                     </div>
                     
                     <div className="mediumTitleContainer">
                         <div className = "mediumTitle">
                             <Link to={`pagesv2/${newThis.state.pages[1].id}`}>{newThis.state.pages[1].title}</Link>
+                            <p>{"@" + this.state.pages[0].author}</p>
                         </div>
                         <div className = "mediumTitle">
                             <Link to={`pagesv2/${newThis.state.pages[2].id}`}>{newThis.state.pages[2].title}</Link>
+                            <p>{"@" + this.state.pages[0].author}</p>
                         </div>
                         <div className = "mediumTitle">
                             <Link to={`pagesv2/${newThis.state.pages[3].id}`}>{newThis.state.pages[3].title}</Link>
+                            <p>{"@" + this.state.pages[0].author}</p>
                         </div>
                     </div>
     
                     <div className = "articleList">
+                        <h2>More posts</h2>
                         {/* mapping the rest of the titles here */}
                         {this.state.pages.map(function(page,index){
                             if(index>=4){
                                 return(
-                                    <Link to={`pagesv2/${newThis.state.pages[index].id}`}>{newThis.state.pages[index].title}</Link>
+                                    <div className = "smallTitle">
+                                        <Link to={`pagesv2/${newThis.state.pages[index].id}`}>{newThis.state.pages[index].title}</Link>
+                                        <p>{"@" + newThis.state.pages[index].author}</p>
+                                    </div>
                                 )
                             }
                             else{
@@ -92,6 +101,7 @@ class Home extends Component{
                     </div>
     
                     {/* footer from the normal homepage, except make it a sign up button */}
+                    <JoinWatt></JoinWatt>
                 </div>
             )
         }    

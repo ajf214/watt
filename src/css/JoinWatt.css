@@ -1,0 +1,18 @@
+.create-page{
+    grid-column: 1/13;
+    background-color: #FFF;
+    color: #333;
+    padding-bottom: 100px;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.create-page h1,h2,h3,h4,h5,a{
+    color: #333;
+
+}
+
+.inviteWrapper{
+    grid-column: 4/10;
+}
