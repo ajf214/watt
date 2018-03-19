@@ -34,7 +34,7 @@ class PageV2 extends Component{
                     author: snapshot.val().author,
                     authorId: snapshot.val().authorId,
                     pageText: snapshot.val().text,
-                    userId: fire.auth().currentUser.uid,
+                    userId: fire.auth().currentUser ? fire.auth().currentUser.uid : null,
                     loading: false
                 })
             })
