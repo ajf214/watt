@@ -90,6 +90,8 @@ class CreateOrEditPage extends Component {
     }
 
     render(){
+        let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...\n\n## Why I have this perspective\n\nSome thoughts...`
+
         return(
             <div className="addOrEditPageContainer">
                 <NavBar></NavBar>
@@ -102,7 +104,7 @@ class CreateOrEditPage extends Component {
                     </div>
 
                     {/* there should be a preset value here */}
-                    <textarea placeholder="Some thoughts..." ref={el => this.pageInput=el}></textarea>            
+                    <textarea placeholder="Some thoughts..." value={textAreaDefault} ref={el => this.pageInput=el}></textarea>            
                     <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
                 </div>
             </div>
