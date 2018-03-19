@@ -93,7 +93,7 @@ class Login extends Component{
                 <form className="login" onSubmit={this.logInOrSignUp.bind(this)}>
                     <h3>Sign up for WATT</h3>
                     <label>Email</label>
-                    <input id="email" type="text" placeholder="hello@watt.com" ref={el => this.emailInput=el}/>
+                    <input id="email" type="text" placeholder="name@domain.com" ref={el => this.emailInput=el}/>
                     
                     <label className={action==="signin" ? "hide" : ""}>Username</label>
                     <input id="username" className={action==="signin" ? "hide" : ""} type="text" placeholder="username" ref={el => this.usernameInput=el}/>
