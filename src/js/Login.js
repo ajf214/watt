@@ -75,7 +75,12 @@ class Login extends Component{
                 console.log(user)
                 newThis.props.history.push("/")
             })
-            .catch(e => console.log(e.message));
+            .catch(e => {
+                console.log(e.message)
+                this.setState({
+                    errorText: e.message
+                })
+            });
     }
 
     signUp(email, pass, username){
