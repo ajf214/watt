@@ -5,6 +5,20 @@
     grid-template-columns: repeat(12,1fr);
 }
 
+.pageV2Container body{
+    background-color: #FFF;
+}
+
+.titleSection{
+    grid-column: 1/13;
+    background-color: #643472;
+
+    display: inherit;
+    grid-template-columns: inherit;
+
+    padding: 100px 0;
+}
+
 .pageTitle{
     grid-column: 3/11;
     margin-top: 0px;
@@ -13,7 +27,6 @@
 
 .editPage{
     grid-column: 3/11;
-    margin-top: 100px;
 }
 
 .author{
@@ -22,8 +35,21 @@
     margin-bottom: 0px;
 }
 
+.pageText h1, .pageText h2, .pageText h3, .pageText h4, .pageText h5, .pageText p{
+    color: #000;
+}
+
+.pageText p{
+    font-weight: 400;
+}
+
+.pageText a{
+    color: #643472;
+}
+
 .pageText{
     grid-column: 3/7;
+    padding-bottom: 100px;
 }
 
 .pageText h2{

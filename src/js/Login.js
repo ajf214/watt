@@ -1,20 +1,25 @@
 //should come here for both login and sign up
 import React , { Component } from 'react'
 import fire from './fire.js'
+import NavBar from './Nav.js'
 import '../css/login.css'
 
 const auth = fire.auth();
 
 class Login extends Component{
     
-    /*
+    
     constructor(props){
         super(props)
         this.state = {
-            action: this.props.match.params.action
+            errorText: ""
         }
     }
-    */
+    
+
+    componentDidMount(){
+        document.body.style.backgroundColor = "#643472"
+    }
 
     logInOrSignUp(e){
         e.preventDefault()
@@ -22,17 +27,35 @@ class Login extends Component{
         //decide if you are logging in or signing up
         let email = this.emailInput.value;
         let pass = this.passwordInput.value;
-        //let passwordConfirm = this.confirmPasswordInput.value;
+        let passwordConfirm = this.confirmPasswordInput.value;
         let username = this.usernameInput.value;
 
         const params = this.props.match.params;
 
         if(params.action === "signup"){
             //make sure email is good
+            let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
             //make sure passwords are match and are good
-            
-            this.signUp(email, pass, username)
+            if(email.match(emailRegex) && pass === passwordConfirm){
+                this.signUp(email, pass, username)  
+            }
+            else{
+                console.log("error with input")
+
+                if(!email.match(emailRegex)){
+                    console.log("issue with email")
+                    this.setState({
+                        errorText: "Invalid email address"
+                    })
+                }
+                if(pass !== passwordConfirm){
+                    console.log("passwords don't match")
+                    this.setState({
+                        errorText: "Passwords don't match"
+                    })
+                }
+            }
 
             //route them somewhere, preferably where I just came from, but now logged in!
         }
@@ -90,8 +113,9 @@ class Login extends Component{
         
         return(
             <div className="loginContainer">
+                <NavBar></NavBar>
                 <form className="login" onSubmit={this.logInOrSignUp.bind(this)}>
-                    <h3>Sign up for WATT</h3>
+                    <h3>{action==="signin" ? "Log in to WATT" : "Sign up for WATT"}</h3>
                     <label>Email</label>
                     <input id="email" type="text" placeholder="name@domain.com" ref={el => this.emailInput=el}/>
                     
@@ -104,7 +128,8 @@ class Login extends Component{
                     <label className={action==="signin" ? "hide" : ""}>Confirm Password</label>
                     <input className={action==="signin" ? "hide" : ""} id="confirmPassword" type="password" placeholder="confirm password" ref={el => this.confirmPasswordInput=el}/>
 
-                    <input type="submit" className="submit" value="Sign Up"/>
+                    <input type="submit" className="submit" value={action==="signin" ? "Log in" : "Sign up"}/>
+                    <label className="errorText">{this.state.errorText}</label>
                 </form>
             </div>
         )

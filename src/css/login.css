@@ -1,8 +1,13 @@
 .loginContainer{
-    grid-column: 4/10;
+    grid-column: 1/13;
+
+    display: inherit;
+    grid-template-columns: inherit;
+
 }
 
 .login{
+    grid-column: 4 / span 5;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-gap: 10px;
@@ -15,10 +20,13 @@ h3{
 .login label{
     grid-column: 2/6;
     color: #FFF;
+
+
 }
 
 .login input{
     grid-column: 2/6;
+    padding-left: 3px;
 }
 
 

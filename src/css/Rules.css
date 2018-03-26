@@ -2,18 +2,20 @@
     grid-template-columns: repeat(12,1fr);
 }
 
-.gridContainer{
+.rulesPageContainer{
     grid-column: 1/13;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+
+    background-color: #643472;
 }
 
-.gridContainer p{
+.rulesPageContainer p{
     color: #FFF;
     grid-column: 1/7;
 }
 
-.gridContainer div.rule{
+.rulesPageContainer div.rule{
     grid-column: 1/7;
 }
 

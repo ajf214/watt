@@ -46,6 +46,10 @@ class Home extends Component{
         })
     }
 
+    componentDidMount(){
+        document.body.style.backgroundColor = "#FFF"
+    }
+
     componentWillUnmount(){
         pageRef.off('child_added')
     }
@@ -70,15 +74,15 @@ class Home extends Component{
                     <div className="mediumTitleContainer">
                         <div className = "mediumTitle">
                             <Link to={`pagesv2/${newThis.state.pages[1].id}`}>{newThis.state.pages[1].title}</Link>
-                            <p>{"@" + this.state.pages[0].author}</p>
+                            <p>{"@" + this.state.pages[1].author}</p>
                         </div>
                         <div className = "mediumTitle">
                             <Link to={`pagesv2/${newThis.state.pages[2].id}`}>{newThis.state.pages[2].title}</Link>
-                            <p>{"@" + this.state.pages[0].author}</p>
+                            <p>{"@" + this.state.pages[2].author}</p>
                         </div>
                         <div className = "mediumTitle">
                             <Link to={`pagesv2/${newThis.state.pages[3].id}`}>{newThis.state.pages[3].title}</Link>
-                            <p>{"@" + this.state.pages[0].author}</p>
+                            <p>{"@" + this.state.pages[3].author}</p>
                         </div>
                     </div>
     

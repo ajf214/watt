@@ -23,6 +23,8 @@ class Rules extends Component {
     }
     
     componentDidMount(){
+        document.body.style.backgroundColor = "#643472"
+        
         //oad rules from database and update state
         var dbRef = db.orderByKey().limitToLast(100);
 
@@ -76,7 +78,7 @@ class Rules extends Component {
 
     render(){
         return( 
-            <div className="gridContainer">
+            <div className="rulesPageContainer">
                 <NavBar></NavBar>
                 <div className="ruleContainer">
                     <h1>The Rules</h1>

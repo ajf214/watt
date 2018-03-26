@@ -26,6 +26,8 @@ class PageV2 extends Component{
     }
 
     componentDidMount(){
+        document.body.style.backgroundColor = "#FFF"
+
         fire.database().ref("v2pages/" + this.state.pageId)
             .once("value", snapshot => {
                 //set state with this info
@@ -51,11 +53,17 @@ class PageV2 extends Component{
                 <div className="pageV2Container">
                     <NavBar></NavBar>
 
-                    {/* this link should only be visible if the uid of author matches the currently logged in user*/}                   
-                    <Link className={this.state.userId === this.state.authorId ? "editPage" : "hidden"} to={`/post/edit/${this.state.pageId}`}>Edit this page</Link>
+                   
                     
-                    <h1 className="pageTitle">{this.state.pageTitle}</h1>
-                    <p className="author">{"@" + this.state.author}</p>
+                    <div className="titleSection">
+                        {/* this link should only be visible if the uid of author matches the currently logged in user*/}                   
+                        <Link className={this.state.userId === this.state.authorId ? "editPage" : "hidden"} to={`/post/edit/${this.state.pageId}`}>Edit this page</Link>
+
+                        <h1 className="pageTitle">{this.state.pageTitle}</h1>
+                        <p className="author">{"@" + this.state.author}</p>
+                    </div>
+
+                    {/* this should have a white background */}
                     <ReactMarkdown source={this.state.pageText} className="pageText"/>
                 </div>
             )
