@@ -93,7 +93,12 @@ class CreateOrEditPage extends Component {
                     //route to the newly saved page
                     this.props.history.push("/pagesv2/" + this.state.pageId);
                 })
-                .catch(e => console.log(e))
+                .catch(e => {
+                    console.log(e)
+                    this.setState({
+                        errorText: e
+                    })
+                })
         }
         else{
             //check that the fields are valid
@@ -121,7 +126,12 @@ class CreateOrEditPage extends Component {
                         //route to the saved page
                         this.props.history.push("/pagesv2/" + snapshot.key);
                     })
-                    .catch(e => console.log(e))
+                    .catch(e => {
+                        console.log(e)
+                        this.setState({
+                            errorText: e
+                        })
+                    })
             }
         }
     }
@@ -137,9 +147,7 @@ class CreateOrEditPage extends Component {
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
                         <span>sees</span>
                         <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
-                    </div>
-
-                    
+                    </div>            
 
                     <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="blank" className="markdownLink">Markdown tips</a>
 
