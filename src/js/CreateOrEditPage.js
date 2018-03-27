@@ -12,12 +12,34 @@ class CreateOrEditPage extends Component {
         this.state = {
             action: this.props.match.params.action,
             pageId: this.props.match.params.pageId,
-            user: fire.auth().currentUser.displayName,
-            userId: fire.auth().currentUser.uid
+            user: "",
+            userId: ""
         }
     }
 
     componentDidMount(){
+
+        fire.auth().onAuthStateChanged(firebaseUser => {
+            if(firebaseUser){
+                console.log(firebaseUser);
+                //update nav because user is logged in
+                this.setState({
+                    user: firebaseUser.displayName,
+                    userId: firebaseUser.uid
+                })
+            }
+            else{
+                //update nav because user has just logged out
+                console.log('not logged in');
+                this.setState({
+                    loggedIn: false,
+                    username: ""
+                })
+            }
+        })
+
+        document.body.style.backgroundColor = "#643472"
+
         if(this.state.action === "edit"){
             //call the db and get the current info
             fire.database().ref("v2pages/" + this.state.pageId)
@@ -34,9 +56,8 @@ class CreateOrEditPage extends Component {
 
 
         /*
+
             UNTESTED UNTESTED UNTESTED
-        
-        
         
         */
         fire.auth().onAuthStateChanged(function(firebaseUser){
@@ -55,7 +76,7 @@ class CreateOrEditPage extends Component {
 
     savePage(){       
         if(this.state.action === "edit"){
-            //update existing page            
+            //update existing page          
             fire.database().ref('v2pages/' + this.state.pageId)
                 .update({
                     perspective: this.perspectiveInput.value,
@@ -90,21 +111,23 @@ class CreateOrEditPage extends Component {
     }
 
     render(){
-        let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...\n\n## Why I have this perspective\n\nSome thoughts...`
+        let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...`
 
         return(
             <div className="addOrEditPageContainer">
                 <NavBar></NavBar>
                 <div className="contentContainer">
                     <div className="addTitle">
-                        <label>How a</label>
+                        <span>How a</span>
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
-                        <label>sees</label>
+                        <span>sees</span>
                         <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
                     </div>
 
+                    <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="blank" className="markdownLink">Markdown tips</a>
+
                     {/* there should be a preset value here */}
-                    <textarea placeholder="Some thoughts..." value={textAreaDefault} ref={el => this.pageInput=el}></textarea>            
+                    <textarea value={textAreaDefault} ref={el => this.pageInput=el}></textarea>            
                     <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
                 </div>
             </div>

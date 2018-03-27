@@ -51,7 +51,7 @@ class NavBar extends Component{
                         <Link className="home" to="/">WATT</Link>
                         <Link className="rules" to="/rules">The Rules</Link>
                         <Link className="about" to="/about">About</Link>
-                        <Link className={this.state.loggedIn ? "addPage" : "hidden"} to="/post/:action">Share your perspective</Link>
+                        <Link className={this.state.loggedIn ? "addPage" : "hidden"} to="/post/new">Share your perspective</Link>
                     </div>
 
                     <div className="authContainer">
