@@ -13,7 +13,8 @@ class CreateOrEditPage extends Component {
             action: this.props.match.params.action,
             pageId: this.props.match.params.pageId,
             user: "",
-            userId: ""
+            userId: "",
+            errorText: ""
         }
     }
 
@@ -49,6 +50,11 @@ class CreateOrEditPage extends Component {
                     this.pageInput.value = snapshot.val().text
                 })
                 .catch(e => console.log(e))
+        }
+
+        if(this.state.action === "new"){
+            let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...`
+            this.pageInput.value = textAreaDefault
         }
 
         var newThis = this;
@@ -90,29 +96,38 @@ class CreateOrEditPage extends Component {
                 .catch(e => console.log(e))
         }
         else{
-            //assemble the page name
-            let page = {
-                perspective: this.perspectiveInput.value,
-                issue: this.issueInput.value,
-                text: this.pageInput.value,
-                author: this.state.user,
-                authorId: this.state.userId
+            //check that the fields are valid
+            if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === ""){
+                console.log("one of the fields was not filled out")
+                this.setState({
+                    errorText: "One of the fields is empty"
+                })
             }
 
-            //add page to db
-            fire.database().ref('v2pages').push(page)
-                .then((snapshot) => {
-                    console.log("successfully posted page")
-                    //route to the saved page
-                    this.props.history.push("/pagesv2/" + snapshot.key);
-                })
-                .catch(e => console.log(e))
+            //page text has been validated
+            else{
+                let page = {
+                    perspective: this.perspectiveInput.value,
+                    issue: this.issueInput.value,
+                    text: this.pageInput.value,
+                    author: this.state.user,
+                    authorId: this.state.userId
+                }
+    
+                //add page to db
+                fire.database().ref('v2pages').push(page)
+                    .then((snapshot) => {
+                        console.log("successfully posted page")
+                        //route to the saved page
+                        this.props.history.push("/pagesv2/" + snapshot.key);
+                    })
+                    .catch(e => console.log(e))
+            }
         }
     }
 
     render(){
-        let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...`
-
+        
         return(
             <div className="addOrEditPageContainer">
                 <NavBar></NavBar>
@@ -124,11 +139,14 @@ class CreateOrEditPage extends Component {
                         <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
                     </div>
 
+                    
+
                     <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="blank" className="markdownLink">Markdown tips</a>
 
                     {/* there should be a preset value here */}
-                    <textarea value={textAreaDefault} ref={el => this.pageInput=el}></textarea>            
+                    <textarea ref={el => this.pageInput=el}></textarea>            
                     <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
+                    <span className="errorText">{this.state.errorText}</span>
                 </div>
             </div>
         )

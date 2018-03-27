@@ -31,6 +31,8 @@
     grid-column: 1/2;
 }
 
+
+
 .addTitle input{
     grid-column: 2/3;
     font-size: 1em;
@@ -43,11 +45,7 @@
 .markdownLink{
     padding-bottom: 10px;
     color: #CCC;
-}
-
-.addTitle input::placeholder{
-    /* font-size: 3em; */
-
+    grid-column: 1/7;
 }
 
 
@@ -64,5 +62,11 @@ textarea{
 
 .savePage{
     padding: 20px;
+    margin-bottom: 5px;
+}
+
+span.errorText{
+    grid-column: 1/7;
+    color: #FFF;
     margin-bottom: 100px;
 }
