@@ -56,8 +56,6 @@ class Login extends Component{
                     })
                 }
             }
-
-            //route them somewhere, preferably where I just came from, but now logged in!
         }
 
         if(params.action === "signin"){
