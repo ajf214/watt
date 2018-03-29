@@ -48,6 +48,7 @@ class CreateOrEditPage extends Component {
                     this.perspectiveInput.value = snapshot.val().perspective
                     this.issueInput.value = snapshot.val().issue
                     this.pageInput.value = snapshot.val().text
+                    this.cmvInput.value = (snapshot.val().cmvUrl != null ? snapshot.val().cmvUrl : "")
                 })
                 .catch(e => console.log(e))
         }
@@ -56,28 +57,6 @@ class CreateOrEditPage extends Component {
             let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...`
             this.pageInput.value = textAreaDefault
         }
-
-        var newThis = this;
-
-
-
-        /*
-
-            UNTESTED UNTESTED UNTESTED
-        
-        */
-        fire.auth().onAuthStateChanged(function(firebaseUser){
-            if(firebaseUser){
-                newThis.setState({
-                    user: firebaseUser.displayName
-                })
-            }
-            else{
-                newThis.setState({
-                    user: null
-                })
-            }
-        })
     }
 
     savePage(){       
@@ -87,7 +66,8 @@ class CreateOrEditPage extends Component {
                 .update({
                     perspective: this.perspectiveInput.value,
                     issue: this.issueInput.value,
-                    text: this.pageInput.value
+                    text: this.pageInput.value,
+                    cmvUrl: this.cmvInput.value
                 })
                 .then(() => {
                     //route to the newly saved page
@@ -102,7 +82,7 @@ class CreateOrEditPage extends Component {
         }
         else{
             //check that the fields are valid
-            if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === ""){
+            if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === "" || this.cmvInput.value === ""){
                 console.log("one of the fields was not filled out")
                 this.setState({
                     errorText: "One of the fields is empty"
@@ -116,7 +96,8 @@ class CreateOrEditPage extends Component {
                     issue: this.issueInput.value,
                     text: this.pageInput.value,
                     author: this.state.user,
-                    authorId: this.state.userId
+                    authorId: this.state.userId,
+                    cmvUrl: this.cmvInput.value
                 }
     
                 //add page to db
@@ -147,6 +128,9 @@ class CreateOrEditPage extends Component {
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
                         <span>sees</span>
                         <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
+
+                        <span className="cmvLabel">CMV URL</span>
+                        <input type="text" className="cmvInput" placeholder="http://reddit.com/r/changemyview/some-page" ref={el => this.cmvInput=el}></input>
                     </div>            
 
                     <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="blank" className="markdownLink">Markdown tips</a>

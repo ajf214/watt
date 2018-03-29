@@ -21,6 +21,7 @@ class PageV2 extends Component{
             author: "",
             authorId: "",
             userId: "",
+            cmvUrl: "",
             loading: true
         }
     }
@@ -37,7 +38,8 @@ class PageV2 extends Component{
                     authorId: snapshot.val().authorId,
                     pageText: snapshot.val().text,
                     userId: fire.auth().currentUser ? fire.auth().currentUser.uid : null,
-                    loading: false
+                    loading: false,
+                    cmvUrl: snapshot.val().cmvUrl
                 })
             })
             .catch(e => console.log(e))
@@ -61,6 +63,10 @@ class PageV2 extends Component{
 
                         <h1 className="pageTitle">{this.state.pageTitle}</h1>
                         <p className="author">{"@" + this.state.author}</p>
+
+                        <a className="cmvLink" target="_blank" href={this.state.cmvUrl}>CMV Discussion</a> 
+                        <a className="aboutCMV" target="_blank" href="http://reddit.com/r/changemyview">What's CMV?</a>
+
                     </div>
 
                     {/* this should have a white background */}

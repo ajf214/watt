@@ -31,6 +31,12 @@
     grid-column: 1/2;
 }
 
+.cmvLabel , .addTitle input.cmvInput{
+    font-size: 1rem;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
 
 
 .addTitle input{
@@ -63,6 +69,7 @@ textarea{
 .savePage{
     padding: 20px;
     margin-bottom: 5px;
+    grid-column-start: 1;
 }
 
 span.errorText{

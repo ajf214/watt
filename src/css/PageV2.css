@@ -35,6 +35,17 @@
     margin-bottom: 0px;
 }
 
+.cmvLink{
+    padding-top: 20px;
+    grid-column: 3/7;
+    font-weight: 500;
+}
+
+.aboutCMV{
+    font-size: 0.8rem;
+    grid-column: 3/7;
+}
+
 .pageText h1, .pageText h2, .pageText h3, .pageText h4, .pageText h5, .pageText p{
     color: #000;
 }
