@@ -133,7 +133,7 @@ class CreateOrEditPage extends Component {
                         <input type="text" className="cmvInput" placeholder="http://reddit.com/r/changemyview/some-page" ref={el => this.cmvInput=el}></input>
                     </div>            
 
-                    <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="blank" className="markdownLink">Markdown tips</a>
+                    <a href="https://ia.net/writer/support/general/markdown-guide/" target="blank" className="markdownLink">Markdown tips</a>
 
                     {/* there should be a preset value here */}
                     <textarea ref={el => this.pageInput=el}></textarea>            

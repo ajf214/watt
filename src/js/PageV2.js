@@ -58,15 +58,16 @@ class PageV2 extends Component{
                    
                     
                     <div className="titleSection">
-                        {/* this link should only be visible if the uid of author matches the currently logged in user*/}                   
-                        <Link className={this.state.userId === this.state.authorId ? "editPage" : "hidden"} to={`/post/edit/${this.state.pageId}`}>Edit this page</Link>
+                        <div className="titleContent">                        
+                            {/* this link should only be visible if the uid of author matches the currently logged in user*/}                   
+                            <Link className={this.state.userId === this.state.authorId ? "editPage" : "hidden"} to={`/post/edit/${this.state.pageId}`}>Edit this page</Link>
 
-                        <h1 className="pageTitle">{this.state.pageTitle}</h1>
-                        <p className="author">{"@" + this.state.author}</p>
+                            <h1 className="pageTitle">{this.state.pageTitle}</h1>
+                            <p className="author">{"@" + this.state.author}</p>
 
-                        <a className="cmvLink" target="_blank" href={this.state.cmvUrl}>CMV Discussion</a> 
-                        <a className="aboutCMV" target="_blank" href="http://reddit.com/r/changemyview">What's CMV?</a>
-
+                            <a className="cmvLink" target="_blank" href={this.state.cmvUrl}>Open CMV Discussion</a> 
+                            <a className="aboutCMV" target="_blank" href="http://reddit.com/r/changemyview">What's CMV?</a>
+                        </div>
                     </div>
 
                     {/* this should have a white background */}

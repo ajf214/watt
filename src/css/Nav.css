@@ -11,14 +11,19 @@
 }
 
 .nav-container .buttons{
-    grid-column: 3/11;
+    grid-column: 2/12;
 
     display: grid;
     grid-template-columns: repeat(8,1fr);
 }
 
 .nav-container .buttons .mainNav{
-    grid-column: 1/5;
+    grid-column: 1/7;
+}
+
+.mainNav .project{
+    font-weight: 300;
+    color: #333;
 }
 
 .authContainer{
@@ -35,7 +40,7 @@
     /*padding-left: 20px;*/
     color: #643472;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     /* grid-column-start: 3; */
 }
 
@@ -83,8 +88,35 @@
 
 
 /* mobile */
-@media (max-width: 960px){
+@media (max-width: 1200px){
+
     .nav-container .buttons{
-        grid-column: 2/12;
+        grid-column: 1/13;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nav-container .buttons .mainNav{
+        grid-column: 1/6;
+    }
+
+    .nav-container .buttons .authContainer{
+        grid-column: 6/13;
+    }
+
+}
+
+@media (max-width: 600px){
+    .nav-container .buttons{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav-container .buttons a{
+        padding-right: 20px;
+    }
+
+    .mobile-hide{
+        display: none;
     }
 }

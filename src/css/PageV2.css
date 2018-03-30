@@ -19,31 +19,38 @@
     padding: 100px 0;
 }
 
-.pageTitle{
+.titleContent{
     grid-column: 3/11;
+}
+
+.pageTitle{
+    /* grid-column: 3/11; */
     margin-top: 0px;
     margin-bottom: 20px;
 }
 
 .editPage{
-    grid-column: 3/11;
+    /* grid-column: 3/11; */
 }
 
 .author{
-    grid-column: 3/6;
+    /* grid-column: 3/6; */
+    display: block;
     margin: 0;
     margin-bottom: 0px;
 }
 
 .cmvLink{
-    padding-top: 20px;
-    grid-column: 3/7;
+    padding-top: 40px;
+    /* grid-column: 3/7; */
     font-weight: 500;
+    display: block;
 }
 
 .aboutCMV{
     font-size: 0.8rem;
-    grid-column: 3/7;
+    /* grid-column: 3/7; */
+    display: block;
 }
 
 .pageText h1, .pageText h2, .pageText h3, .pageText h4, .pageText h5, .pageText p{
@@ -69,6 +76,25 @@
 
 .hidden{
     display: none;
+}
+
+
+@media (max-width: 1200px){
+    .titleContent{
+        grid-column: 2/12;
+    }
+
+    .pageText{
+        grid-column: 2/10;
+    }
+}
+
+@media (max-width: 480px){
+    .pageText{
+        grid-column: 2/12;
+    }
+
+
 }
 
 
