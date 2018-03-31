@@ -47,10 +47,11 @@ class NavBar extends Component{
             <div className="nav-container">
                 <div className="buttons">
                     
-                    <div className="mainNav">
-                        <Link className="home" to="/"><span class="project">PROJECT</span>WATT</Link>
+                    <Link className="home" to="/"><span class="project">PROJECT</span>WATT</Link>
+
+                    <div className="mainNav">   
                         <Link className="rules" to="/how-this-works">How this works</Link>
-                        <Link className="about mobile-hide" to="/about">About</Link>
+                        <Link className="about" to="/about">About</Link>
                         <Link className={this.state.loggedIn ? "addPage mobile-hide" : "hidden"} to="/post/new">Share your perspective</Link>
                     </div>
 

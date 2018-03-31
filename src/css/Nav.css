@@ -14,35 +14,41 @@
     grid-column: 2/12;
 
     display: grid;
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(10,1fr);
 }
 
-.nav-container .buttons .mainNav{
-    grid-column: 1/7;
+.home{
+    font-size: 1.4em;
+    color: #643472;
+    text-decoration: none;
+    font-weight: 600;
+    grid-column: 1/2;
+
 }
 
-.mainNav .project{
+.project{
     font-weight: 400;
     color: #999;
 }
 
+.nav-container .buttons .mainNav{
+    grid-column: 2/7;
+    align-self: center;
+}
+
+
+
 .authContainer{
     grid-column: 7/9;
     justify-self: right;
+    align-self: center;
 }
 
 .nav-container .buttons a{
     padding-right: 40px;
 }
 
-.home{
-    font-size: 1.4em;
-    /*padding-left: 20px;*/
-    color: #643472;
-    text-decoration: none;
-    font-weight: 600;
-    /* grid-column-start: 3; */
-}
+
 
 .rules{
     /* grid-column-start: 4; */
@@ -87,7 +93,7 @@
 
 
 
-/* mobile */
+/* mobile   */
 @media (max-width: 1200px){
 
     .nav-container .buttons{
@@ -97,16 +103,20 @@
     }
 
     .nav-container .buttons .mainNav{
-        grid-column: 1/6;
+        grid-column: 1/4;
+        padding-top: 10px;
     }
 
     .nav-container .buttons .authContainer{
-        grid-column: 6/13;
+        grid-column: 4/13;
+        grid-row: 1/3;
     }
 
 }
 
 @media (max-width: 600px){
+    
+
     .nav-container .buttons{
         padding-left: 10px;
         padding-right: 10px;
@@ -114,9 +124,5 @@
 
     .nav-container .buttons a{
         padding-right: 20px;
-    }
-
-    .mobile-hide{
-        display: none;
     }
 }
