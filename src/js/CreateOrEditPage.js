@@ -124,7 +124,7 @@ class CreateOrEditPage extends Component {
                 <NavBar></NavBar>
                 <div className="contentContainer">
                     <div className="addTitle">
-                        <a className="writingGuidelines" href="http://google.com" target="_blank">How to convert a CMV post to a WATT article</a>
+                        <a className="writingGuidelines" href="http://google.com" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
                         <span>How a</span>
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
                         <span>sees</span>

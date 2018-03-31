@@ -10,6 +10,8 @@ import Login from './js/Login';
 import PageV2 from './js/PageV2';
 import CreateOrEditPage from './js/CreateOrEditPage';
 import Invite from './js/Invite'
+import HowThisWorks from './js/HowThisWorks'
+import WritingGuide from './js/WritingGuide'
 
 
 
@@ -44,6 +46,8 @@ class App extends Component{
                     <Route exact path="/post/:action" component={CreateOrEditPage} />
                     <Route exact path="/post/:action/:pageId" component={CreateOrEditPage} />
                     <Route path="/invite" component={Invite} />
+                    <Route path="/how-this-works" component={HowThisWorks} />
+                    <Route path="/writing-guidelines" component={WritingGuide} />
                 </div>
             </BrowserRouter>
         )

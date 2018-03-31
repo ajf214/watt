@@ -38,7 +38,8 @@ class Invite extends Component{
                 
                 <div className="inviteBox">
                     <h1>We'll need your invite code</h1>
-                    <p>In order to get a code, you need a <a target="_blank" href="http://reddit.com/r/changemyview">Change My View</a> post with at least 20 comments.<a className="howThisWorks" href="http://google.com">tell me more</a></p>
+                    <p>In order to get a code, you need a <a target="_blank" rel="noopener noreferrer" href="http://reddit.com/r/changemyview">Change My View</a> post with at least 20 comments.</p>
+                    <a className="howThisWorks" href="/how-this-works">tell me more</a>
 
                     <input type="text" placeholder="Invite code" className="inviteCode" ref={el => this.inviteInput=el}></input>
                     <button onClick={this.checkInvite.bind(this)}>Sign up</button>

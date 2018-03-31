@@ -28,35 +28,61 @@
 
 .login h3{
     font-size: 2rem;
-    grid-column: 2/6;
+    grid-column: 1/7;
     color: #333;
     font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .login label{
-    grid-column: 2/6;
+    grid-column: 1/7;
     color: #333;
     font-weight: 500;
-
-
+    padding-top: 20px;    
 }
 
 .login input{
-    grid-column: 2/6;
+    grid-column: 1/7;
     padding-left: 3px;
 }
 
 
 .login input.submit{
     margin-top: 30px;
-    grid-column: 2/4;
+    grid-column: 1/4;
     box-shadow: none;
     border: 1px black solid;
     font-weight: 400;
 }
 
+.getAnInvite{
+    font-size: 0.8rem;
+    color: #333;
+    grid-column: 1/7;
+}
+
+.getAnInvite a{
+    font-size: 0.8rem;
+    color: #333;
+}
+
 .hide{
     display: none;
+}
+
+@media (max-width: 1200px){
+    .login{
+        grid-column: 2/12;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px){
+    .login{
+        grid-column: 2/12;
+        padding: 40px;
+    }
 }
 
 

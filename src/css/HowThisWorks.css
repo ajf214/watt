@@ -1,0 +1,51 @@
+.howContainer{
+    grid-column: 1/13;
+
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-template-rows: min-content minmax(1fr, auto);
+    background-color: #643472;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content a, .content p{
+    color: #333;
+}
+
+.content p, .content a{
+    font-weight: 400;
+}
+
+.content a{
+    color: #643472;
+}
+
+.content{
+    background-color: #FFF;
+    grid-column: 4/10;
+    padding: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 2px #CCC;
+}
+
+.content ul{
+    font-weight: 400;
+}
+
+.content ol{
+    list-style: decimal inside none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media (max-width: 1200px){
+    .content{
+        grid-column: 3/11;
+    }
+}
+
+@media (max-width: 600px){
+    .content{
+        grid-column: 2/12;
+    }
+}

@@ -2,17 +2,48 @@
     grid-column: 1/13;
     background-color: #FFF;
     color: #333;
-    padding-bottom: 100px;
 
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    display: inherit;
+    grid-template-columns: inherit;
+
 }
 
-.create-page h1,h2,h3,h4,h5,a{
+.form-title{
     color: #333;
-
+    margin-top: 0px;
 }
 
 .inviteWrapper{
-    grid-column: 4/10;
+    grid-column: 5/9;
+    padding: 50px;
+    margin: 100px 0;
+    height: min-content;
+    align-self: center;
+    border: 2px solid #643472;
+}
+
+.homeContainer .inviteWrapper p, .homeContainer .inviteWrapper a{
+    color: #333;
+    font-weight: 400;
+}
+
+.homeContainer .inviteWrapper p{
+    padding: 20px 0;
+}
+
+.homeContainer .inviteWrapper a{
+    text-decoration: underline;
+    color: #643472;
+}
+
+@media (max-width: 1200px){
+    .inviteWrapper{
+        grid-column: 3/11;
+    }
+}
+
+@media (max-width: 600px){
+    .inviteWrapper{
+        grid-column: 2/12;
+    }
 }

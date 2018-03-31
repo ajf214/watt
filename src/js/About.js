@@ -16,9 +16,11 @@ class About extends Component{
         return(
             <div className="aboutContainer">
                 <NavBar></NavBar>
-                <h1>"What are they thinking" is an anti-encyclopedia for political perspectives of current events.</h1>
-                <p>It's also Alex's <a href="http://medium.com/thesis-blog" target="blank">Master's Thesis</a></p>
-                <p>Twitter: <a href="http://twitter.com/sonofdiesel" target="blank">@sonofdiesel</a></p>
+                <div className="aboutContent">
+                    <h1>Project WATT is an experimental publication that challenges the current state of online discourse with real, user-generated perspectives on important issues.</h1>
+                    <p>It's also Alex's <a href="http://medium.com/thesis-blog" target="blank">Master's Thesis</a></p>
+                    <p>Twitter: <a href="http://twitter.com/sonofdiesel" target="blank">@sonofdiesel</a></p>
+                </div>
             </div>
         )       
     }   

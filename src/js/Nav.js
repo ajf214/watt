@@ -49,7 +49,7 @@ class NavBar extends Component{
                     
                     <div className="mainNav">
                         <Link className="home" to="/"><span class="project">PROJECT</span>WATT</Link>
-                        <Link className="rules" to="/rules">How this works</Link>
+                        <Link className="rules" to="/how-this-works">How this works</Link>
                         <Link className="about mobile-hide" to="/about">About</Link>
                         <Link className={this.state.loggedIn ? "addPage mobile-hide" : "hidden"} to="/post/new">Share your perspective</Link>
                     </div>
