@@ -44,6 +44,8 @@
 
 @media (max-width: 600px){
     .inviteWrapper{
-        grid-column: 2/12;
+        grid-column: 1/13;
+        margin: 40px 20px;
+        padding: 30px;
     }
 }

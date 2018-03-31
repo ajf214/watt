@@ -47,7 +47,7 @@ class NavBar extends Component{
             <div className="nav-container">
                 <div className="buttons">
                     
-                    <Link className="home" to="/"><span class="project">PROJECT</span>WATT</Link>
+                    <Link className="home" to="/"><span class="project">project</span>WATT</Link>
 
                     <div className="mainNav">   
                         <Link className="rules" to="/how-this-works">How this works</Link>

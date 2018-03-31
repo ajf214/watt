@@ -46,6 +46,14 @@
 
 @media (max-width: 600px){
     .content{
-        grid-column: 2/12;
+        grid-column: 1/13;
+        margin: 20px;
+        padding: 30px;
     }
+
+    .content h1{
+        margin-top: 0px;
+    }
+
+    
 }

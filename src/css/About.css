@@ -36,12 +36,20 @@
 
 
 /* mobile */
-@media (max-width: 960px){
-    h1{
-        grid-column: 2/12;
+@media (max-width: 1200px){
+    .aboutContent{
+        grid-column: 3/11;
+    }
+}
+
+@media (max-width: 600px){
+    .aboutContent{
+        grid-column: 1/13;
+        margin: 20px;
+        padding: 30px;
     }
 
-    p{
-        grid-column: 2/12;
+    .aboutContent h1{
+        font-size: 2.5rem;
     }
 }
