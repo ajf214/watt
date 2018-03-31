@@ -54,20 +54,27 @@ class Rules extends Component {
         
         let masterRuleList = [
             {
-                order: "-1",
-                text: "# TL;DR\n\nWhen contributing content, follow these three rules or your content will be removed.\n\n1. Write only about your perspective\n2. Providing your reasoning for your perspective\n3. Provide resources to help get a deeper understanding of that perspective"
-            },
-            {
-                order: "0",
-                text: "## Tell your story, not others'\n Do your best to only write and edit articles that represent you and your perspective on issues.  This is an inherently subjective project, so it’s best to limit yourself to the ideas, morals and philosophies you understand best because you believe in them.\n\nThere are no right answers to exactly how you see the world — just do your best. The writing, content and sourcing will all benefit from it."
-            },
-            {
-                order: "1",
-                text: "## Foster a culture of understanding\n In our passions to make society better, we can sometimes get aggressive and hurtful.  **Don’t try to win arguments here.**  Do your best to get people to understand how you see the world and keep things positive. We want to understand your beliefs, not be convinced why someone is wrong.\n\nMost traditional media is far more effective at **confirming** our biases and don't do a good job exposing our bubbles. This keeps us divided, so **keep the “talking heads” out of this.**\n\n Consider how you would want to talk to a loved one that just happened to disagree with you."
-            },
-            {
-                order: "2",
-                text: "## Help me go deeper\n While the material we are discussing is squishy and subjective, there are usually good reasons and resources we can point to in order to explain why we believe what we believe.  What are the sources that you have read, watched or listened to that have helped form your beliefs?  It can even be an anecdote about the town you grew up in or a tragedy you experienced.\n\n Do your best to provide links that allow readers and editors alike to see a bigger context for your beliefs."
+                order: "-2",
+                text: `# Converting a CMV post to a Project WATT article
+                \n\n### Choosing the perspective
+                \n\nYou don’t need to box yourself in to the typical “conservative” or “liberal” perspective (unless you want to). 
+                    Too often the sides of an argument boil down to these two sides, try to move beyond that. Think about your background 
+                    and what gives you a unique outlook on this particular issue.  
+                \n\nSome general areas to choose from:
+                \n- What generation are you a part of?
+                \n- What part of the world did you grow up in?
+                \n- What major world events did you witness?
+                \n\n### Choosing the issue
+                \n\nThis should be more straightforward. What’s the issue you discussed in your CMV?
+                \n\n### Writing the article
+                \n\nThere are three sections that need to be filled out:
+                \n\n#### Where I’m coming from
+                \n\nExpand on your chosen perspective. What gives you a unique insight on this issue? It could be about your job, your upbringing, your nationality, or really anything. Many CMV posts already include something like this.  Think about why you wanted to write this CMV in the first place.
+                \n\n#### My perspective
+                \n\nThis should be more straightforward and you should be able to use a lot of your original CMV here. If you learned something from the discussion or if you awarded any Delta’s, then you should incorporate some of that thinking into this section.
+                \n\n#### What did you get out of the discussion
+                \n\nWhat did you get out of discussing these issues?
+                \n\nHave more questions? You can reach us [@projectwatt](twitter.com/projectwatt) on twitter or send us an email to writing@projectwatt.com`
             }
         ]
 
@@ -81,7 +88,6 @@ class Rules extends Component {
             <div className="rulesPageContainer">
                 <NavBar></NavBar>
                 <div className="ruleContainer">
-                    <h1>The Rules</h1>
                     {this.state.list.map(rule => <ReactMarkdown className="rule">{rule.text}</ReactMarkdown>)}
                     <p className="caption">Can't break the rules, if you only write your perspective</p>
                     <img alt="pointy head meme guy" src={require('../img/roll safe.JPG')}></img>   

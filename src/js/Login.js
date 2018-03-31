@@ -93,7 +93,7 @@ class Login extends Component{
             .then(function(user){
                 console.log(user)
 
-                //save the username of the auth'd user in their Profile
+                //save the username of the auth'd user in their Profilew
                 user.updateProfile({
                     displayName: username
                 }).then(function(){

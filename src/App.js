@@ -9,6 +9,7 @@ import About from './js/About';
 import Login from './js/Login';
 import PageV2 from './js/PageV2';
 import CreateOrEditPage from './js/CreateOrEditPage';
+import Invite from './js/Invite'
 
 
 
@@ -42,6 +43,7 @@ class App extends Component{
                     <Route path="/login/:action" component={Login} />
                     <Route exact path="/post/:action" component={CreateOrEditPage} />
                     <Route exact path="/post/:action/:pageId" component={CreateOrEditPage} />
+                    <Route path="/invite" component={Invite} />
                 </div>
             </BrowserRouter>
         )

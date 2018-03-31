@@ -48,7 +48,7 @@ class NavBar extends Component{
                 <div className="buttons">
                     
                     <div className="mainNav">
-                        <Link className="home" to="/"><span class="project">Project</span>WATT</Link>
+                        <Link className="home" to="/"><span class="project">PROJECT</span>WATT</Link>
                         <Link className="rules" to="/rules">How this works</Link>
                         <Link className="about mobile-hide" to="/about">About</Link>
                         <Link className={this.state.loggedIn ? "addPage mobile-hide" : "hidden"} to="/post/new">Share your perspective</Link>
@@ -56,7 +56,7 @@ class NavBar extends Component{
 
                     <div className="authContainer">
                         <Link className={this.state.loggedIn ? "loginLink hidden" : "loginLink"} to="/login/signin">Log in</Link>
-                        <Link className={this.state.loggedIn ? "signUp hidden" : "signUp mobile-hide"} to="/login/signup">Sign up</Link>
+                        <Link className={this.state.loggedIn ? "signUp hidden" : "signUp mobile-hide"} to="/invite">Sign up</Link>
 
                         <Link className={this.state.loggedIn ? "profile" : "profile hidden"} to="/users/<placeholderForUsernameOrID?">{`Welcome, ${this.state.username}`}</Link>
                         <button className={this.state.loggedIn ? "signOut mobile-hide" : "hidden"} onClick={this.signOut.bind(this)}>Sign out</button>

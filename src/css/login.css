@@ -1,25 +1,42 @@
+
+
 .loginContainer{
     grid-column: 1/13;
 
     display: inherit;
     grid-template-columns: inherit;
 
+    grid-template-rows: min-content 1fr;
+    height: 100vh;
+
 }
 
 .login{
+    height: min-content;
     grid-column: 4 / span 5;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-gap: 10px;
+
+    align-self: center;
+    justify-self: center;
+
+    background-color: #fff;
+    box-shadow: 0px 0px 2px #CCC;
+    padding: 50px;
 }
 
-h3{
+.login h3{
+    font-size: 2rem;
     grid-column: 2/6;
+    color: #333;
+    font-weight: 500;
 }
 
 .login label{
     grid-column: 2/6;
-    color: #FFF;
+    color: #333;
+    font-weight: 500;
 
 
 }
@@ -33,6 +50,9 @@ h3{
 .login input.submit{
     margin-top: 30px;
     grid-column: 2/4;
+    box-shadow: none;
+    border: 1px black solid;
+    font-weight: 400;
 }
 
 .hide{

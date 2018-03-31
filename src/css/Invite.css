@@ -1,0 +1,53 @@
+.inviteContainer{
+    grid-column: 1/13;
+    grid-template-rows: min-content 1fr;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+
+.navContainer{
+    height: 20px;
+}
+
+.inviteBox{
+    grid-column: 4/10;
+    background: #FFF;
+    padding: 60px;
+    box-shadow: 0px 0px 2px #CCC;
+    height: min-content; 
+    align-self: center;
+    justify-self: center;
+}
+
+.inviteBox h1{
+    color: #333;
+    font-size: 2rem;
+    margin-top: 0px;
+}
+
+.inviteBox p{
+    color: #333;
+    font-weight: 400;
+}
+
+.inviteBox a{
+    color: #333;
+    font-weight: 400;
+}
+
+.inviteBox a.howThisWorks{
+    padding-left: 10px;
+}
+
+.inviteBox input{
+    padding-left: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.inviteBox button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
