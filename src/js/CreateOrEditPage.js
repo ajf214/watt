@@ -132,7 +132,7 @@ class CreateOrEditPage extends Component {
                         <span className="cmvLabel">CMV Post URL</span>
                         <input type="text" className="cmvInput" placeholder="http://reddit.com/r/changemyview/some-page" ref={el => this.cmvInput=el}></input>
                     
-                        <a className="writingGuidelines" href="http://google.com" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
+                        <a className="writingGuidelines" href="/writing-guidelines" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
                     </div>            
 
                     
