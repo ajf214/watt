@@ -108,7 +108,7 @@ class Home extends Component{
                             </div>
             
                             <div className = "articleList">
-                                <h2>More posts</h2>
+                                <h2 className="listLabel">MORE POSTS</h2>
                                 {/* mapping the rest of the titles here */}
                                 {this.state.pages.map(function(page,index){
                                     if(index>=4){

@@ -60,6 +60,10 @@
     margin-bottom: 100px;
 }
 
+.articleList .listLabel{
+    font-size: 1rem;
+}
+
 .articleList .smallTitle{
     grid-column: 1/7;
     font-size: 1.4em;

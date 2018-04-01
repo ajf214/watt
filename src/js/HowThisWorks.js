@@ -8,11 +8,11 @@ const HowThisWorks = (props) =>{
     let content = 
     `# How this works
     \n\n## What is Project WATT?
-    \n\nSocial media has no vested interest in keeping you informed. Their only incentive is to keep you engaged and entertained. Even good journalists are fighting an uphill battle prioritizing their work over engagement metrics. In the last few years we have begun to notice the [devastating effects of these toxic incentives](https://theoutline.com/post/3470/we-are-in-an-information-crisis-parkland-youtube-facebook-fake-news?zd=1&zi=j2ekw5i7).
+    \n\nSocial media has no vested interest in keeping you informed. Their only incentive is to keep you engaged and entertained. Even good journalists at good publications are fighting an uphill battle prioritizing their work over their engagement metrics. In the last few years we have begun to notice the [devastating effects of these toxic incentives](https://theoutline.com/post/3470/we-are-in-an-information-crisis-parkland-youtube-facebook-fake-news?zd=1&zi=j2ekw5i7).
     \n\nProject WATT (What Are They Thinking?) is an experimental publication to collect a wide variety of perspectives on a wide variety of issues. It is made up of brief yet nuanced articles written and edited by the public.
     \n\nProject WATT is run in partnership with the popular subreddit [Change My View](http://reddit.com/r/changemyview).
     \n\n## How do I sign up to contribute to Project WATT?
-    \n\nIn order to become a contributor you need to write a post on [Change My View](http://reddit.com/r/changemyview) that receives more than 20 comments (that follow the [rules](https://www.reddit.com/r/changemyview/wiki/rules)).  If your post receives more than 20 comments, you’ll receive an email with an invite code to sign up for Project WATT.
+    \n\nIn order to become a contributor you need to write a post on [Change My View](http://reddit.com/r/changemyview) that receives more than 50 comments (at least 10 from the OP) that follow the [rules](https://www.reddit.com/r/changemyview/wiki/rules).  If your post receives more than 20 comments, you’ll receive an email with an invite code to sign up for Project WATT.
     \n\n## How do I turn my CMV post into a Project WATT article?
     \n\nOnce you are signed up, you can contribute your WATT article.  We have [writing guidelines](/writing-guidelines) to help you convert your CMV post into a Project WATT article.
     \n\n## Why are you doing this?

@@ -19,8 +19,10 @@ const WritingGuide = (props) =>{
         \n\nThere are three sections that need to be filled out:
         \n\n### 1. Where I’m coming from
         \n\nExpand on your chosen perspective. What gives you a unique insight on this issue? It could be about your job, your upbringing, your nationality, or really anything. Many CMV posts already include something like this.  Think about why you wanted to write this CMV in the first place.
-        \n\n### 2. My perspective
-        \n\nThis should be more straightforward and you should be able to use a lot of your original CMV here. If you learned something from the discussion or if you awarded any Delta’s, then you should incorporate some of that thinking into this section.
+        \n\n### 2. \\[YOUR PERSPECTIVE HERE]\
+        \n\nReplace \\[YOUR PERSPECTIVE HERE]\ with a maximum 100 character summary of your perspective. It could be the same as your CMV post, but you can modify it if your view changed.
+        \n\n
+        \n\nFor the body, you should be able to use a lot of your original CMV. If you learned something from the discussion or if you awarded any Delta’s, then you should incorporate some of that thinking into this section.
         \n\n### 3. What I took away from the discussion
         \n\nWhat did you get out of discussing these issues on CMV? What were you suprised by?
         \n\n

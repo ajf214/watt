@@ -54,7 +54,7 @@ class CreateOrEditPage extends Component {
         }
 
         if(this.state.action === "new"){
-            let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...\n\n## What I got from the CMV Discussion\n\nSome thoughts...`
+            let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## [YOUR VIEW GOES HERE — ex: Pen is better than pencil]\n\nExplain your view — including the result of any deltas or other discussion...\n\n## What I got from the CMV Discussion\n\nSome thoughts...`
             this.pageInput.value = textAreaDefault
         }
     }
@@ -124,6 +124,8 @@ class CreateOrEditPage extends Component {
                 <NavBar></NavBar>
                 <div className="contentContainer">
                     <div className="addTitle">
+                        <h2 className="sectionLabel">TITLE</h2>
+                        
                         <span>How a</span>
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
                         <span>sees</span>
@@ -136,10 +138,8 @@ class CreateOrEditPage extends Component {
                     </div>            
 
                     
-                    
+                    <h2 className="sectionLabel">BODY</h2>
                     <a href="https://ia.net/writer/support/general/markdown-guide/" target="blank" className="markdownLink">Markdown tips</a>
-
-                    {/* there should be a preset value here */}
                     <textarea ref={el => this.pageInput=el}></textarea>            
                     <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
                     <span className="errorText">{this.state.errorText}</span>

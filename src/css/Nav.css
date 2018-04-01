@@ -52,22 +52,25 @@
 
 .rules{
     /* grid-column-start: 4; */
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #000;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .about{
     /* grid-column-start: 4; */
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #000;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .loginLink , .signUp, .profile, .addPage{
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #000;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .nav-container .buttons a.signUp{
