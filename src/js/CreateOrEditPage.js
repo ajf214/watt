@@ -54,7 +54,7 @@ class CreateOrEditPage extends Component {
         }
 
         if(this.state.action === "new"){
-            let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...`
+            let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## My perspective on this issue\n\nSome thoughts...\n\n## What I got from the CMV Discussion\n\nSome thoughts...`
             this.pageInput.value = textAreaDefault
         }
     }
@@ -129,7 +129,7 @@ class CreateOrEditPage extends Component {
                         <span>sees</span>
                         <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
 
-                        <span className="cmvLabel">CMV URL</span>
+                        <span className="cmvLabel">CMV Post URL</span>
                         <input type="text" className="cmvInput" placeholder="http://reddit.com/r/changemyview/some-page" ref={el => this.cmvInput=el}></input>
                     
                         <a className="writingGuidelines" href="http://google.com" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
