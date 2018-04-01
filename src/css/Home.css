@@ -80,5 +80,7 @@
 @media (max-width: 600px){
     .bigTitle{
         margin-top: 40px;
+        font-size: 3rem;
+        line-height: 120%;
     }
 }

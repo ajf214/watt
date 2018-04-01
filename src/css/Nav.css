@@ -141,8 +141,21 @@
         text-align: right;
     }
 
-    .hidden{
+    .nav-container .buttons a.loginLink{
         display: block;
+        padding-top: 10px;
+        text-align: center;
+        padding-right: 0px;
+        font-size: 0.8rem;
+        text-decoration: underline;
+    }
+
+    .nav-container .buttons a.loginLink.hidden{
+        display: none;
+    }
+
+    .nav-container .buttons a.profile.hidden{
+        display: none;
     }
 
     .signOut{
@@ -153,8 +166,6 @@
         text-align: right;
         padding-right: 0px;
     }
-
-
 
     .mobile-hide{
         display: none;

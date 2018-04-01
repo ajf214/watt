@@ -46,9 +46,8 @@
 }
 
 .inviteBox input{
-    padding-left: 3px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 0px 5px 3px;
+    margin-right: 5px;
 }
 
 .inviteBox button{
@@ -65,5 +64,9 @@
 @media (max-width: 600px){
     .inviteBox{
         grid-column: 2/12;
+    }
+
+    .inviteBox{
+        width: 80%;
     }
 }
