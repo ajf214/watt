@@ -17,6 +17,8 @@ class Invite extends Component{
 
     componentDidMount(){
         document.body.style.backgroundColor = "#643472"
+    
+        //on key down function, so that when I press enter it submits
     }
 
     checkInvite(){
