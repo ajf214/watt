@@ -141,6 +141,10 @@
         text-align: right;
     }
 
+    .hidden{
+        display: block;
+    }
+
     .signOut{
         background-color: #fff;
         border: none;
