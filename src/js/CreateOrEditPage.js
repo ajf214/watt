@@ -124,7 +124,6 @@ class CreateOrEditPage extends Component {
                 <NavBar></NavBar>
                 <div className="contentContainer">
                     <div className="addTitle">
-                        <a className="writingGuidelines" href="http://google.com" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
                         <span>How a</span>
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
                         <span>sees</span>
@@ -132,6 +131,8 @@ class CreateOrEditPage extends Component {
 
                         <span className="cmvLabel">CMV URL</span>
                         <input type="text" className="cmvInput" placeholder="http://reddit.com/r/changemyview/some-page" ref={el => this.cmvInput=el}></input>
+                    
+                        <a className="writingGuidelines" href="http://google.com" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
                     </div>            
 
                     
