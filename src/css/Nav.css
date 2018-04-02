@@ -125,6 +125,10 @@
 }
 
 @media (max-width: 700px){
+
+    .rules, .about{
+        font-size: 0.9rem;
+    }
     
 
     .nav-container .buttons{

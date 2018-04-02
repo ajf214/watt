@@ -50,10 +50,11 @@
     /* grid-column: 3/7; */
     font-weight: 400;
     display: block;
+    text-decoration: none;
 }
 
 .aboutCMV{
-    padding-top: 5px;
+    padding-top: 10px;
     font-size: 0.8rem;
     /* grid-column: 3/7; */
     display: block;
@@ -65,6 +66,11 @@
 
 .pageText h1, .pageText h2{
     font-weight: 600;
+}
+
+.pageText h3, .pageText h4{
+    font-weight: 600;
+    color: #555;
 }
 
 .pageText p{
