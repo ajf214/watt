@@ -33,7 +33,7 @@ class PageV2 extends Component{
             .once("value", snapshot => {
                 //set state with this info
                 this.setState({
-                    pageTitle: `How a ${snapshot.val().perspective} sees ${snapshot.val().issue}`,
+                    pageTitle: (this.isVowel(snapshot.val().perspective.charAt(0)) ? `How an ${snapshot.val().perspective} sees ${snapshot.val().issue}` : `How a ${snapshot.val().perspective} sees ${snapshot.val().issue}`),
                     author: snapshot.val().author,
                     authorId: snapshot.val().authorId,
                     pageText: snapshot.val().text,
@@ -45,6 +45,23 @@ class PageV2 extends Component{
             .catch(e => console.log(e))
     }
 
+    isVowel(c){
+        switch(c){
+            case 'a':
+                return true;
+            case 'e':
+                return true;               
+            case 'i':
+                return true;
+            case 'o':
+                return true;
+            case 'u':
+                return true;
+            default:
+                return false;
+        }
+    }
+
     render(){
         if(this.state.loading){
             return null
@@ -53,9 +70,7 @@ class PageV2 extends Component{
         else{
             return(
                 <div className="pageV2Container">
-                    <NavBar></NavBar>
-
-                   
+                    <NavBar></NavBar>      
                     
                     <div className="titleSection">
                         <div className="titleContent">                        

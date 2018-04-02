@@ -18,7 +18,7 @@
 }
 
 .home{
-    font-size: 1.4em;
+    font-size: 1.8em;
     color: #643472;
     text-decoration: none;
     font-weight: 600;
@@ -52,7 +52,7 @@
 
 .rules{
     /* grid-column-start: 4; */
-    font-size: 0.9em;
+    font-size: 1.2em;
     color: #555;
     text-decoration: none;
     font-weight: 400;
@@ -60,14 +60,14 @@
 
 .about{
     /* grid-column-start: 4; */
-    font-size: 0.9em;
+    font-size: 1.2em;
     color: #555;
     text-decoration: none;
     font-weight: 400;
 }
 
 .loginLink , .signUp, .profile, .addPage{
-    font-size: 0.9em;
+    font-size: 1.2em;
     color: #555;
     text-decoration: none;
     font-weight: 500;
@@ -95,7 +95,11 @@
     display: none; 
 }
 
-
+@media (min-width: 1400 px){
+    .home{
+        font-size: 1.8rem;
+    }
+}
 
 /* mobile   */
 @media (max-width: 1200px){

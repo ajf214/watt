@@ -34,6 +34,7 @@
 .homeContainer .inviteWrapper a{
     text-decoration: underline;
     color: #643472;
+    font-family: 'Open Sans'
 }
 
 @media (max-width: 1200px){
