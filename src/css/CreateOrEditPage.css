@@ -17,8 +17,8 @@
     grid-column: 1/7;
 
     font-size: 3rem;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     color: #FFF;
 
     display: grid;
@@ -30,12 +30,16 @@
     display: block;
     grid-column: 1/2;
     justify-self: right;
+    font-family: 'program';
+    font-weight: 600;
+    align-self: center;
 }
 
 .cmvLabel , .addTitle input.cmvInput{
     font-size: 1rem;
     margin-top: 20px;
     font-weight: 500;
+    font-family: 'program';
 }
 
 
@@ -43,8 +47,8 @@
 .addTitle input{
     grid-column: 2/3;
     font-size: 1em;
-    font-family: 'Open Sans';
-    font-weight: 300;
+    font-family: 'program';
+    font-weight: 600;
     padding-left: 10px;
     background-color: rgba(255, 255, 255, 0.7);
 }
@@ -62,8 +66,14 @@
 }
 
 .sectionLabel{
+    font-family: 'program';
     font-size: 1rem;
     color: #DDD;
+    font-weight: 600;
+}
+
+.sectionLabelTitle{
+    grid-column: 1/3;
 }
 
 textarea{

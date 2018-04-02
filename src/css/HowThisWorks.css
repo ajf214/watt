@@ -11,6 +11,14 @@
     color: #333;
 }
 
+.content h1{
+    font-weight: 500;
+} 
+
+.content h2{
+    font-weight: 600;
+}
+
 .content p, .content a{
     font-weight: 400;
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Patua+One');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800');
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500');
+@import url("https://use.typekit.net/zhr3ksx.css");
 
 body{
   font-family: 'Open Sans', sans-serif;
@@ -14,10 +15,11 @@ body{
 }
 
 h1, h2, h3, h4, h5{
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'program', sans-serif;
   font-weight: 400;
 }
 
 a{
+  font-family: 'program';
   color: rgba(255,255,255,0.9);
 }

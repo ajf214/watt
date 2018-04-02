@@ -27,7 +27,7 @@
 }
 
 .project{
-    font-weight: 400;
+    font-weight: 600;
     color: #999;
 }
 
@@ -53,22 +53,22 @@
 .rules{
     /* grid-column-start: 4; */
     font-size: 0.9em;
-    color: #000;
+    color: #555;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .about{
     /* grid-column-start: 4; */
     font-size: 0.9em;
-    color: #000;
+    color: #555;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .loginLink , .signUp, .profile, .addPage{
     font-size: 0.9em;
-    color: #000;
+    color: #555;
     text-decoration: none;
     font-weight: 500;
 }
@@ -87,7 +87,7 @@
 }
 
 .addPage{
-    font-weight: 500;
+    font-weight: 600;
     color: #643472;
 }
 

@@ -124,7 +124,7 @@ class CreateOrEditPage extends Component {
                 <NavBar></NavBar>
                 <div className="contentContainer">
                     <div className="addTitle">
-                        <h2 className="sectionLabel">TITLE</h2>
+                        <h2 className="sectionLabel sectionLabelTitle">TITLE</h2>
                         
                         <span>How a</span>
                         <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
