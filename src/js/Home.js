@@ -6,7 +6,7 @@ import NavBar from './Nav.js'
 import JoinWatt from './JoinWatt.js'
 import '../css/Home.css'
 
-const pageRef = fire.database().ref('v2pages').orderByChild('perspective').limitToLast(100);
+const pageRef = fire.database().ref('v2pages').limitToLast(100);
 
 class Home extends Component{
 
