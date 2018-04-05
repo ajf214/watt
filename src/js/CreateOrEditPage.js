@@ -54,7 +54,7 @@ class CreateOrEditPage extends Component {
         }
 
         if(this.state.action === "new"){
-            let textAreaDefault = `## Where I'm coming from\n\nSome thoughts...\n\n## [YOUR VIEW GOES HERE — ex: Pen is better than pencil]\n\nExplain your view — including the result of any deltas or other discussion...\n\n## What I got from the CMV Discussion\n\nSome thoughts...`
+            let textAreaDefault = `Some thoughts...`
             this.pageInput.value = textAreaDefault
         }
     }
@@ -137,10 +137,20 @@ class CreateOrEditPage extends Component {
                         <a className="writingGuidelines" href="/writing-guidelines" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
                     </div>            
 
-                    
-                    <h2 className="sectionLabel">BODY</h2>
                     <a href="https://ia.net/writer/support/general/markdown-guide/" target="blank" className="markdownLink">Markdown tips</a>
-                    <textarea ref={el => this.pageInput=el}></textarea>            
+                    
+                    <h3>Where you're coming from</h3>
+                    <p>Why did you discuss this view? What unique perspective do you have for this view?</p>
+                    <textarea className="whereInput" ref={el => this.pageInput=el}></textarea>            
+
+                    <h3 className="viewLabel">You're view</h3>
+                    <p>Likely the same, or similar to the title of your CMV post</p>
+                    <input type="text" placeholder="Your view (in 100 characters)"className="view-title" ref={el => this.viewTitleInput=el}></input>
+                    
+                    <h3>Details about your view</h3>
+                    <p>Use your original CMV post as a starting point, but make changes to these details based on the discussion you had in CMV</p>
+                    <textarea className="viewDetailsInput" placeholder="details about your view" ref={el => this.viewDetailsInput = el}></textarea>
+
                     <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
                     <span className="errorText">{this.state.errorText}</span>
                 </div>

@@ -40,6 +40,8 @@
     margin-top: 20px;
     font-weight: 500;
     font-family: 'program';
+    padding-top: 10px;
+    padding-bottom: 7px;
 }
 
 
@@ -50,7 +52,9 @@
     font-family: 'program';
     font-weight: 600;
     padding-left: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-top: 10px;
+    padding-bottom: 7px;
 }
 
 .writingGuidelines{
@@ -76,15 +80,51 @@
     grid-column: 1/3;
 }
 
-textarea{
-    height: 70vh;
+.contentContainer textArea{
     grid-column: 1/7;
-    margin-bottom: 50px;
-
-    font-size: 1.4em;
+    font-size: 1rem;
     padding-top: 5px;
     padding-left: 8px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
+    font-family: 'Open sans'
+}
+
+.whereInput{
+    height: 20vh;
+    margin-bottom: 20px;
+}
+
+.contentContainer h3{
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.contentContainer p{
+    margin-top: 0px;
+    grid-column: 1/4;
+    font-weight: 500;
+    color: #ddd;
+    font-size: 0.9em;
+
+}
+
+.contentContainer .view-title{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    grid-column: 1/6;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    font-family: 'program';
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.viewDetailsInput{
+    height: 70vh;
+    margin-bottom: 50px;
 }
 
 .savePage{
