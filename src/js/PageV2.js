@@ -22,6 +22,8 @@ class PageV2 extends Component{
             authorId: "",
             userId: "",
             cmvUrl: "",
+            view: "",
+            viewText: "",
             loading: true
         }
     }
@@ -37,6 +39,8 @@ class PageV2 extends Component{
                     author: snapshot.val().author,
                     authorId: snapshot.val().authorId,
                     pageText: snapshot.val().text,
+                    view: (snapshot.val().view ? snapshot.val().view : ""),
+                    viewText: (snapshot.val().viewText ? snapshot.val().viewText : ""),
                     userId: fire.auth().currentUser ? fire.auth().currentUser.uid : null,
                     loading: false,
                     cmvUrl: snapshot.val().cmvUrl
@@ -87,6 +91,9 @@ class PageV2 extends Component{
 
                     {/* this should have a white background */}
                     <ReactMarkdown source={this.state.pageText} className="pageText"/>
+                    <h2 className="view">{this.state.view}</h2>
+                    <ReactMarkdown source={this.state.viewText} className="pageText viewText"/>
+                    
                 </div>
             )
         }

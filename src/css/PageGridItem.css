@@ -1,0 +1,23 @@
+.pageGridWrapper{
+    padding: 20px;
+}
+
+.pageGridWrapper p{
+    font-size: 1.1rem;
+    color: #ccc;
+    font-family: 'Open sans';
+    padding-bottom: 5px;
+}
+
+.pageGridWrapper a{
+    font-family: 'program';
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.pageGridWrapper h3{
+    font-family: 'Open sans';
+    font-weight: 500;
+    color: #ccc;
+    font-size: 0.9rem;
+}

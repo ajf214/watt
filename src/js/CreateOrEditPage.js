@@ -14,12 +14,31 @@ class CreateOrEditPage extends Component {
             pageId: this.props.match.params.pageId,
             user: "",
             userId: "",
-            errorText: ""
+            errorText: "",
+            examples: ["truck driver", "eagle scout", "pragmatist", "millennial", "asian-american", "idealist", "software engineer" , "farmer", "indian", "brexit voter", "catholic"],
+            exampleNumber: 0
         }
     }
 
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+      }
+
     componentDidMount(){
 
+        //changes the 'perspective' placeholder to a random item in the array
+        this.interval = setInterval(() => {
+
+            const examplesSize = this.state.examples.length
+            
+            this.setState({
+            //change the example text
+                exampleNumber: this.getRandomInt(0, examplesSize)
+            })  
+        }, 1000)      
+        
         fire.auth().onAuthStateChanged(firebaseUser => {
             if(firebaseUser){
                 console.log(firebaseUser);
@@ -54,9 +73,16 @@ class CreateOrEditPage extends Component {
         }
 
         if(this.state.action === "new"){
-            let textAreaDefault = `Some thoughts...`
+            /*
+            let textAreaDefault = `Examples\n\n* `
             this.pageInput.value = textAreaDefault
+            */
         }
+    }
+
+    compenentWillUnmount(){
+        //clear interval
+        clearInterval(this.interval)
     }
 
     savePage(){       
@@ -67,7 +93,9 @@ class CreateOrEditPage extends Component {
                     perspective: this.perspectiveInput.value,
                     issue: this.issueInput.value,
                     text: this.pageInput.value,
-                    cmvUrl: this.cmvInput.value
+                    cmvUrl: this.cmvInput.value,
+                    view: this.viewTitleInput.value,
+                    viewText: this.viewDetailsInput.value,
                 })
                 .then(() => {
                     //route to the newly saved page
@@ -82,7 +110,8 @@ class CreateOrEditPage extends Component {
         }
         else{
             //check that the fields are valid
-            if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === "" || this.cmvInput.value === ""){
+            if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === "" || this.cmvInput.value === "" 
+                || this.viewTitleInput.value === "" || this.viewDetailsInput.value === ""){
                 console.log("one of the fields was not filled out")
                 this.setState({
                     errorText: "One of the fields is empty"
@@ -95,9 +124,11 @@ class CreateOrEditPage extends Component {
                     perspective: this.perspectiveInput.value,
                     issue: this.issueInput.value,
                     text: this.pageInput.value,
-                    author: this.state.user,
-                    authorId: this.state.userId,
-                    cmvUrl: this.cmvInput.value
+                    view: this.viewTitleInput.value,
+                    viewText: this.viewDetailsInput.value,
+                    author: this.state.user, //I should already have this
+                    authorId: this.state.userId, //I won't need this anymore
+                    cmvUrl: this.cmvInput.value //I will normally already have this
                 }
     
                 //add page to db
@@ -127,7 +158,7 @@ class CreateOrEditPage extends Component {
                         <h2 className="sectionLabel sectionLabelTitle">TITLE</h2>
                         
                         <span>How a</span>
-                        <input type="text" placeholder="perspective" ref={el => this.perspectiveInput=el}></input>
+                        <input type="text" placeholder={`perspective (ex: ${this.state.examples[this.state.exampleNumber]})`} ref={el => this.perspectiveInput=el}></input>
                         <span>sees</span>
                         <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
 
@@ -140,16 +171,16 @@ class CreateOrEditPage extends Component {
                     <a href="https://ia.net/writer/support/general/markdown-guide/" target="blank" className="markdownLink">Markdown tips</a>
                     
                     <h3>Where you're coming from</h3>
-                    <p>Why did you discuss this view? What unique perspective do you have for this view?</p>
-                    <textarea className="whereInput" ref={el => this.pageInput=el}></textarea>            
+                    <p>What is your background as it relates to this view?</p>
+                    <textarea placeholder={`For example:\n\n - where you grew up\n - what world events you've witnessed\n - what generation you are a part of`}className="whereInput" ref={el => this.pageInput=el}></textarea>            
 
-                    <h3 className="viewLabel">You're view</h3>
-                    <p>Likely the same, or similar to the title of your CMV post</p>
-                    <input type="text" placeholder="Your view (in 100 characters)"className="view-title" ref={el => this.viewTitleInput=el}></input>
+                    <h3 className="viewLabel">Your view</h3>
+                    <p>Likely the same, or similar, to the title of your CMV post</p>
+                    <input type="text" placeholder="Your view (in 100 characters)" className="view-title" ref={el => this.viewTitleInput=el}></input>
                     
                     <h3>Details about your view</h3>
-                    <p>Use your original CMV post as a starting point, but make changes to these details based on the discussion you had in CMV</p>
-                    <textarea className="viewDetailsInput" placeholder="details about your view" ref={el => this.viewDetailsInput = el}></textarea>
+                    <p>Explain your view. How has it evolved as a result of your CMV discussion?</p>
+                    <textarea className="viewDetailsInput" placeholder="Did you award deltas? Make sure these details reflect those changes" ref={el => this.viewDetailsInput = el}></textarea>
 
                     <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
                     <span className="errorText">{this.state.errorText}</span>

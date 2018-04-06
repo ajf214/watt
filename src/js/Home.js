@@ -5,6 +5,7 @@ import fire from './fire.js'
 import NavBar from './Nav.js'
 import JoinWatt from './JoinWatt.js'
 import '../css/Home.css'
+import PageGridItem from './PageGridItem.js'
 
 const pageRef = fire.database().ref('v2pages').limitToLast(100);
 
@@ -47,7 +48,9 @@ class Home extends Component{
                 //need to detect if the first letter is a vowel so I can decide between 'a' or 'an'
                 title: (this.isVowel(snapshot.val().perspective.charAt(0)) ? `How an ${snapshot.val().perspective} sees ${snapshot.val().issue}` : `How a ${snapshot.val().perspective} sees ${snapshot.val().issue}`),
                 author: snapshot.val().author,
-                id: snapshot.key
+                id: snapshot.key,
+                view: snapshot.val().view,
+                viewText: snapshot.val().viewText
             };
 
             this.setState({
@@ -86,25 +89,21 @@ class Home extends Component{
                 <div className = "homeContainer">
                     <NavBar></NavBar>
                         <div class="homeContent">
-                        
-                            <div className = "bigTitle">
-                                <Link to={`pagesv2/${newThis.state.pages[0].id}`}>{newThis.state.pages[0].title}</Link>
-                                <p>{"@" + this.state.pages[0].author}</p>
-                            </div>
-                            
-                            <div className="mediumTitleContainer">
-                                <div className = "mediumTitle">
-                                    <Link to={`pagesv2/${newThis.state.pages[1].id}`}>{newThis.state.pages[1].title}</Link>
-                                    <p>{"@" + this.state.pages[1].author}</p>
-                                </div>
-                                <div className = "mediumTitle">
-                                    <Link to={`pagesv2/${newThis.state.pages[2].id}`}>{newThis.state.pages[2].title}</Link>
-                                    <p>{"@" + this.state.pages[2].author}</p>
-                                </div>
-                                <div className = "mediumTitle">
-                                    <Link to={`pagesv2/${newThis.state.pages[3].id}`}>{newThis.state.pages[3].title}</Link>
-                                    <p>{"@" + this.state.pages[3].author}</p>
-                                </div>
+                            <div className="mediumTitleContainer">   
+                                <h2 className="containerLabel">POPULAR</h2>                             
+                                {this.state.pages.map( (page, index) => {                                 
+                                    if(index < 6){
+                                        return(
+                                        <PageGridItem
+                                            author={page.author}
+                                            id={page.id}
+                                            title={page.title}
+                                            subtitle={(page.view == null) ? "" : page.view} 
+                                            key={index}   
+                                        ></PageGridItem>  
+                                        )
+                                    }
+                                })}
                             </div>
             
                             <div className = "articleList">
