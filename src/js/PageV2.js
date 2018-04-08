@@ -90,6 +90,7 @@ class PageV2 extends Component{
                     </div>
 
                     {/* this should have a white background */}
+                    <h2 className="view">Where I'm coming from</h2>
                     <ReactMarkdown source={this.state.pageText} className="pageText"/>
                     <h2 className="view">{this.state.view}</h2>
                     <ReactMarkdown source={this.state.viewText} className="pageText viewText"/>

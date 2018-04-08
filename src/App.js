@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Home from './js/Home.js';
-import Page from './js/Page';
 import './css/App.css';
 import Rules from './js/Rules';
 import About from './js/About';
-import Login from './js/Login';
 import PageV2 from './js/PageV2';
 import CreateOrEditPage from './js/CreateOrEditPage';
-import Invite from './js/Invite'
 import HowThisWorks from './js/HowThisWorks'
 import WritingGuide from './js/WritingGuide'
 
@@ -38,16 +35,14 @@ class App extends Component{
             <BrowserRouter>
                 <div className = "grid">
                     <Route exact path = "/" component={Home} />
-                    <Route path="/page/:pageId" component={Page} />
                     <Route path="/pagesv2/:pageId" component={PageV2} />
                     <Route path="/rules/" component={Rules} />
                     <Route path="/about" component={About} />
-                    <Route path="/login/:action" component={Login} />
-                    <Route exact path="/post/:action" component={CreateOrEditPage} />
-                    <Route exact path="/post/:action/:pageId" component={CreateOrEditPage} />
-                    <Route path="/invite" component={Invite} />
-                    <Route path="/how-this-works" component={HowThisWorks} />
+                    <Route exact path="/invite/:password" component={CreateOrEditPage} />
+                    <Route path="/how-this-works" component={HowThisWorks} />        
                     <Route path="/writing-guidelines" component={WritingGuide} />
+                    {/*<Route path="/login/:action" component={Login} />*/}
+                    {/*<Route path="/invite" component={Invite} />*/}
                 </div>
             </BrowserRouter>
         )

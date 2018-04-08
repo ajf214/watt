@@ -5,8 +5,76 @@
     grid-template-columns: repeat(12, 1fr);
 }
 
+.leftInfoBox{
+    top: 10vh;
+   
+    /*
+    grid-column: 9/11;
+    grid-row: 2/3;
+    */
+
+    grid-column: 2/4; 
+
+    position: sticky;
+    margin-top: 20vh;
+    height: min-content;
+}
+
+.leftInfoBox span.titleLabel, .leftInfoBox p.titleValue{
+    font-size: 1rem;
+    margin-top: 0px;
+    font-weight: 400;
+    font-family: 'program';
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: rgba(230,230,230,0.9);
+}
+
+.leftInfoBox span.titleLabel{
+    font-weight: 500;
+
+}
+
+.leftInfoBox p.titleValue{
+    color: #fff;
+}
+
+.leftInfoBox .inviteDetails{
+    border: 2px solid #fff;
+    padding: 20px;
+}
+
+.leftInfoBox .helpfulLinks{
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.leftInfoBox .leftInfoLabel{
+    margin-top: 0px;
+    font-family: 'program';
+    font-size: 1rem;
+    color: #DDD;
+    font-weight: 500;
+}
+
+.markdownLink{
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+    color: rgba(230,230,230,0.9);
+    grid-column: 1/3;
+    font-weight: 400;
+    font-family: 'Open sans';
+    display: block;
+}
+
 .contentContainer{
-    grid-column: 4/10;
+    
+    /*
+    grid-column: 2/8;
+    grid-row: 2/3;
+    */
+
+    grid-column: 5/11;
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -29,28 +97,18 @@
 .addTitle span{
     display: block;
     grid-column: 1/2;
-    justify-self: right;
     font-family: 'program';
-    font-weight: 600;
+    font-weight: 500;
     align-self: center;
 }
 
-.cmvLabel , .addTitle input.cmvInput{
-    font-size: 1rem;
-    margin-top: 20px;
-    font-weight: 500;
-    font-family: 'program';
-    padding-top: 10px;
-    padding-bottom: 7px;
-}
-
-
-
 .addTitle input{
-    grid-column: 2/3;
+    width: 100%;
+    box-sizing: border-box;
+    grid-column: 1/3;
     font-size: 1em;
     font-family: 'program';
-    font-weight: 600;
+    font-weight: 500;
     padding-left: 10px;
     background-color: rgba(255, 255, 255, 0.9);
     padding-top: 10px;
@@ -58,27 +116,34 @@
     border: none;
 }
 
+
+
+.contentContainer p.titleValue{
+    grid-column: 2/4;
+    margin-bottom: 0px;
+    font-weight: 400;
+}
+
+
+
+
+
 .writingGuidelines{
     grid-column: 2/3;
     font-size: 1rem;
 }
 
-.markdownLink{
-    font-size: 0.8rem;
-    padding-bottom: 10px;
-    color: #CCC;
-    grid-column: 1/3;
-}
+
 
 .sectionLabel{
     font-family: 'program';
     font-size: 1rem;
     color: #DDD;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .sectionLabelTitle{
-    grid-column: 1/3;
+    grid-column: 1/2;
 }
 
 .contentContainer textArea{
@@ -95,11 +160,15 @@
     margin-bottom: 20px;
 }
 
-.contentContainer h3{
+.contentContainer .bodySectionTitle{
     margin-bottom: 4px;
     font-weight: 600;
     font-size: 1.2rem;
     margin-top: 50px;
+}
+
+.contentContainer .bodySectionTitle.whereLabel{
+    margin-top: 15px;
 }
 
 .contentContainer p{
@@ -114,7 +183,7 @@
 .contentContainer .view-title{
     padding-top: 10px;
     padding-bottom: 10px;
-    grid-column: 1/6;
+    grid-column: 1/7;
     margin-bottom: 20px;
     padding-left: 10px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -142,8 +211,12 @@ span.errorText{
 }
 
 @media (max-width: 1600px){
+    .leftInfoBox{
+        grid-column: 2/5;
+    }
+    
     .contentContainer{
-        grid-column: 3/11;
+        grid-column: 6/12;
     }
 
     .addTitle{
@@ -152,7 +225,14 @@ span.errorText{
 }
 
 @media (max-width: 1000px){
+    .leftInfoBox{
+        grid-column: 2/12;
+        position: static;
+        margin-top: 20px;
+    }
+    
     .contentContainer{
+        margin-top: 20px;
         grid-column: 2/12;
     }
 
@@ -162,5 +242,6 @@ span.errorText{
 
     .addTitle{
         font-size: 2rem;
+        margin-top: 0px;
     }
 }

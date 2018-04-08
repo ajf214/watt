@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import NavBar from './Nav.js'
-import CreateOrEditPage from './CreateOrEditPage'
 
 import '../css/Invite.css'
 

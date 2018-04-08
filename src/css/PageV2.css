@@ -111,6 +111,10 @@
         grid-column: 2/12;
     }
 
+    .view{
+        grid-column: 2/12;
+    }
+
     .pageText{
         grid-column: 2/10;
     }

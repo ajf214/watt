@@ -89,6 +89,15 @@ class Home extends Component{
                 <div className = "homeContainer">
                     <NavBar></NavBar>
                         <div class="homeContent">
+                            <div className="bigTitle">
+                                <PageGridItem
+                                    author="ProjectWATT Team"
+                                    title="Welcome to projectWATT*"
+                                    subtitle="Let us tell you a little bit about what we're doing"
+                                ></PageGridItem>
+                                <h5 className="asterisk">*What are they thinking?</h5>
+                            </div>
+
                             <div className="mediumTitleContainer">   
                                 <h2 className="containerLabel">POPULAR</h2>                             
                                 {this.state.pages.map( (page, index) => {                                 
@@ -103,6 +112,10 @@ class Home extends Component{
                                         ></PageGridItem>  
                                         )
                                     }
+                                    else{
+                                        console.log("failed to load popular components")
+                                        return null
+                                    }
                                 })}
                             </div>
             
@@ -110,7 +123,7 @@ class Home extends Component{
                                 <h2 className="listLabel">MORE POSTS</h2>
                                 {/* mapping the rest of the titles here */}
                                 {this.state.pages.map(function(page,index){
-                                    if(index>=4){
+                                    if(index>=6){
                                         return(
                                             <div className = "smallTitle">
                                                 <Link to={`pagesv2/${newThis.state.pages[index].id}`}>{newThis.state.pages[index].title}</Link>
