@@ -91,9 +91,10 @@ class Home extends Component{
                         <div class="homeContent">
                             <div className="bigTitle">
                                 <PageGridItem
-                                    author="ProjectWATT Team"
+                                    author="projectWATTteam"
                                     title="Welcome to projectWATT*"
                                     subtitle="Let us tell you a little bit about what we're doing"
+                                    id="whatThisIs"
                                 ></PageGridItem>
                                 <h5 className="asterisk">*What are they thinking?</h5>
                             </div>
@@ -127,7 +128,7 @@ class Home extends Component{
                                         return(
                                             <div className = "smallTitle">
                                                 <Link to={`pagesv2/${newThis.state.pages[index].id}`}>{newThis.state.pages[index].title}</Link>
-                                                <p>{"@" + newThis.state.pages[index].author}</p>
+                                                <p>{"/u/" + newThis.state.pages[index].author}</p>
                                             </div>
                                         )
                                     }

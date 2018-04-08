@@ -23,4 +23,9 @@ h1, h2, h3, h4, h5{
 a{
   font-family: 'program';
   color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
 }

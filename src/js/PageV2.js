@@ -82,7 +82,7 @@ class PageV2 extends Component{
                             <Link className={this.state.userId === this.state.authorId ? "editPage" : "hidden"} to={`/post/edit/${this.state.pageId}`}>Edit this page</Link>
 
                             <h1 className="pageTitle">{this.state.pageTitle}</h1>
-                            <p className="author">{"@" + this.state.author}</p>
+                            <p className="author">{"/u/" + this.state.author}</p>
 
                             <a className="cmvLink" target="_blank" href={this.state.cmvUrl}>Open CMV Discussion</a> 
                             <a className="aboutCMV" target="_blank" href="http://reddit.com/r/changemyview" rel="noopener noreferrer">What's CMV?</a>

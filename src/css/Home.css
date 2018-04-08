@@ -26,7 +26,6 @@
 
     grid-column: 1/7;
     font-size: 4rem;
-    font-weight: 500;
     padding: 40px;
 }
 
@@ -128,7 +127,20 @@
     .bigTitle{
         margin-top: 40px;
         font-size: 3rem;
-        line-height: 120%;
+        /*line-height: 120%;*/
+    }
+    
+    .bigTitle .pageGridWrapper a{
+        line-height: 100%;
+    }
+
+    .bigTitle .pageGridWrapper{
+        padding: 0px;
+    }
+
+    .bigTitle .asterisk{
+        padding-top: 30px;
+        text-align: left;
     }
 
     .mediumTitleContainer{
