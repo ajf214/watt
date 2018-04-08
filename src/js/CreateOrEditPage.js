@@ -149,71 +149,6 @@ class CreateOrEditPage extends Component {
         await fire.database().ref('invites/' + this.state.inviteDbLocation).update({wattPageUrl: this.state.pageUrl})      
         
         this.props.history.push("/pagesv2/" + this.state.pageUrl)
-        
-
-        //OLD SAVE/EDIT FLOW
-        /*
-        if(this.state.action === "edit"){
-            //update existing page          
-            fire.database().ref('v2pages/' + this.state.id)
-                .update({
-                    perspective: this.perspectiveInput.value,
-                    issue: this.issueInput.value,
-                    text: this.pageInput.value,
-                    cmvUrl: this.cmvInput.value,
-                    view: this.viewTitleInput.value,
-                    viewText: this.viewDetailsInput.value,
-                })
-                .then(() => {
-                    //route to the newly saved page
-                    this.props.history.push("/pagesv2/" + this.state.id);
-                })
-                .catch(e => {
-                    console.log(e)
-                    this.setState({
-                        errorText: e
-                    })
-                })
-        }
-        else{
-            //check that the fields are valid
-            if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === "" || this.cmvInput.value === "" 
-                || this.viewTitleInput.value === "" || this.viewDetailsInput.value === ""){
-                console.log("one of the fields was not filled out")
-                this.setState({
-                    errorText: "One of the fields is empty"
-                })
-            }
-
-            //page text has been validated
-            else{
-                let page = {
-                    perspective: this.perspectiveInput.value,
-                    issue: this.issueInput.value,
-                    text: this.pageInput.value,
-                    view: this.viewTitleInput.value,
-                    viewText: this.viewDetailsInput.value,
-                    author: this.state.user, //I should already have this
-                    authorId: this.state.userId, //I won't need this anymore
-                    cmvUrl: this.cmvInput.value //I will normally already have this
-                }
-    
-                //add page to db
-                fire.database().ref('v2pages').push(page)
-                    .then((snapshot) => {
-                        console.log("successfully posted page")
-                        //route to the saved page
-                        this.props.history.push("/pagesv2/" + snapshot.key);
-                    })
-                    .catch(e => {
-                        console.log(e)
-                        this.setState({
-                            errorText: e
-                        })
-                    })
-            }
-        }
-        */
     }
 
     render(){
@@ -247,7 +182,7 @@ class CreateOrEditPage extends Component {
 
                     <div className="contentContainer">
                         <div className="addTitle">
-                            <h2 className="sectionLabel sectionLabelTitle">{this.state.pageUrl==="" ? "NEW PAGE" : "EDIT PAGE"}</h2>
+                            <h2 className="sectionLabel sectionLabelTitle">{this.state.pageUrl==="no-match" ? "NEW PAGE" : "EDIT PAGE"}</h2>
                             
                             <span>How a</span>
                             <input type="text" placeholder={`perspective (ex: ${this.state.examples[this.state.exampleNumber]})`} ref={el => this.perspectiveInput=el}></input>
@@ -272,7 +207,7 @@ class CreateOrEditPage extends Component {
                         <p>Explain your view. How has it evolved as a result of your CMV discussion?</p>
                         <textarea className="viewDetailsInput" placeholder="Did you award deltas? Make sure these details reflect those changes" ref={el => this.viewDetailsInput = el}></textarea>
     
-                        <button className="savePage" onClick={this.savePage.bind(this)}>Save page</button>
+                        <button className="savePage" onClick={this.savePage.bind(this)}>SAVE PAGE</button>
                         <span className="errorText">{this.state.errorText}</span>
                     </div>
                 </div>

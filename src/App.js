@@ -41,8 +41,6 @@ class App extends Component{
                     <Route exact path="/invite/:password" component={CreateOrEditPage} />
                     <Route path="/how-this-works" component={HowThisWorks} />        
                     <Route path="/writing-guidelines" component={WritingGuide} />
-                    {/*<Route path="/login/:action" component={Login} />*/}
-                    {/*<Route path="/invite" component={Invite} />*/}
                 </div>
             </BrowserRouter>
         )

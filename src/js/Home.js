@@ -88,7 +88,7 @@ class Home extends Component{
             return(
                 <div className = "homeContainer">
                     <NavBar></NavBar>
-                        <div class="homeContent">
+                        <div className="homeContent">
                             <div className="bigTitle">
                                 <PageGridItem
                                     author="projectWATTteam"
@@ -126,7 +126,7 @@ class Home extends Component{
                                 {this.state.pages.map(function(page,index){
                                     if(index>=6){
                                         return(
-                                            <div className = "smallTitle">
+                                            <div key={index} className = "smallTitle">
                                                 <Link to={`pagesv2/${newThis.state.pages[index].id}`}>{newThis.state.pages[index].title}</Link>
                                                 <p>{"/u/" + newThis.state.pages[index].author}</p>
                                             </div>

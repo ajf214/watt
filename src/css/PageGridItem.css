@@ -4,7 +4,7 @@
 
 .pageGridWrapper p{
     font-size: 1.1rem;
-    color: #ccc;
+    color: rgba(240,240,240,0.9);
     font-family: 'Open sans';
     padding-bottom: 5px;
 }
@@ -22,7 +22,7 @@
 .pageGridWrapper h3{
     font-family: 'Open sans';
     font-weight: 500;
-    color: #ccc;
+    color: rgba(240,240,240,0.9);
     font-size: 0.9rem;
 }
 
