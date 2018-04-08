@@ -93,14 +93,14 @@ class Home extends Component{
                                 <PageGridItem
                                     author="projectWATTteam"
                                     title="Welcome to projectWATT*"
-                                    subtitle="Let us tell you a little bit about what we're doing"
+                                    subtitle="Let us tell you a little bit about what this is."
                                     id="whatThisIs"
                                 ></PageGridItem>
                                 <h5 className="asterisk">*What are they thinking?</h5>
                             </div>
 
                             <div className="mediumTitleContainer">   
-                                <h2 className="containerLabel">POPULAR</h2>                             
+                                <h2 className="containerLabel">RECENT</h2>                             
                                 {this.state.pages.map( (page, index) => {                                 
                                     if(index < 6){
                                         return(

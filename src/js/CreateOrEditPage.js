@@ -40,27 +40,6 @@ class CreateOrEditPage extends Component {
                 exampleNumber: this.getRandomInt(0, examplesSize)
             })  
         }, 1000)      
-        
-        /*
-        fire.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser){
-                console.log(firebaseUser);
-                //update nav because user is logged in
-                this.setState({
-                    user: firebaseUser.displayName,
-                    userId: firebaseUser.uid
-                })
-            }
-            else{
-                //update nav because user has just logged out
-                console.log('not logged in');
-                this.setState({
-                    loggedIn: false,
-                    username: ""
-                })
-            }
-        })
-        */
 
         document.body.style.backgroundColor = "#643472"
   
