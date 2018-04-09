@@ -17,29 +17,6 @@ class NavBar extends Component{
     componentDidMount(){
         //add a realtime auth listener
         //nav essentially manages the status of a logged in user??
-        fire.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser){
-                console.log(firebaseUser);
-                //update nav because user is logged in
-                this.setState({
-                    loggedIn: true,
-                    username: firebaseUser.displayName
-                })
-            }
-            else{
-                //update nav because user has just logged out
-                console.log('not logged in');
-                this.setState({
-                    loggedIn: false,
-                    username: ""
-                })
-            }
-        })
-    }
-
-    signOut(){
-        const promise = auth.signOut();
-        promise.catch(e => console.log(e.message));
     }
     
     render(){
@@ -51,18 +28,8 @@ class NavBar extends Component{
 
                     <div className="mainNav">   
                         <Link className="rules" to="/how-this-works">HOW THIS WORKS</Link>
-                        <Link className={this.state.loggedIn ? "addPage mobile-hide" : "hidden"} to="/post/new">NEW POST</Link>
+                        <Link className="rules" to="/explore">EXPLORE</Link>
                     </div>
-
-                    {/* 
-                    <div className="authContainer">
-                        <Link className={this.state.loggedIn ? "signUp hidden" : "signUp"} to="/invite">Sign up</Link>
-                        <Link className={this.state.loggedIn ? "loginLink hidden" : "loginLink"} to="/login/signin">Log in</Link>
-
-                        <Link className={this.state.loggedIn ? "profile" : "profile hidden"} to="/users/<placeholderForUsernameOrID?">{`@${this.state.username}`}</Link>
-                        <button className={this.state.loggedIn ? "signOut" : "hidden"} onClick={this.signOut.bind(this)}>Sign out</button>
-                    </div>
-                    */}
                 </div>
             </div>
         )
