@@ -74,6 +74,10 @@
     padding-left: 20px;
 }
 
+.articleList .containerLabel{
+    padding-left: 0px;
+}
+
 .mediumTitle{
     font-size: 1.8rem;
     font-weight: 500;
