@@ -57,7 +57,10 @@
     font-family: 'program';
     font-size: 1rem;
     color: #FFF;
-    font-weight: 500;
+    font-weight: 400;
+    padding-top: 0px;
+    letter-spacing: 0.6px;
+
 }
 
 .markdownLink{
@@ -156,7 +159,9 @@
     padding-top: 5px;
     padding-left: 8px;
     background-color: rgba(255, 255, 255, 0.9);
-     
+    font-family: 'program';
+    line-height: 1.4;
+    letter-spacing: 0.4px;
     color: #222;
 }
 

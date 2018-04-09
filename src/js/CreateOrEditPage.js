@@ -14,7 +14,7 @@ class CreateOrEditPage extends Component {
             user: "",
             pageTitle: "",
             errorText: "",
-            examples: ["truck driver", "eagle scout", "pragmatist", "millennial", "asian-american", "idealist", "software engineer" , "farmer", "indian", "brexit voter", "catholic"],
+            examples: ["musiciain", "truck driver", "eagle scout", "pragmatist", "millennial", "asian-american", "idealist", "software engineer" , "farmer", "indian", "brexit voter", "catholic"],
             exampleNumber: 0,
             goodInvite: false,
             pageKey: "invalid-code",
@@ -184,7 +184,7 @@ class CreateOrEditPage extends Component {
                         
                         <h3 className="bodySectionTitle">Details about your view</h3>
                         <p>Explain your view. How has it evolved as a result of your CMV discussion?</p>
-                        <textarea className="viewDetailsInput" placeholder="Did you award deltas? Make sure these details reflect those changes" ref={el => this.viewDetailsInput = el}></textarea>
+                        <textarea className="viewDetailsInput" placeholder="Start with you original CMV post, but update it according to any deltas awarded or important points that were made during the discussion." ref={el => this.viewDetailsInput = el}></textarea>
     
                         <button className="savePage" onClick={this.savePage.bind(this)}>SAVE PAGE</button>
                         <span className="errorText">{this.state.errorText}</span>
