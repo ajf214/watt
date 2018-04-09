@@ -4,10 +4,15 @@
 @import url("https://use.typekit.net/zhr3ksx.css");
 
 body{
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  font-size: 1em;
+  font-family: 'program', sans-serif;
+  font-weight: 400;
+  font-size: 1.2944rem;
+}
+
+*{
   box-sizing: border-box;
+  transition: 0.05s;
+  transition-timing-function: ease-in;
 }
 
 .grid{
@@ -15,15 +20,43 @@ body{
   grid-template-columns: repeat(12,1fr);
 }
 
+h1, h2, h3, h4, h5, a, p{
+  line-height: 1.3;
+  letter-spacing: 0.4px;
+}
+
 h1, h2, h3, h4, h5{
   font-family: 'program', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1{
+  font-size: 3.389rem;
+}
+
+h2{
+  font-size: 2.094rem;
+}
+
+h3{
+  font-size: 1.2944rem;
+  padding: 15px 0;
 }
 
 a{
   font-family: 'program';
   color: rgba(255,255,255,0.9);
   text-decoration: none;
+}
+
+p{
+  font-family: 'program';
+}
+
+ol{
+  padding: 20px;
 }
 
 a:hover{

@@ -8,7 +8,6 @@
 }
 
 .homeContainer p{
-    font-size: 1rem;
     color: #CCC;
     margin: 0;
 }
@@ -25,15 +24,23 @@
     margin-top: 50px;
 
     grid-column: 1/7;
-    font-size: 4rem;
     padding: 40px;
 }
 
+.bigTitle:hover{
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.2);
+}
+
 .bigTitle .pageGridWrapper a{
-    font-size: 3rem;
+    font-size: 3.389rem;
     display: block;
     margin-top: 5px;
     line-height: 110%;
+}
+
+.bigTitle .pageGridWrapper a:hover{
+    text-decoration: none;
 }
 
 
@@ -48,6 +55,8 @@
     font-size: 0.8rem;
     color: rgba(240,240,240,0.8);
     text-align: right;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 .mediumTitleContainer{
@@ -83,6 +92,7 @@
     margin-top: 100px;
     margin-bottom: 100px;
     padding-left: 20px;
+    padding-right: 20px;
     border-top: 1px solid #fff;
 }
 
@@ -92,7 +102,14 @@
 
 .articleList .smallTitle{
     grid-column: 1/7;
-    font-size: 1.4em;
+    padding-bottom: 10px;
+}
+
+.homeContainer .articleList .smallTitle a{
+    font-size: 2.094rem;
+    font-weight: 600;
+    display: block;
+
 }
 
 @media (min-width: 1600px){
@@ -126,8 +143,7 @@
     
     .bigTitle{
         margin-top: 40px;
-        font-size: 3rem;
-        /*line-height: 120%;*/
+        padding: 25px;
     }
     
     .bigTitle .pageGridWrapper a{
@@ -148,6 +164,10 @@
 
     }
 
+    .mediumTitleContainer *, .articleList *{
+        line-height: 1.2;
+    }
+
     .mediumTitleContainer .containerLabel{
         padding-left: 15px;
     }
@@ -157,4 +177,10 @@
     .mediumTitleContainer .containerLabel{
         grid-column: 1/2;
     }
+
+    .homeContainer .articleList .smallTitle a{
+        padding-bottom: 8px;
+    }
+
+    .articleList{}
 }

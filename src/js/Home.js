@@ -76,6 +76,10 @@ class Home extends Component{
         pageRef.off('child_added')
     }
 
+    bigTitleClickHandler(){
+
+    }
+
     render(){
         var newThis = this;
 
@@ -88,17 +92,18 @@ class Home extends Component{
             return(
                 <div className = "homeContainer">
                     <NavBar></NavBar>
-                        <div className="homeContent">
-                            <div className="bigTitle">
-                                <PageGridItem
-                                    author="projectWATTteam"
-                                    title="Welcome to projectWATT*"
-                                    subtitle="Let us tell you a little bit about what this is."
-                                    id="whatThisIs"
-                                ></PageGridItem>
-                                <h5 className="asterisk">*What are they thinking?</h5>
-                            </div>
-
+                        <div className="homeContent" onClick={this.bigTitleClickHandler.bind(this)}>
+                            <a className="bigTitle" href="how-this-works">
+                                <span>
+                                    <PageGridItem
+                                        author="projectWATTteam"
+                                        title="Welcome to projectWATT*"
+                                        subtitle="Let us tell you a little bit about what this is."
+                                        id="whatThisIs"
+                                    ></PageGridItem>
+                                    <h5 className="asterisk">*What are they thinking?</h5>
+                                </span>
+                            </a>
                             <div className="mediumTitleContainer">   
                                 <h2 className="containerLabel">RECENT</h2>                             
                                 {this.state.pages.map( (page, index) => {                                 
