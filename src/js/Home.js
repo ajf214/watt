@@ -96,7 +96,6 @@ class Home extends Component{
                             <a className="bigTitle" href="how-this-works">
                                 <span>
                                     <PageGridItem
-                                        author="projectWATTteam"
                                         title="Welcome to projectWATT*"
                                         subtitle="Let us tell you a little bit about what this is."
                                         id="whatThisIs"
