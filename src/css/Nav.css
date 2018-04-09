@@ -110,6 +110,10 @@
         padding-right: 20px;
     }
 
+    .nav-container .rules{
+        font-size: 1rem;
+    }
+
     /*
     .nav-container .buttons .mainNav{
         grid-column: 1/6;

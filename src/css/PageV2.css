@@ -28,6 +28,7 @@
     margin-top: 0px;
     margin-bottom: 10px;
     font-weight: 600;
+    color: rgba(255,255,255, 0.9);
 }
 
 .editPage{
@@ -42,7 +43,6 @@
     color: #CCC;
     font-size: 1.5rem;
     font-family: 'program';
-    font-weight: 500;
 }
 
 .cmvLink{
