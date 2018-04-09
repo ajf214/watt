@@ -14,7 +14,7 @@ class CreateOrEditPage extends Component {
             user: "",
             pageTitle: "",
             errorText: "",
-            examples: ["musiciain", "truck driver", "eagle scout", "pragmatist", "millennial", "asian-american", "idealist", "software engineer" , "farmer", "indian", "brexit voter", "catholic"],
+            examples: ["musician", "truck driver", "eagle scout", "pragmatist", "millennial", "asian-american", "idealist", "software engineer" , "farmer", "indian", "brexit voter", "catholic"],
             exampleNumber: 0,
             goodInvite: false,
             pageKey: "invalid-code",
@@ -176,7 +176,7 @@ class CreateOrEditPage extends Component {
 
                         <h3 className="whereLabel bodySectionTitle">Where you're coming from</h3>
                         <p>What is your background as it relates to this view?</p>
-                        <textarea placeholder={`For example:\n\n - where you grew up\n - what world events you've witnessed\n - what generation you are a part of`}className="whereInput" ref={el => this.pageInput=el}></textarea>            
+                        <textarea placeholder={`For example:\n - where you grew up\n - what world events you've witnessed\n - what generation you are a part of`}className="whereInput" ref={el => this.pageInput=el}></textarea>            
     
                         <h3 className="viewLabel bodySectionTitle">Your view</h3>
                         <p>Likely the same, or similar, to the title of your CMV post</p>
