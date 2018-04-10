@@ -69,6 +69,8 @@ class Home extends Component{
     }
 
     componentDidMount(){
+        //createSpecialInvite("inviteCode")
+
         document.body.style.backgroundColor = "#FFF"
     }
 
@@ -76,8 +78,16 @@ class Home extends Component{
         pageRef.off('child_added')
     }
 
-    bigTitleClickHandler(){
-
+    async createSpecialInvite(inviteCode){
+        const newInvite = {
+            "author" : "",
+            "cmvTitle": "",
+            "dateAdded" : Date.now(),
+            "wattPageUrl" : "",
+            "wattPostUid" : inviteCode //need to pick the invite code        
+        }
+        await fire.database().ref("invites").push(newInvite)
+        console.log("special invite successfully created")
     }
 
     render(){
@@ -92,7 +102,7 @@ class Home extends Component{
             return(
                 <div className = "homeContainer">
                     <NavBar></NavBar>
-                        <div className="homeContent" onClick={this.bigTitleClickHandler.bind(this)}>
+                        <div className="homeContent">
                             <a className="bigTitle" href="how-this-works">
                                 <span>
                                     <PageGridItem
