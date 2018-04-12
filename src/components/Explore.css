@@ -1,0 +1,33 @@
+.exploreContainer{
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-template-rows: min-content 1fr;
+    grid-column: 1/13;
+    background-color: #643472;
+    height: 100vh;
+}
+
+.underConstructionContainer{
+    grid-column: 5/9;
+    background-color: rgba(255,255,255,0.9);
+    height: min-content;
+    padding: 50px;
+    align-self: center;
+}
+
+.underConstructionContainer h2 {
+    color: #333;
+    margin-top: 0px;
+}
+
+@media (max-width: 1000px){
+    .underConstructionContainer{
+        grid-column: 4/10;
+    }
+}
+
+@media (max-width: 600px){
+    .underConstructionContainer{
+        grid-column: 2/12;
+    }
+}

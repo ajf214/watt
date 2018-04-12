@@ -147,7 +147,8 @@
     }
 
     .nav-container .buttons .mainNav{
-        grid-column: 2/13;
+        padding-top: 10px;
+        grid-column: 1/13;
     }
 
     /*

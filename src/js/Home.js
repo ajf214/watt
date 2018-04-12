@@ -7,6 +7,10 @@ import JoinWatt from './JoinWatt.js'
 import '../css/Home.css'
 import PageGridItem from './PageGridItem.js'
 
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-114547651-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 const pageRef = fire.database().ref('v2pages').limitToLast(100);
 
 class Home extends Component{
