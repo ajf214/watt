@@ -175,11 +175,11 @@ class CreateOrEditPage extends Component {
                         
 
                         <h3 className="whereLabel bodySectionTitle">Where you're coming from</h3>
-                        <p>What is your background as it relates to this view?</p>
+                        <p>Your background. What gives you a unique perspective on this issue?</p>
                         <textarea placeholder={`For example:\n - where you grew up\n - what world events you've witnessed\n - what generation you are a part of`}className="whereInput" ref={el => this.pageInput=el}></textarea>            
     
                         <h3 className="viewLabel bodySectionTitle">Your view</h3>
-                        <p>Likely the same, or similar, to the title of your CMV post</p>
+                        <p>Summarize your latest view. Could be the same as your CMV post, but modify if you awarded deltas</p>
                         <input type="text" placeholder="Your view (in 100 characters)" className="view-title" ref={el => this.viewTitleInput=el}></input>
                         
                         <h3 className="bodySectionTitle">Details about your view</h3>

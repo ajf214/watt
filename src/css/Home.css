@@ -13,7 +13,7 @@
 }
 
 .homeContainer .homeContent{
-    grid-column: 3/11;
+    grid-column: 2/12;
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -96,7 +96,7 @@
 }
 
 .articleList{
-    grid-column: 4/10;
+    grid-column: 3/11;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-gap: 20px;
@@ -126,6 +126,10 @@
 @media (min-width: 1600px){
     .bigTitle{
         grid-column: 2/8;
+    }
+
+    .homeContainer .homeContent{
+        grid-column: 3/11;
     }
 }
 

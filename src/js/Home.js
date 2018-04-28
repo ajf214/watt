@@ -111,7 +111,7 @@ class Home extends Component{
                                 <span>
                                     <PageGridItem
                                         title="Welcome to projectWATT*"
-                                        subtitle="Let us tell you a little bit about what this is."
+                                        subtitle="A new kind of publication to promote the nuanced perspectives of real people on a wide variety of issues."
                                         id="whatThisIs"
                                     ></PageGridItem>
                                     <h5 className="asterisk">*What are they thinking?</h5>
