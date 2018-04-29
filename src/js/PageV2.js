@@ -52,14 +52,15 @@ class PageV2 extends Component{
     isVowel(c){
         switch(c){
             case 'a':
-                return true;
-            case 'e':
-                return true;               
+            case 'e':              
             case 'i':
-                return true;
             case 'o':
-                return true;
             case 'u':
+            case 'A':
+            case 'E':
+            case 'I': 
+            case 'O':
+            case 'U':
                 return true;
             default:
                 return false;
