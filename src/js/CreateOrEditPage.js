@@ -176,7 +176,7 @@ class CreateOrEditPage extends Component {
 
                         <h3 className="whereLabel bodySectionTitle">Where you're coming from</h3>
                         <p>Your background. What gives you a unique perspective on this issue?</p>
-                        <textarea placeholder={`For example:\n - where you grew up\n - what world events you've witnessed\n - what generation you are a part of`}className="whereInput" ref={el => this.pageInput=el}></textarea>            
+                        <textarea placeholder={`where you grew up, what world events you've witnessed, what generation you are a part of, etc.`}className="whereInput" ref={el => this.pageInput=el}></textarea>            
     
                         <h3 className="viewLabel bodySectionTitle">Your view</h3>
                         <p>Summarize your latest view. Could be the same as your CMV post, but modify if you awarded deltas</p>

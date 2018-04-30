@@ -67,11 +67,17 @@
     font-size: 0.8rem;
     /* grid-column: 3/7; */
     display: block;
+    width: max-content;
 }
 
 .pageText h1, .pageText h2, .pageText h3, .pageText h4, .pageText h5, .pageText p, .view{
     color: #333;
     line-height: 1.2;
+}
+
+.pageText p, .pageText ul, .pageText ol, .pageText a{
+    font-family: "karmina";
+    line-height: 1.6;
 }
 
 
@@ -82,8 +88,7 @@
 
 .pageText p, ul, ol{
     color: #555;
-    line-height: 1.4;
-    letter-spacing: 0.2px;
+    letter-spacing: 0px;
 }
 
 .pageText ul li, .pageText ol li{

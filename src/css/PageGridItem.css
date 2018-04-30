@@ -25,6 +25,10 @@
     font-size: 1.2944rem;
 }
 
+.pageGridWrapper h5{
+    color: rgba(255,255,255,0.9);
+}
+
 @media (max-width: 600px){
     .pageGridWrapper{
         padding: 15px;

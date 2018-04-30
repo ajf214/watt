@@ -86,7 +86,7 @@ class PageV2 extends Component{
                             <p className="author">{"/u/" + this.state.author}</p>
 
                             <a className="cmvLink" target="_blank" href={this.state.cmvUrl}>Open CMV Discussion</a> 
-                            <a className="aboutCMV" target="_blank" href="http://reddit.com/r/changemyview" rel="noopener noreferrer">What's CMV?</a>
+                            <a className="aboutCMV" target="_blank" href="https://changemyview.net/" rel="noopener noreferrer">What's CMV?</a>
                         </div>
                     </div>
 

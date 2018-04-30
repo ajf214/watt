@@ -74,19 +74,20 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        //createSpecialInvite("inviteCode")
+        //this.createSpecialInvite("comeyPepperoniInvite")
 
         document.body.style.backgroundColor = "#FFF"
     }
 
     componentWillUnmount(){
+        //need to remove this 
         pageRef.off('child_added')
     }
 
     async createSpecialInvite(inviteCode){
         const newInvite = {
-            "author" : "",
-            "cmvTitle": "",
+            "author" : "PepperoniFire",
+            "cmvTitle": "CMV: James Comey deviated from his own standards of leadership and should acknowledge that.",
             "dateAdded" : Date.now(),
             "wattPageUrl" : "",
             "wattPostUid" : inviteCode //need to pick the invite code        
@@ -112,7 +113,7 @@ class Home extends Component{
                                 <span>
                                     <PageGridItem
                                         title="Welcome to projectWATT*"
-                                        subtitle="A new kind of publication to promote the nuanced perspectives of real people on a wide variety of issues."
+                                        subtitle="We're a new kind of publication to promote nuanced perspectives on a wide variety of issues."
                                         id="whatThisIs"
                                     ></PageGridItem>
                                     <h5 className="asterisk">*What are they thinking?</h5>
