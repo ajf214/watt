@@ -133,6 +133,9 @@ class Home extends Component{
                                         ></PageGridItem>  
                                         )
                                     }
+                                    else{
+                                        return null
+                                    }
                                 })}
                             </div>
             
