@@ -77,7 +77,12 @@
 
 .pageText p, .pageText ul, .pageText ol, .pageText a{
     font-family: "karmina";
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+.pageText ol, .pageText ul{
+    margin-top: 0px;
+    margin-bottom: 40px;
 }
 
 
