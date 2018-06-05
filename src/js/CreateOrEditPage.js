@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import fire from './fire.js'
 import NavBar from './Nav.js'
 import '../css/CreateOrEditPage.css';
+//require('dotenv').config()
+
+
+var snoowrap = require('snoowrap');
 
 
 class CreateOrEditPage extends Component {
@@ -9,18 +13,29 @@ class CreateOrEditPage extends Component {
     constructor(props){
         super(props)
         
+        const r = new snoowrap({
+            userAgent: 'alex-watt-runner-client',
+            clientId: process.env.REACT_APP_CLIENT_ID,
+            clientSecret: process.env.REACT_APP_CLIENT_SECRET,
+            username: process.env.REACT_APP_REDDIT_USER,
+            password: process.env.REACT_APP_REDDIT_PASS
+        });
+        
         this.state = {
             password: this.props.match.params.password,
             user: "",
             pageTitle: "",
             errorText: "",
+            //pull actual real examples
             examples: ["musician", "truck driver", "eagle scout", "pragmatist", "millennial", "asian-american", "idealist", "software engineer" , "farmer", "indian", "brexit voter", "catholic"],
             exampleNumber: 0,
             goodInvite: false,
             pageKey: "invalid-code",
             pageUrl: "",
             cmvPostId: "",
-            inviteDbLocation: "no-match"
+            inviteDbLocation: "no-match",
+            reddit: r,
+            deleteConfirmText: ""
         }
     }
 
@@ -103,31 +118,74 @@ class CreateOrEditPage extends Component {
         //for v3 of the page
         //eventually should not need this if this code works as expected
             //check if key exists
-        if(this.state.pageUrl==="no-match"){
-            //key doesn't exist
-            const newPageUrl = await fire.database().ref().child('v2pages').push().key;    
+            //which means there is no page that exists yet
+        
+        //check input fields
+        if(this.perspectiveInput.value === "" || this.issueInput.value === "" || this.pageInput.value === "" || this.viewTitleInput.value === "" || this.viewDetailsInput.value === ""){
+            //set error text
             this.setState({
-                pageUrl: newPageUrl
+                errorText: "One or more fields are empty. Fill out all the fields."
             })
         }
-
-        const pageUpdate = {
-            perspective: this.perspectiveInput.value,
-            issue: this.issueInput.value,
-            text: this.pageInput.value, //this is now 'Where I'm coming from'
-            view: this.viewTitleInput.value, //new field
-            viewText: this.viewDetailsInput.value, //new field
-            author: this.state.user, //I should already have this
-            cmvUrl: `http://reddit.com/${this.state.cmvPostId}`, //postId for CMV url
-            lastUpdatedInUtc: Date.now()
+        
+        else{
+            if(this.state.pageUrl==="no-match"){
+                //key doesn't exist
+                const newPageUrl = await fire.database().ref().child('v2pages').push().key;    
+                this.setState({
+                    pageUrl: newPageUrl
+                })
+    
+                //send PM to DeltaBot here, so they can pin the post
+                //subject: WATT article created
+                const messageForDB3 = {
+                    to: 'sonofdiesel',
+                    subject: 'WATT article created',
+                    text: `${this.state.cmvPostId}\n${this.state.pageTitle}\nhttp://reddit.com/${this.state.cmvPostId}`
+                    // 1: ID, 2: Full name, 3: Title, 4: URL, this.state.cmvPostId, this.state.pageTitle, 
+                }
+                this.state.reddit.composeMessage(messageForDB3)
+            }
+    
+            const pageUpdate = {
+                perspective: this.perspectiveInput.value,
+                issue: this.issueInput.value,
+                text: this.pageInput.value, //this is now 'Where I'm coming from'
+                view: this.viewTitleInput.value, //new field
+                viewText: this.viewDetailsInput.value, //new field
+                author: this.state.user, //I should already have this
+                cmvUrl: `http://reddit.com/${this.state.cmvPostId}`, //postId for CMV url
+                lastUpdatedInUtc: Date.now()
+            }
+            
+            //this should work for new or edit
+            await fire.database().ref('v2pages/' + this.state.pageUrl).update(pageUpdate) 
+            //update the invite with the just created page url
+            await fire.database().ref('invites/' + this.state.inviteDbLocation).update({wattPageUrl: this.state.pageUrl})      
+            
+            this.props.history.push("/pagesv2/" + this.state.pageUrl)
         }
+
+
+    }
+
+    async deletePage(){
+        //todo
+
+        //assuming I have double checked that deleting is ok
+
+        //clear all the fields
+
+        //delete the page from the /v2pages/ list
+        await fire.database().ref('v2pages/' + this.state.pageUrl)
+
+        //delete the wattPageUrl field in the /invites/ list
+        await fire.database().ref('invites/' + this.state.inviteDbLocation + '/wattPageUrl')
         
-        //this should work for new or edit
-        await fire.database().ref('v2pages/' + this.state.pageUrl).update(pageUpdate) 
-        //update the invite with the just created page url
-        await fire.database().ref('invites/' + this.state.inviteDbLocation).update({wattPageUrl: this.state.pageUrl})      
         
-        this.props.history.push("/pagesv2/" + this.state.pageUrl)
+        this.setState({
+            deleteConfirmText: "Successfully deleted. Your article has been removed, but your invite will still work"
+        })
     }
 
     render(){
@@ -152,6 +210,10 @@ class CreateOrEditPage extends Component {
                             <p className="titleValue">{this.state.user}</p> 
                         </div>
 
+                        {/* button should only be click-able if the page exists in the DB */}
+                        <button className="deleteButton" onClick={this.deletePage.bind(this)}>Delete page</button>
+                        <p className="deleteConfirmText">{this.state.deleteConfirmText}</p>
+
                         <div className="helpfulLinks">    
                             <h3 className="leftInfoLabel">HELPFUL LINKS</h3>
                             <a className="markdownLink" href="/writing-guidelines" target="_blank" rel="noopener noreferrer">How to convert a CMV post to a WATT article</a>
@@ -165,6 +227,7 @@ class CreateOrEditPage extends Component {
                             
                             <span>How a</span>
                             <input type="text" placeholder={`perspective (ex: ${this.state.examples[this.state.exampleNumber]})`} ref={el => this.perspectiveInput=el}></input>
+                            
                             <span>sees</span>
                             <input type="text" placeholder="an issue" ref={el => this.issueInput=el}></input>
     

@@ -1,9 +1,6 @@
 import {Link} from 'react-router-dom'
 import React , { Component } from 'react'
-import fire from './fire.js'
 import '../css/Nav.css'
-
-const auth = fire.auth();
     
 class NavBar extends Component{    
     constructor(props){

@@ -68,6 +68,30 @@
 
 }
 
+.deleteButton{
+    margin-top: 40px;
+    /* grid-column: 3/7; */
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid white;
+    width: max-content;
+    background-color: rgba(0,0,0,0);
+    color: rgba(250,250,250,0.9);
+}
+
+.deleteButton:hover{
+    background-color: rgba(250,250,250,0.9);
+    color: rgba(20,20,20);
+}
+
+.deleteConfirmText{
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .markdownLink{
     font-size: 0.9rem;
     padding-bottom: 10px;
