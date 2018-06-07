@@ -6,7 +6,7 @@
 }
 
 .exploreSearchBoxContainer{
-    grid-column: 3/9;
+    grid-column: 4/8;
     padding: 20px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .resultsContainer{
-    grid-column: 3/11;
+    grid-column: 4/10;
 }
 
 .underConstructionContainer{
@@ -53,13 +53,29 @@
     margin-top: 0px;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1200px){
+    .exploreSearchBoxContainer{
+        grid-column: 3/9;
+    }
+
+    .resultsContainer{
+        grid-column: 3/11;
+    }
+    
     .underConstructionContainer{
         grid-column: 4/10;
     }
 }
 
 @media (max-width: 600px){
+    .exploreSearchBoxContainer{
+        grid-column: 2/12;
+    }
+
+    .resultsContainer{
+        grid-column: 2/12;
+    }
+    
     .underConstructionContainer{
         grid-column: 2/12;
     }
