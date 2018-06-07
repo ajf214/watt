@@ -1,10 +1,43 @@
 .exploreContainer{
     display: inherit;
     grid-template-columns: inherit;
-    grid-template-rows: min-content 1fr;
     grid-column: 1/13;
     background-color: #643472;
-    height: 100vh;
+}
+
+.exploreSearchBoxContainer{
+    grid-column: 3/9;
+    padding: 20px;
+}
+
+.exploreSearchBoxContainer input{
+    padding: 5px;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 50px;
+}
+
+.exploreSearchBoxContainer button{
+    padding: 10px;
+    margin-bottom: 5px;
+    grid-column-start: 1;
+    color: white;
+
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid white;
+    font-family: 'program';
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.exploreSearchBoxContainer button:hover{
+    background-color: white;
+    color: #333;
+}
+
+.resultsContainer{
+    grid-column: 3/11;
 }
 
 .underConstructionContainer{
