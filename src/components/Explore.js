@@ -32,6 +32,13 @@ class Explore extends Component{
                 return false;
         }
     }
+
+    onKeyPressed(key){
+        if(key.keyCode == 13){
+            this.search();
+        }
+        //console.log(key.keyCode)   
+    }
     
     async search(){
         const searchTerm = this.exploreInput.value
@@ -96,6 +103,7 @@ class Explore extends Component{
 
     componentDidMount(){
         document.body.style.backgroundColor = "#643472"
+        document.addEventListener("keydown", this.onKeyPressed.bind(this))
     }
     
     render(){
