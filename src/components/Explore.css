@@ -18,7 +18,7 @@
 }
 
 .exploreSearchBoxContainer button{
-    padding: 10px;
+    padding: 10px 20px;
     margin-bottom: 5px;
     grid-column-start: 1;
     color: white;
