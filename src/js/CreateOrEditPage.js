@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import fire from './fire.js'
 import NavBar from './Nav.js'
 import '../css/CreateOrEditPage.css';
-//require('dotenv').config()
 
 
 var snoowrap = require('snoowrap');
@@ -141,10 +140,11 @@ class CreateOrEditPage extends Component {
                 const messageForDB3 = {
                     to: 'sonofdiesel',
                     subject: 'WATT article created',
-                    text: `${this.state.cmvPostId}\n${this.state.pageTitle}\nhttp://reddit.com/${this.state.cmvPostId}`
+                    text: `${this.state.cmvPostId}\n\n${this.state.pageTitle}\n\nhttp://reddit.com/${this.state.cmvPostId}`
                     // 1: ID, 2: Full name, 3: Title, 4: URL, this.state.cmvPostId, this.state.pageTitle, 
                 }
-                this.state.reddit.composeMessage(messageForDB3)
+                await this.state.reddit.composeMessage(messageForDB3)
+                console.log("Sent 'new page' reddit message")
             }
     
             const pageUpdate = {
