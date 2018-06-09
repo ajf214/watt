@@ -3,6 +3,10 @@ import NavBar from './Nav.js'
 
 import '../css/Invite.css'
 
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-114547651-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 class Invite extends Component{
 
     

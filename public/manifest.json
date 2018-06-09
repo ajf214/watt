@@ -1,5 +1,5 @@
 {
-  "short_name": "What are they thinking?",
+  "short_name": "projectWATT",
   "name": "What are they thinking?",
   "icons": [
     {
@@ -8,8 +8,8 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "./index.html",
-  "display": "standalone",
+  "start_url": "./",
+  "display": "browswer",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }

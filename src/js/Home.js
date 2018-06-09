@@ -7,6 +7,10 @@ import JoinWatt from './JoinWatt.js'
 import '../css/Home.css'
 import PageGridItem from './PageGridItem.js'
 
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-114547651-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 const pageRef = fire.database().ref('v2pages').limitToLast(100);
 
 class Home extends Component{
@@ -22,14 +26,15 @@ class Home extends Component{
     isVowel(c){
         switch(c){
             case 'a':
-                return true;
-            case 'e':
-                return true;               
+            case 'e':              
             case 'i':
-                return true;
             case 'o':
-                return true;
             case 'u':
+            case 'A':
+            case 'E':
+            case 'I': 
+            case 'O':
+            case 'U':
                 return true;
             default:
                 return false;
@@ -69,19 +74,20 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        //createSpecialInvite("inviteCode")
+        //this.createSpecialInvite("comeyPepperoniInvite")
 
         document.body.style.backgroundColor = "#FFF"
     }
 
     componentWillUnmount(){
+        //need to remove this 
         pageRef.off('child_added')
     }
 
     async createSpecialInvite(inviteCode){
         const newInvite = {
-            "author" : "",
-            "cmvTitle": "",
+            "author" : "PepperoniFire",
+            "cmvTitle": "CMV: James Comey deviated from his own standards of leadership and should acknowledge that.",
             "dateAdded" : Date.now(),
             "wattPageUrl" : "",
             "wattPostUid" : inviteCode //need to pick the invite code        
@@ -107,7 +113,7 @@ class Home extends Component{
                                 <span>
                                     <PageGridItem
                                         title="Welcome to projectWATT*"
-                                        subtitle="Let us tell you a little bit about what this is."
+                                        subtitle="We're a new kind of publication to promote nuanced perspectives on a wide variety of issues."
                                         id="whatThisIs"
                                     ></PageGridItem>
                                     <h5 className="asterisk">*What are they thinking?</h5>
@@ -128,7 +134,6 @@ class Home extends Component{
                                         )
                                     }
                                     else{
-                                        console.log("failed to load popular components")
                                         return null
                                     }
                                 })}

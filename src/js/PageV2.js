@@ -52,14 +52,15 @@ class PageV2 extends Component{
     isVowel(c){
         switch(c){
             case 'a':
-                return true;
-            case 'e':
-                return true;               
+            case 'e':              
             case 'i':
-                return true;
             case 'o':
-                return true;
             case 'u':
+            case 'A':
+            case 'E':
+            case 'I': 
+            case 'O':
+            case 'U':
                 return true;
             default:
                 return false;
@@ -85,7 +86,7 @@ class PageV2 extends Component{
                             <p className="author">{"/u/" + this.state.author}</p>
 
                             <a className="cmvLink" target="_blank" href={this.state.cmvUrl}>Open CMV Discussion</a> 
-                            <a className="aboutCMV" target="_blank" href="http://reddit.com/r/changemyview" rel="noopener noreferrer">What's CMV?</a>
+                            <a className="aboutCMV" target="_blank" href="https://changemyview.net/" rel="noopener noreferrer">What's CMV?</a>
                         </div>
                     </div>
 

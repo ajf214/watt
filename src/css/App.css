@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800');
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500');
 @import url("https://use.typekit.net/zhr3ksx.css");
+@import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i,700');
 
 body{
   font-family: 'program', sans-serif;
@@ -22,7 +23,7 @@ body{
 
 h1, h2, h3, h4, h5, a, p{
   line-height: 1.3;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
 }
 
 h1, h2, h3, h4, h5{
@@ -54,10 +55,6 @@ a{
 
 p{
   font-family: 'program';
-}
-
-ol{
-  padding: 20px;
 }
 
 a:hover{

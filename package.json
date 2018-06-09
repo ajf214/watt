@@ -20,7 +20,8 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "save": "^2.3.2",
-    "snoowrap": "^1.15.2"
+    "snoowrap": "^1.15.2",
+    "string-similarity": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

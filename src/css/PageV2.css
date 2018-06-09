@@ -67,6 +67,7 @@
     font-size: 0.8rem;
     /* grid-column: 3/7; */
     display: block;
+    width: max-content;
 }
 
 .pageText h1, .pageText h2, .pageText h3, .pageText h4, .pageText h5, .pageText p, .view{
@@ -74,20 +75,38 @@
     line-height: 1.2;
 }
 
+.pageText p, .pageText ul, .pageText ol, .pageText a{
+    font-family: "karmina";
+    line-height: 1.7;
+}
 
+.pageText ol, .pageText ul{
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+
+.pageText h1, .pageText h2, .pageText h3, .pageText h4, .pageText h5{
+    padding-bottom: 0px;
+    padding-top: 9px;
+}
 
 .view{
-    grid-column: 3/7;
+    grid-column: 3/9;
+    padding-bottom: 20px;
 }
 
 .pageText p, ul, ol{
-    color: #555;
-    line-height: 1.4;
-    letter-spacing: 0.2px;
+    color: #222;
+    letter-spacing: 0px;
 }
 
 .pageText ul li, .pageText ol li{
-    padding: 7px 0;
+    padding: 4px 0;
+}
+
+.pageText ul li p{
+    margin: 4px 0px;
 }
 
 .pageText a{
@@ -95,7 +114,7 @@
 }
 
 .pageText{
-    grid-column: 3/7;
+    grid-column: 3/9;
 }
 
 .pageText.viewText{
@@ -114,6 +133,15 @@
     display: none;
 }
 
+@media(min-width: 1600px){
+    .pageText{
+        grid-column: 3/7;
+    }
+
+    .view{
+        grid-column: 3/7;
+    }
+}
 
 @media (max-width: 1200px){
     .titleContent{

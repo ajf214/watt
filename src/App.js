@@ -9,6 +9,7 @@ import PageV2 from './js/PageV2';
 import CreateOrEditPage from './js/CreateOrEditPage';
 import HowThisWorks from './js/HowThisWorks'
 import WritingGuide from './js/WritingGuide'
+import Explore from './components/Explore'
 
 
 
@@ -41,6 +42,7 @@ class App extends Component{
                     <Route exact path="/invite/:password" component={CreateOrEditPage} />
                     <Route path="/how-this-works" component={HowThisWorks} />        
                     <Route path="/writing-guidelines" component={WritingGuide} />
+                    <Route path="/explore" component={Explore} />
                 </div>
             </BrowserRouter>
         )

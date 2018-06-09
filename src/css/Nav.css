@@ -31,6 +31,11 @@
     color: #999;
 }
 
+.beta{
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
 .nav-container .buttons .mainNav{
     grid-column: 2/7;
     align-self: center;
@@ -147,7 +152,8 @@
     }
 
     .nav-container .buttons .mainNav{
-        grid-column: 2/13;
+        padding-top: 10px;
+        grid-column: 1/13;
     }
 
     /*
